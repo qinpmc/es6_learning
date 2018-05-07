@@ -1,10 +1,11 @@
 # let 和 const
 
-## let
-1. let所声明的变量，只在let命令所在的代码块内有效   
+## let 命令 
+
+### let所声明的变量，只在let命令所在的代码块内有效(ES6引入了块级作用域)   
 
 ```
-// 1 let所声明的变量，只在let命令所在的代码块内有效
+// let所声明的变量，只在let命令所在的代码块内有效
 	{
 	  let a = 10;
 	  var b = 1;
@@ -44,6 +45,63 @@ for (let i = 0; i < 3; i++) {
 // abc
 // abc
 ```
+
+### let声明的变量不存在变量提升（var 声明的变量会变量提升）
+
+### let声明形成暂时性死区 (TDZ)
+```
+var tmp = 123;
+
+if (true) {
+// TDZ开始
+  tmp = 'abc'; // ReferenceError
+  let tmp; // TDZ结束
+}
+``` 
+```
+//隐蔽的TDZ
+function bar(x = y, y = 2) {
+  return [x, y];
+}
+
+bar(); // 报错，Uncaught ReferenceError: y is not defined  
+```  
+
+### 不允许重复声明 
+```
+// 报错
+function func() {
+  let a = 10;
+  var a = 1;
+}
+
+// 报错
+function func() {
+  let a = 10;
+  let a = 1;
+}
+```
+
+## const 命令 
+
+### const声明一个只读的常量。一旦声明，就不能改变(对于对象而言，是指对象地址不可变，对象属性可变)
+### const声明的常量同样不提升，且存在暂时性死区
+
+## let 和 const 与顶层对象关系
+
+**ES6规定：var命令和function命令声明的全局变量，依旧是顶层对象的属性;    
+另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性**
+```
+var a = 1;
+// 如果在 Node 的 REPL 环境，可以写成 global.a
+// 或者采用通用方法，写成 this.a
+window.a // 1
+
+let b = 1;
+window.b // undefined
+```
+
+
 
 
 
