@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<div id="div1" style="background:yellow"></div>
+<body>
+	<script type="text/javascript">
+	// 定义了默认值的参数，应该是函数的尾参数
+    //如果非尾部的参数设置默认值，实际上这个参数是没法省略的。
+	function f(x = 1, y) {
+	  return [x, y];
+	}
+
+	f() // [1, undefined]
+	f(2) // [2, undefined])
+	//f(, 1) // 报错
+	f(undefined, 1) // [1, 1]
+
+	</script>
+</body>
+</html>
