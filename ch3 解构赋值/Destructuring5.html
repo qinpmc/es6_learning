@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//将一个已经声明的变量用于解构赋值，必须非常小心。
+	
+	let obj = {};
+	let arr = [];
+	//注意下方的括号，不能省略，否则会将{} 内的内容当做代码块
+	({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
+
+	obj // {prop:123}
+	arr // [true]
+
+	// 错误的写法，JavaScript 引擎会将{x}理解成一个代码块
+	let x;
+	{x} = {x: 1};
+	// SyntaxError: syntax error
+
+	// 正确的写法
+	let x;
+	({x} = {x: 1});
+    
+	</script>
+</body>
+</html>

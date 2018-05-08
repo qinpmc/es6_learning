@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+ 	//const一旦声明变量，就必须立即初始化，不能留到以后赋值
+	//const的作用域与let命令相同：只在声明所在的块级作用域内有效。
+	//const命令声明的常量也是不提升，同样存在暂时性死区
+
+
+	//const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。
+	const foo = {};
+
+	// 为 foo 添加一个属性，可以成功
+	foo.prop = 123;
+	foo.prop // 123
+
+	// 将 foo 指向另一个对象，就会报错
+	foo = {}; // TypeError: "foo" is read-only
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<div id="div1" style="background:yellow"></div>
+<body>
+	<script type="text/javascript">
+	 // 针对码点大于0xFFFF的字符的一些方法
+	 //at  es5:charAt
+	 '𠮷'.at(0) // "𠮷"
+
+
+	 //fromCodePoint  es5:fromCharCode
+	String.fromCodePoint(0x20BB7)；// "𠮷"
+	
+	// codePointAt  es5: charCodeAt
+	let s = '𠮷a';
+	s.codePointAt(0) // 134071
+
+
+	</script>
+</body>
+</html>

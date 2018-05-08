@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 嵌套结构的对象解构赋值
+	//这时p是模式，不是变量，因此不会被赋值
+	let obj ={
+		p:[
+			"hello",
+			{y:"world"}
+		]
+	};
+	let {p:[x,{y}]} = obj;
+	x // "Hello"
+	y // "World"
+	p //Uncaught ReferenceError:
+
+	let { p, p: [x, { y }] } = obj;
+	p // ["Hello", {y: "World"}]
+
+
+
+   //注意：最后一次对line属性的解构赋值之中，只有line是变量，
+   //loc和start都是模式，不是变量
+	const node = {
+	loc: {
+	    start: {
+	      line: 1,
+	      column: 5
+	    }
+	  }
+	};
+
+	let { loc, loc: { start }, loc: { start: { line }} } = node;
+	line // 1
+	loc  // Object {start: Object}
+	start // Object {line: 1, column: 5}
+    
+	</script>
+</body>
+</html>

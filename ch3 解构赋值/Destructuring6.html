@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//对象解构默认值
+
+	let{ x=3} = {};
+	x //3
+	var {x, y = 5} = {x: 1};
+	x // 1
+	y // 5
+
+	var {x: y = 3} = {};
+	y // 3
+	//注意：此时并未对x进行解构
+    
+	</script>
+ 
+</body>
+</html>

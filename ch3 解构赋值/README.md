@@ -190,7 +190,7 @@
 	s === Boolean.prototype.toString // true
 ```
 
-## 函数参数的解构赋值  
+## 4 函数参数的解构赋值  
 
 ```
 function move({x=-1,y=-2} = {}){

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<div id="div1" style="background:yellow"></div>
+<body>
+	<script type="text/javascript">
+	// 新增的方法
+	let s = "Hello world";
+	s.startsWith("Hello");//true
+	s.endsWith("world"); //true
+	s.includes("o"); //true
+
+	//支持第二个参数，表示开始搜索的位置
+	s.startsWith('world', 6) // true
+	s.endsWith('Hello', 5) // true
+	s.includes('Hello', 6) // false
+	
+	//repeat 
+	'x'.repeat(3) // "xxx"
+	'hello'.repeat(2) // "hellohello"
+	'na'.repeat(0) // ""
+	'na'.repeat(Infinity);// RangeError
+	'na'.repeat(-1);// RangeError
+	'na'.repeat(2.9); //"nana"
+
+	//padStart()，padEnd()
+	'x'.padStart(5, 'ab') // 'ababx'
+	'x'.padStart(4, 'ab') // 'abax'
+
+	'x'.padEnd(5, 'ab') // 'xabab'
+	'x'.padEnd(4, 'ab') // 'xaba'
+
+
+	</script>
+</body>
+</html>

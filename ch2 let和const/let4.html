@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//顶层对象的属性
+	var a = 1;
+	// 如果在 Node 的 REPL 环境，可以写成 global.a
+	// 或者采用通用方法，写成 this.a
+	window.a // 1
+
+	let b = 1;
+	window.b // undefined
+	</script>
+</body>
+</html>

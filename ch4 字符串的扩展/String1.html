@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<div id="div1" style="background:yellow"></div>
+<body>
+	<script type="text/javascript">
+	 //字符串的遍历器接口 
+	 //遍历器最大的优点是可以识别大于0xFFFF的码点,传统的for循环不可以
+	 let text = String.fromCodePoint(0x20BB7);
+ 
+	for (let i of text) {
+	  console.log(i);
+	}
+	// "𠮷"
+
+	</script>
+</body>
+</html>

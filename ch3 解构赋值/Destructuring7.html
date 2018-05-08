@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//字符串解构
+ 	const [a, b, c, d, e] = 'hello';
+	a // "h"
+	b // "e"
+	c // "l"
+	d // "l"
+	e // "o"
+
+    //字符串也有length属性，此时是对象解构赋值
+	let {length : len} = 'hello';
+	len // 5
+
+	//数组看做对象，进行解构赋值
+	let arr = [1, 2, 3];
+	let {0 : first, [arr.length - 1] : last} = arr;
+	first // 1
+	last // 3
+
+	//数值和布尔值解构赋值
+	let {toString: s} = 123;
+	s === Number.prototype.toString // true
+
+	let {toString: s} = true;
+	s === Boolean.prototype.toString // true
+    
+	</script>
+ 
+</body>
+</html>
