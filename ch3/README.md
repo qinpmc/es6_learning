@@ -144,6 +144,104 @@
 	let x;
 	({x} = {x: 1});
 ```
+### 2.4 对象解构赋值时设置默认值
+
+
+```
+	//对象解构默认值
+
+	let{ x=3} = {};
+	x //3
+	var {x, y = 5} = {x: 1};
+	x // 1
+	y // 5
+
+	var {x: y = 3} = {};
+	y // 3
+	//注意：此时并未对x进行解构
+```
+
+## 3 字符串、布尔值、数值等的解构赋值
+
+```
+	//字符串解构
+ 	const [a, b, c, d, e] = 'hello';
+	a // "h"
+	b // "e"
+	c // "l"
+	d // "l"
+	e // "o"
+
+    //字符串也有length属性，此时是对象解构赋值
+	let {length : len} = 'hello';
+	len // 5
+
+	//数组看做对象，进行解构赋值
+	let arr = [1, 2, 3];
+	let {0 : first, [arr.length - 1] : last} = arr;
+	first // 1
+	last // 3
+
+	//数值和布尔值解构赋值
+	let {toString: s} = 123;
+	s === Number.prototype.toString // true
+
+	let {toString: s} = true;
+	s === Boolean.prototype.toString // true
+```
+
+## 函数参数的解构赋值  
+
+```
+function move({x=-1,y=-2} = {}){
+ 		return [x,y];
+ 	}
+ 	move({x:3,y:8}); //[3,8] ,传入了参数，进行解构
+ 	move({x:3}) ;//[3,-2]，传入了参数，进行解构，y解构失败，采用默认值-2
+ 	move({}); //[-1,-2]，传入了参数，但x、y均解构失败，均采用默认值
+ 	move(); //[-1,-2]，未传入参数，x、y均采用默认值
+
+ 	//-----------------
+ 	//函数move2的参数指定默认值，而不是为变量x和y指定默认值
+ 	function move2({x,y} = {x:10,y:10}){
+ 		return[x,y];
+ 	}
+ 	move2({x:3,y:8}); //[3,8] ，传入了参数，不采用默认参数
+ 	move2({x:3});//[3,undefined] ，传入了参数，不采用默认参数,y解构失败位undefined
+ 	move2({});//[undefined,undefined],传入了参数，不采用默认参数,然后x、y解构失败，均为undefined
+    move2();//[10,10] ,未传入参数，使用了默认的值，解构后 x=10，y=10
+ 
+
+    //-----------------
+ 	function move3({x=30,y=30}){
+ 		return[x,y];
+ 	}
+ 	move3({x:3,y:8}); //[3,8]
+ 	move3({x:3});[3,30]
+ 	move3({});//[30,30]
+    move3();//报错 Cannot destructure property `x` of 'undefined' or 'null'.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
