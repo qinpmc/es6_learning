@@ -5,6 +5,7 @@
 	<title>Document</title>
 </head>
 <div id="div1" style="background:yellow"></div>
+
 <body>
 	<script type="text/javascript">
 	var basket  ={
@@ -13,6 +14,15 @@
 	}
 	let oDiv  =document.getElementById("div1");
     oDiv.innerHTML= `There are <b> ${basket.count}</b> items in your ${basket.onScale} !` ;
+
+    let x = 1;
+	let y = 2;
+	`${x} + ${y} = ${x + y}`  ;// "1 + 2 = 3"
+
+
+	// 变量place没有声明, 模板字符串中的变量没有声明，将报错
+	//let msg = `Hello, ${place}`; // 报错
+	
 
 	</script>
 </body>
