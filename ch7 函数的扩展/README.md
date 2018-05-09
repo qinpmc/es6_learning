@@ -148,9 +148,52 @@ f(undefined, 1) // [1, 1]
     foo() // 2
     x // 1
 ```
- ## rest 参数
-
  
+## 6 rest 参数
+
+ * rest 参数（形式为...变量名），用于获取函数的多余参数
+ * rest 参数是一个真正的数组，数组特有的方法都可以使用
+ * rest 参数之后不能再有其他参数（即只能是最后一个参数），否则会报错
+
+```
+    //rest 参数 
+    function sum(...items){
+      let sum = 0;
+      for(let item of items){
+        sum+=item;
+      }
+      return sum;
+    }
+    sum(1,2,3,4); //10
+```
+
+## 7 箭头函数  
+
+* 箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分
+```
+var f = () => 5;
+// 等同于
+var f = function () { return 5 };
+
+var sum = (num1, num2) => num1 + num2;
+// 等同于
+var sum = function(num1, num2) {
+  return num1 + num2;
+};
+```
+* 箭头函数直接返回一个对象，必须在对象外面加上__括号__，否则会报错
+```
+//箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。
+// 报错
+let getTempItem = id => { id: id, name: "Temp" };
+
+// 不报错
+let getTempItem = id => ({ id: id, name: "Temp" });
+```
+
+
+
+
 
 
 
