@@ -1,49 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<div id="div1" style="background:yellow"></div>
-<body>
-	<script type="text/javascript">
-	// 
-	/*
-	function f(x,y){
-		let x = 2;
-		y = x;
-		console.log(y);
-	}
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		// 
+		/*
+		function f(x,y){
+			let x = 2;
+			y = x;
+			console.log(y);
+		}
 
-	f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
-	*/
+		f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
+		*/
 
-	let x = 1;
+		let x = 1;
 
-	function f(y = x) {
-		let x = 2;
-		console.log(y);
-	}
+		function f(y = x) {  //括号里的x指向外部 x ,x=1
+			let x = 2;
+			console.log(y);
+		}
 
-	f() ;// 1
-
-
-
-	//参数的默认值是一个函数，该函数的作用域也遵守这个规则
-
-	let foo = 'outer';
-
-	function bar(func = () => foo) {
-		let foo = 'inner';
-		console.log(func());
-	}
-
-	bar(); // outer
-
-
-
-
-
-</script>
-</body>
-</html>
+		f() ;// 1
+	</script>
+	</body>
+	</html>
