@@ -71,6 +71,94 @@ f(, 1) // 报错
 f(undefined, 1) // [1, 1]
 ```
 
+## 5 作用域的问题
+** 一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。等到初始化结束，这个作用域就会消失。这种语法行为，在不设置参数默认值时，是不会出现的。 **
+```
+/*
+    function f(x,y){
+      let x = 2;
+      y = x;
+      console.log(y);
+    }
+
+    f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
+    */
+
+    let x = 1;
+
+    function f(y = x) {  //括号里的x指向外部 x ,x=1
+      let x = 2;
+      console.log(y);
+    }
+
+    f() ;// 1
+```
+
+```
+//参数的默认值是一个函数，该函数的作用域也遵守这个规则
+    let foo = 'outer';
+
+    function bar(func = () => foo) {
+      let foo = 'inner';
+      console.log(func());
+    }
+
+    bar(); // outer
+
+```
+
+```
+//复杂的例子对比
+    // 情况 1
+    var x = 1;
+    function foo(x, y = function() { x = 2; }) {
+        let x = 3;  //注意此处为let
+        y();
+        console.log(x);
+    }
+
+    foo(); // Uncaught SyntaxError: Identifier 'x' has already been declared
+
+    // 情况 2
+    //函数foo的参数形成一个单独作用域。这个作用域里面有变量x，、y，y的默认值是一个匿名函数。
+    //这个匿名函数内部的变量x，指向同一个作用域的第一个参数x。
+    //函数foo内部又声明了一个内部变量x，该变量与第一个参数x由于不是同一个作用域，
+    //所以不是同一个变量，因此执行y后，内部变量x和外部全局变量x的值都没变。
+    var x = 1;
+    function foo(x, y = function() { x = 2; }) {
+      var x = 3;  //注意此处为var
+      y();
+      console.log(x);
+    }
+
+    foo() // 3
+    x // 1
+
+
+    // 情况 3
+    //函数foo的内部变量x就指向第一个参数x，与匿名函数内部的x是一致的，
+    //所以最后输出的就是2，而外层的全局变量x依然不受影响
+    var x = 1;
+    function foo(x, y = function() { x = 2; }) {
+      x = 3;  //注意此处没有let或var
+      y();
+      console.log(x);
+    }
+
+    foo() // 2
+    x // 1
+```
+ ## rest 参数
+
+ 
+
+
+
+
+
+
+
+
 
 
 
