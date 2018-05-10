@@ -7,76 +7,16 @@
 	<div id="div1" style="background:yellow"></div>
 	<body>
 		<script type="text/javascript">
-		//参数的默认值是一个函数，该函数的作用域也遵守这个规则
-		let foo = 'outer';
-
-		function bar(func = () => foo) {
-			let foo = 'inner';
-			console.log(func());
+		//rest 参数 
+		function sum(...items){
+			let sum = 0;
+			for(let item of items){
+				sum+=item;
+			}
+			return sum;
 		}
-
-		bar(); // outer
-
-
-
-		//复杂的例子对比
-
-
-		// 情况 1
-		var x = 1;
-		function foo(x, y = function() { x = 2; }) {
-	  		let x = 3;  //注意此处为let
-	  		y();
-	  		console.log(x);
-		}
-
-		foo(); // Uncaught SyntaxError: Identifier 'x' has already been declared
-
-		// 情况 2
-		var x = 1;
-		function foo(x, y = function() { x = 2; }) {
-		  var x = 3;  //注意此处为var
-		  y();
-		  console.log(x);
-		}
-
-		foo() // 3
-		x // 1
-
-
-		// 情况 3
-		var x = 1;
-		function foo(x, y = function() { x = 2; }) {
-		  x = 3;  //注意此处没有let或var
-		  y();
-		  console.log(x);
-		}
-
-		foo() // 2
-		x // 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		sum(1,2,3,4); //10
+ 
 	</script>
 	</body>
 	</html>
