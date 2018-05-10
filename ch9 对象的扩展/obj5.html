@@ -1,0 +1,18 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		//如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性
+		const target = {a:1};
+		const source1 = {a:2,b:3};
+		const source2 = {b:4,c:5};
+		Object.assign(target,source1,source2); //{a: 2, b: 4, c: 5}
+
+	</script>
+	</body>
+	</html>
