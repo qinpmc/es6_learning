@@ -69,6 +69,7 @@ Object.assign(obj,Object.defineProperty({},"invisible",{
 }));
 console.log(obj);
 ```
+* Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制
 ```
 const source = {
   get foo() { return 1 },
@@ -85,6 +86,43 @@ target.foo; //1
 target.foo = 1000;//1000,并未输出 2222
 target; //{foo: 1000}
 ```
+
+## 属性的可枚举性
+目前，有四个操作会忽略enumerable为false的属性。
+
+1. for...in循环：只遍历对象 __自身的和继承__的可枚举的属性。
+2. Object.keys()：返回对象 __自身__ 的所有可枚举的属性的键名。
+3. JSON.stringify()：只串行化对象 __自身__的可枚举的属性。
+4. Object.assign()：忽略enumerable为false的属性，只拷贝对象 __自身__的可枚举的属性。
+
+## 属性的遍历
+1. for...in
+
+for...in循环遍历对象 **自身的和继承  的可枚举属性（不含 Symbol 属性）** 。
+
+2. Object.keys(obj)
+
+Object.keys返回一个数组，包括对象 **自身的（不含继承的）所有可枚举** 属性（不含 Symbol 属性）的键名。
+
+3. Object.getOwnPropertyNames(obj)
+
+Object.getOwnPropertyNames返回一个数组，包含对象 **自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）** 的键名。
+
+4. Object.getOwnPropertySymbols(obj)
+
+Object.getOwnPropertySymbols返回一个数组，包含对象 **自身的所有 Symbol** 属性的键名。
+
+5. Reflect.ownKeys(obj)
+
+Reflect.ownKeys返回一个数组，包含对象 **自身的所有键名** ，不管键名是 Symbol 或字符串，也不管是否可枚举。
+
+
+
+
+
+
+
+
 
 
 
