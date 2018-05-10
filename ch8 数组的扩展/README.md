@@ -152,6 +152,23 @@ ary2[0].name = "jack";// [{name: "jack"},{name: "jack"},{name: "jack"}]
 
 ## 6 entries()，keys() 和 values()
 
+```
+let ary = [13,21,44,7,2,99];
+let entries = ary.entries()
+console.log(entries);//Array Iterator {}
+console.log(entries.next()); // {done:false,value:(2) [1, 21]}
+```
+
+## 7 includes
+
+```
+console.log([3,5,2,NaN].includes(2)); //true 
+console.log([3,5,2,NaN].includes(NaN)); //true,可以检测NaN的存在，indexOf不可以
+```
+
+
+
+
 
 
 

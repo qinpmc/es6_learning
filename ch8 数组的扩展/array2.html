@@ -7,12 +7,14 @@
 	<div id="div1" style="background:yellow"></div>
 	<body>
 		<script type="text/javascript">
-		//
-		let ary1 = [1,2,3].fill(7); //[7,7,7]
+		
+		let ary = [13,21,44,7,2,99];
+		let entries = ary.entries()
+		console.log(entries);//Array Iterator {}
+		console.log(entries.next()); // {done:false,value:(2) [1, 21]}
 
-		//填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。
-		ary2.fill({name:"mark"});// [{name: "mark"}, {name: "mark"},{name: "mark"}]
-		ary2[0].name = "jack";// [{name: "jack"},{name: "jack"},{name: "jack"}]
+		console.log([3,5,2,NaN].includes(2)); //true 
+		console.log([3,5,2,NaN].includes(NaN)); //true, 可以检测NaN的存在，indexOf不可以
 
 
  
