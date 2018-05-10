@@ -14,9 +14,13 @@
 		  }
 		};
 		const target = {};
-		target.foo = 10; //并未输出 2222
+		target.foo = 10; 
 
-		target; //{foo: 10}
+		Object.assign(target,source);
+	 
+		target.foo; //1 
+		target.foo = 1000;//1000,并未输出 2222
+		target; //{foo: 1000}
 
 	</script>
 	</body>

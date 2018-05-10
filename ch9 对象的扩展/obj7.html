@@ -1,0 +1,41 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		// 为对象添加属性
+
+		class Point{
+			constructor(x,y){
+				Object.assign(this,{x,y});
+			}
+		}
+
+		Object.assign(Point.prototype,{
+			method1(){
+				console.log("method1");
+			},
+			method2(){
+				console.log("method1");
+			}
+		})
+
+		let p1 = new Point(22,33);
+		p1;//
+		 
+		/*x:22
+		  y:33
+		__proto__:
+		  method1:ƒ method1()
+		  method2:ƒ method2()*/
+
+		  var objclone = Object.assign({},p1);
+
+
+	</script>
+	</body>
+	</html>

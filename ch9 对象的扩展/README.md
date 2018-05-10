@@ -41,7 +41,50 @@ Object.is(NaN, NaN) // true
 ## Object.assign
 * 将源对象（source）的所有可枚举属性，复制到目标对象（target）。
    1. 如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆
-      盖前面的属性
+      盖前面的属性;
+   2. 如果只有一个参数，Object.assign会直接返回该参数。
+   3. 其他类型的值（即数值、字符串和布尔值）不在首参数，也不会报错。但是，除了字符串会以数组形式，拷贝入目标对象，其他值都不会产生效果。
+   4. Object.assign拷贝的属性是有限制的，只拷贝源对象的自身属性
+   （不拷贝继承属性 ），也不拷贝不可枚举的属性（enumerable: false）
+   5. Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用
+   6.  Object.assign可以用来处理数组，但是会把数组视为对象。
+```
+const v1 = 'abc';
+const v2 = true;
+const v3 = 10;
+
+const obj = Object.assign({}, v1, v2, v3);
+console.log(obj); // { "0": "a", "1": "b", "2": "c" }
+```
+```
+const v1 = "abc";
+const v2 = true;
+const v3 = 10;
+const obj =  Object.assign({},v1,v2,v3);
+console.log(obj); //{0: "a", 1: "b", 2: "c"}
+
+Object.assign(obj,Object.defineProperty({},"invisible",{
+    enumerable:true,
+    value:"hello"
+}));
+console.log(obj);
+```
+```
+const source = {
+  get foo() { return 1 },
+  set foo(value){
+    console.log(2222);
+  }
+};
+const target = {};
+target.foo = 10; 
+
+Object.assign(target,source);
+ 
+target.foo; //1 
+target.foo = 1000;//1000,并未输出 2222
+target; //{foo: 1000}
+```
 
 
 

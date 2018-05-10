@@ -1,0 +1,28 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		// 
+		const v1 = "abc";
+		const v2 = true;
+		const v3 = 10;
+		const obj =  Object.assign({},v1,v2,v3);
+		console.log(obj); //{0: "a", 1: "b", 2: "c"}
+
+		Object.assign(obj,Object.defineProperty({},"invisible",{
+			enumerable:true,
+			value:"hello"
+		}));
+		console.log(obj);
+
+		Object.assign([1,2,3,4],[9,8]); //[9, 8, 3, 4]
+		//Object.assign把数组视为属性名为 0、1、2 的对象
+
+	</script>
+	</body>
+	</html>
