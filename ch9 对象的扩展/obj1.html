@@ -1,0 +1,21 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		//
+		let ary1 = [1,2,3].fill(7); //[7,7,7]
+
+		//填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。
+		ary2.fill({name:"mark"});// [{name: "mark"}, {name: "mark"},{name: "mark"}]
+		ary2[0].name = "jack";// [{name: "jack"},{name: "jack"},{name: "jack"}]
+
+
+ 
+	</script>
+	</body>
+	</html>
