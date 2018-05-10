@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let s1 = Symbol();
+		console.log(typeof s1); //symbol ,是小写
+		let s2 = Symbol('bar');
+		console.log(s2);//Symbol(bar)
+
+		//Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值
+
+		let obj = {name:"jack"};
+		let s3 = Symbol(obj);
+		console.log(s3);//Symbol([object Object])
+
+		//Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。
+
+		let s4 = Symbol(obj);
+		console.log(s3===s4); //false
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Symbol 与其他类型的转换
+ 		
+ 		// Symbol 转 字符串
+		let s2 = Symbol('bar');
+		console.log(s2.toString()); //Symbol(bar)
+		console.log(String(s2)); //Symbol(bar)
+
+		// Symbol 转 布尔值
+		console.log(Boolean(s2));  //true
+		console.log(!s2);  //false
+
+		// Symbol不能转 Number
+		//Number(s2) // TypeError，Cannot convert a Symbol value to a number
+		 
+	</script>
+</body>
+</html>
