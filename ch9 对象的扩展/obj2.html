@@ -7,15 +7,21 @@
 	<div id="div1" style="background:yellow"></div>
 	<body>
 		<script type="text/javascript">
-		let birthday = "2018-09-09"; // obj1 使用了该属性，因此应该在obj1前声明
-		let obj1 = {
-			name:"zhangsan",
-			birthday,
-			sayHello(){
-				console.log(this.name+" ："+this.birthday);
+		const cart = {
+			_wheels:4,
+			get wheels(){
+				return this._wheels;
+			},
+			set wheels(value){
+				if(value<this._wheels){
+					throw new Error("数值太小");
+				}
+				this._wheels = value;
 			}
+
 		}
  
+
 	</script>
 	</body>
 	</html>

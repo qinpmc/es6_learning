@@ -1,0 +1,33 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+		let propkey = "koo";
+		 let obj1 = {
+			[propkey] : true,
+			["a"+"bc"] : 123
+		 }
+         obj1 ;//{koo: true, abc: 123}
+
+
+         //
+
+         let obj = {
+         	get foo(){
+         		console.log("get foo");
+         		return {name:"haha"}
+         	},
+         	set foo(value){
+         		console.log("set foo");
+         	}
+         }
+
+
+	</script>
+	</body>
+	</html>

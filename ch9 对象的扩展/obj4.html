@@ -7,15 +7,17 @@
 	<div id="div1" style="background:yellow"></div>
 	<body>
 		<script type="text/javascript">
-		let birthday = "2018-09-09"; // obj1 使用了该属性，因此应该在obj1前声明
-		let obj1 = {
-			name:"zhangsan",
-			birthday,
-			sayHello(){
-				console.log(this.name+" ："+this.birthday);
-			}
-		}
- 
+		const source = {
+		  get foo() { return 1 },
+		  set foo(value){
+		  	console.log(2222);
+		  }
+		};
+		const target = {};
+		target.foo = 10; //并未输出 2222
+
+		target; //{foo: 10}
+
 	</script>
 	</body>
 	</html>
