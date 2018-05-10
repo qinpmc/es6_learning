@@ -117,6 +117,10 @@ Object.getOwnPropertySymbols返回一个数组，包含对象 **自身的所有 
 Reflect.ownKeys返回一个数组，包含对象 **自身的所有键名** ，不管键名是 Symbol 或字符串，也不管是否可枚举。
 
 
+## __proto__属性，Object.setPrototypeOf()，Object.getPrototypeOf()
+* Object.setPrototypeOf() 设置一个对象的原型对象
+* Object.getPrototypeOf() 读取一个对象的原型对象
+
 
 
 
