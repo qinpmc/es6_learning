@@ -121,6 +121,12 @@ Reflect.ownKeys返回一个数组，包含对象 **自身的所有键名** ，�
 * Object.setPrototypeOf() 设置一个对象的原型对象
 * Object.getPrototypeOf() 读取一个对象的原型对象
 
+## super
+super，指向当前对象的原型对象
+
+
+
+
 
 
 
