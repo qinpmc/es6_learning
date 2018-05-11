@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var handler = {
+			get: function(target, name) {
+				if (name === 'prototype') {
+					return Object.prototype;
+				}
+				return 'Hello, ' + name;
+			},
+
+			apply: function(target, thisBinding, args) {
+				return args[0];
+			},
+
+			construct: function(target, args) {
+				return {value: args[1]};
+			}
+		};
+
+		var fproxy = new Proxy(function(x, y) {
+			return x + y;
+		}, handler);
+
+		fproxy(1, 2) // 1
+		console.log(fproxy.x);
+		console.log(fproxy.prototype === Object.prototype); //true
+
+		
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let obj1 = {name:"jack"};
+		//
+		let proxy = new Proxy(obj1,{
+			get : function(target,property){
+				console.log(target,property);
+				console.log(target === obj1); //true
+				return 3333;
+			}
+
+		});
+		console.log(proxy.name);
+
+	</script>
+</body>
+</html>
