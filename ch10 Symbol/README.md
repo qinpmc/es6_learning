@@ -97,6 +97,39 @@ console.log(s3);//Symbol([object Object])
 let s4 = Symbol(obj);
 console.log(s3===s4); //false
 ```
+## 内置的 Symbol 值
+
+### 1  Symbol.hasInstance
+* 对象的Symbol.hasInstance属性，指向一个内部方法。当其他对象使用instanceof运算符，
+判断是否为该对象的实例时，会调用这个方法.
+```
+class Myclass{
+    [Symbol.hasInstance](obj){
+            return obj instanceof Array;
+    }
+}
+    [1,2,3] instanceof new Myclass();//true
+```
+
+### 2 Symbol.isConcatSpreadable
+* 对象的Symbol.isConcatSpreadable属性等于一个布尔值，表示该对象用于Array.prototype.concat()时，是否可以展开
+```
+let ary1 = [1,2];
+let ary2 = [3,4];
+let res1 = ary1.concat(ary2,5);
+console.log(res1); // [1, 2, 3, 4, 5]
+console.log(ary1[Symbol.isConcatSpreadable]);//undefined
+
+ary2[Symbol.isConcatSpreadable] = false; //设置为不可展开
+let res2 = ary1.concat(ary2,5);
+console.log(res2);//[1, 2, [3,4], 5]
+```
+
+
+
+
+
+
 
 
 
