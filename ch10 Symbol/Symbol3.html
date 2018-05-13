@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-	<script type="text/javascript">
-		//
-		let s1 = Symbol.for("test");
-		let s2 = Symbol.for("test");
-		console.log(s1===s2); //true
+    <script type="text/javascript">
+        let s1 = Symbol("foo");
+        let obj1 = {
+            [s1]:"foo",  //s1必须用中括号
+            name:"jack"
+        }
+        for (let i in obj1){
+            console.log(i); //name，未得到s1 属性，因为它是Symbol
+        }
+        console.log(Object.getOwnPropertySymbols(obj1));//[Symbol(foo)]
+        console.log("************");
 
-		let s12 = Symbol("test2");
-		let s22 = Symbol("test2");	
-		console.log(s12 ===s22); //false
-
-		//Symbol.keyFor方法返回一个已登记的Symbol类型值的key。
-		let sk1 = Symbol.keyFor(s2);
-		console.log(sk1); //test
+        let keys = Reflect.ownKeys(obj1);
+        for(let i of keys){
+            console.log(i); //name , Symbol(foo)
+        }
 
 
-
-
-		 
-	</script>
+    </script>
 </body>
 </html>
