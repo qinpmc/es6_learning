@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+
+		// Map 的属性和方法
+		//let map1 = new Map(["aaa",1111]);//Iterator value aaa is not an entry object
+		
+		function strMapToObj(myMap){
+			let obj = {};
+			for(let [k,v] of myMap){
+				obj[k] = v;
+			}
+			return obj;
+		}
+		const myMap = new Map();
+		myMap.set('yes', true);
+		myMap.set('no', false);
+		strMapToObj(myMap); //{yes: true, no: false}
+
+	</script>
+</body>
+</html>

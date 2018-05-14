@@ -96,6 +96,80 @@ console.log(set1); //Set(2) {2, 4}
 ```
 ## Map
 
+Map数据结构是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+### Map 的基本概念
+```
+// Map 的基本概念
+let map1 = new Map();
+let obj1 = {name:"jack"};
+map1.set(obj1,"aaa");
+console.log(map1.get(obj1)); //aaa
+
+console.log(map1.has(obj1)); //true
+map1.delete(obj1);
+
+// Map 接收数组
+let map2 = new Map([["name","zhangsan"],["title","author"]]);
+console.log(map2.get("name")); //zhangsan
+console.log(map2.get("title"));  //author
+```
+
+### Map 的键的问题
+```
+// Map 的键的问题
+
+//对同一个键多次赋值，后面的值将覆盖前面的值。
+
+let map1 = new Map();
+map1.set(1,"aaa");
+map1.set(1,"bbb");
+console.log(map1.get(1)); //bbb
+
+//只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。
+
+map1.set({},"obj");
+console.log(map1.get({})); //undefined
 
 
+//Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键
+//比如0和-0就是一个键，
+//布尔值true和字符串true则是两个不同的键。
+//undefined和null也是两个不同的键。
+//NaN不严格相等于自身，但 Map 将其视为同一个键。
+
+```
+
+### Map 的属性和方法
+* size 属性 
+* set(key,value)
+* get(key)
+* has(key)
+* delete(key)
+* clear()
+__遍历方法__
+* keys()
+* values()
+* entries()
+* forEach()
+```
+// Map 的属性和方法
+//let map1 = new Map(["aaa",1111]);//Iterator value aaa is not an entry object
+
+function strMapToObj(myMap){
+    let obj = {};
+    for(let [k,v] of myMap){
+        obj[k] = v;
+    }
+    return obj;
+}
+const myMap = new Map();
+myMap.set('yes', true);
+myMap.set('no', false);
+strMapToObj(myMap); //{yes: true, no: false}
+```
+
+## WeakMap
+
+* WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
+* WeakMap 的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+
+		// Map 的键的问题
+
+		//对同一个键多次赋值，后面的值将覆盖前面的值。
+
+		let map1 = new Map();
+		map1.set(1,"aaa");
+		map1.set(1,"bbb");
+		console.log(map1.get(1)); //bbb
+
+		//只有对同一个对象的引用，Map 结构才将其视为同一个键。这一点要非常小心。
+
+		map1.set({},"obj");
+		console.log(map1.get({})); //undefined
+
+
+		//Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键
+		//比如0和-0就是一个键，
+		//布尔值true和字符串true则是两个不同的键。
+		//undefined和null也是两个不同的键。
+		//NaN不严格相等于自身，但 Map 将其视为同一个键。
+
+
+	</script>
+</body>
+</html>
