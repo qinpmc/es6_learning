@@ -94,6 +94,8 @@ console.log(set1); //Set(2) {2, 4}
         let foo1 = new Foo();
         foo1.method(); //hello
 ```
+## Map
+
 
 
 

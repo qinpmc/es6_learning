@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+
+		// Map 的基本概念
+		let map1 = new Map();
+		let obj1 = {name:"jack"};
+		map1.set(obj1,"aaa");
+		console.log(map1.get(obj1)); //aaa
+
+		console.log(map1.has(obj1)); //true
+		map1.delete(obj1);
+
+		// Map 接收数组
+		let map2 = new Map([["name","zhangsan"],["title","author"]]);
+		console.log(map2.get("name")); //zhangsan
+		console.log(map2.get("title"));  //author
+
+
+	</script>
+</body>
+</html>
