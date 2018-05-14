@@ -172,4 +172,14 @@ strMapToObj(myMap); //{yes: true, no: false}
 
 * WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
 * WeakMap 的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内
-
+* WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+```
+        //WeakMap 弱引用的只是键名，而不是键值
+        let wm = new WeakMap();
+        let key = {};
+        let value = {foo:1};
+        wm.set(key,value);
+        console.log(wm);
+        value = null ;
+        console.log(wm.get(key)); // {foo:1}
+```

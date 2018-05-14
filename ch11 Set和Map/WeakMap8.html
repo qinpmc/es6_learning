@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //WeakMap 弱引用的只是键名，而不是键值
+        let wm = new WeakMap();
+        let key = {};
+        let value = {foo:1};
+        wm.set(key,value);
+        console.log(wm);
+        value = null ;
+        console.log(wm.get(key)); // {foo:1}
+
+    </script>
+</body>
+</html>
