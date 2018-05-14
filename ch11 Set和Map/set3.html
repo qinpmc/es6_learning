@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+		let set1 = new Set();
+		set1.add(1);
+		set1.add(2);
+		set1.add(2);
+
+		//Set 与数组 转换
+
+		let ary1 = [...set1];
+		 
+		console.log(ary1);//[1, 2]
+		console.log("----------");
+ 		
+ 		// Array.from 将set 转换为 数组
+		set1 = new Set(Array.from(set1, val => val * 2));
+		console.log(set1); //Set(2) {2, 4}
+
+	</script>
+</body>
+</html>

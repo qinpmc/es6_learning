@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+		//Set的keys values entries
+		//Set 结构没有键名，只有键值（或者说键名和键值是同一个值），
+		//所以keys方法和values方法的行为完全一致。
+	
+		let set1 = new Set();
+		set1.add(1);
+		set1.add(2);
+		set1.add(2);
+
+
+
+		let keys1 = set1.keys();
+		for(let key of keys1){
+			console.log(key); //1,2
+		}
+
+		let values1 = set1.values();
+		for(let value of values1){
+			console.log(value); //1,2
+		}
+
+		let entries = set1.entries();
+		for(let entry of entries){
+			console.log(entry); //[1, 1],[2, 2]
+		}
+		 
+		console.log("----------");
+
+		let set2 = new Set(document.querySelectorAll("div"));
+		console.log(set2.size); //4
+		let entries2 = set2.entries();
+		for(let entry of entries2){
+			console.log(entry); //[div, div],[div, div],[div, div],[div, div]
+		}
+
+
+	</script>
+</body>
+</html>

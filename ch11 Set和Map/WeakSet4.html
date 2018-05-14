@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script type="text/javascript">
+
+		//数组的成员成为 WeakSet 的成员，而不是数组本身
+		//let weakSet1 = new WeakSet([1,2]); //Invalid value used in weak set
+		//console.log(weakSet1);
+
+
+		let weakSet2 = new WeakSet([[1,2],[2,3]]); // 
+		console.log(weakSet2);//WeakSet {Array(2), Array(2)}
+
+
+		console.log("----------");
+		const foos = new WeakSet()
+		class Foo {
+			constructor() {
+				foos.add(this)
+			}
+			method () {
+				if (!foos.has(this)) {
+					throw new TypeError('Foo.prototype.method 只能在Foo的实例上调用！');
+				}else{
+					console.log("hello");
+				}
+			}
+		}
+
+		let foo1 = new Foo();
+		foo1.method(); //hello
+
+
+	</script>
+</body>
+</html>
