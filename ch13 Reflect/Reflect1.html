@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let obj = {name:"jack"};
+        undefined
+        var loggedObj = new Proxy(obj, {
+            get(target, name) {
+                console.log('get', target, name);
+                return Reflect.get(target, name);
+            },
+            deleteProperty(target, name) {
+                console.log('delete' + name);
+                return Reflect.deleteProperty(target, name);
+            },
+            has(target, name) {
+                console.log('has' + name);
+                return Reflect.has(target, name);
+            }
+        });
+
+        loggedObj.name;// get {name: "jack"} name
+                       // "jack"
+
+        Reflect.get(obj,"name"); // "jack" 无论Proxy怎么修改默认行为，你总可以在Reflect上获取默认行为
+    </script>
+</body>
+</html>
