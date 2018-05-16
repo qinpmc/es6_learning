@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj1 = {
+        name:"jack"
+    }
+    function sayName(msg){
+        console.log(this.name+msg);
+    }
+    Reflect.apply(sayName,obj1,["!!!"]); //jack!!!
+</script>
+</body>
+</html>

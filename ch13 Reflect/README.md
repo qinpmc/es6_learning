@@ -112,3 +112,45 @@ Reflect.setPrototypeOf(p1,Object.prototype);
 console.log(Reflect.getPrototypeOf(p1)===Person.prototype);//  false
 console.log(Reflect.getPrototypeOf(p1)===Object.prototype);//  true
 ```
+
+### Reflect.apply(func, thisArg, args) 
+
+等同 Function.prototype.apply.call(fn, obj, args)
+
+```
+let obj1 = {
+    name:"jack"
+}
+function sayName(msg){
+    console.log(this.name+msg);
+}
+Reflect.apply(sayName,obj1,["!!!"]); //jack!!!
+```
+### Reflect.getOwnPropertyDescriptor(target, propertyKey) 
+Reflect.isExtensible(target) --不能增加新的属性，但是属性的值仍然可以更改，也可以把属性删除，
+Reflect.preventExtensions(target) 
+
+等同 Object.getOwnPropertyDescriptor 
+
+### Reflect.ownKeys (target) 
+
+等同Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。
+```
+var myObject = {
+  foo: 1,
+  bar: 2,
+  [Symbol.for('baz')]: 3,
+  [Symbol.for('bing')]: 4,
+};
+
+// 旧写法
+Object.getOwnPropertyNames(myObject)
+// ['foo', 'bar']
+
+Object.getOwnPropertySymbols(myObject)
+//[Symbol(baz), Symbol(bing)]
+
+// 新写法
+Reflect.ownKeys(myObject)
+// ['foo', 'bar', Symbol(baz), Symbol(bing)]
+```
