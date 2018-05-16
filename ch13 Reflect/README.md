@@ -39,6 +39,48 @@ Reflect.get(obj,"name"); // "jack" 无论Proxy怎么修改默认行为，你总�
 
 ```
 
+## Reflect 方法
 
+1. Reflect.apply(target, thisArg, args)
+2. Reflect.construct(target, args)
+3. Reflect.get(target, name, receiver)
+4. Reflect.set(target, name, value, receiver)
+5. Reflect.defineProperty(target, name, desc)
+6. Reflect.deleteProperty(target, name)
+7. Reflect.has(target, name)
+8. Reflect.ownKeys(target)
+9. Reflect.isExtensible(target)
+10. Reflect.preventExtensions(target)
+11. Reflect.getOwnPropertyDescriptor(target, name)
+12. Reflect.getPrototypeOf(target)
+13. Reflect.setPrototypeOf(target, prototype)
 
+### get /set
+```
+    // Reflect.get(target, name, receiver)
+    //Reflect.set(target, name, value, receiver)
+    let myobj1 = {
+        foo:1,
+        bar:2,
+        get baz(){
+            return this.foo +this.bar;
+        },
+        set baz(value){
+            this.foo = value;
+        }
+    }
+    Reflect.get(myobj1,"baz"); //3
+
+    //如果name属性部署了读取函数（getter），则读取函数的this绑定receiver。
+    var myReceiverObject = {
+        foo: 100,
+        bar: 200,
+    };
+    Reflect.get(myobj1,"baz",myReceiverObject); //300
+
+   // 如果name属性设置了赋值函数（setter），则赋值函数的this绑定receiver。
+    Reflect.set(myobj1,"baz",77,myReceiverObject);
+    console.log(myobj1.foo); //1 myobj1的foo不变
+    console.log(myReceiverObject.foo);//77 myReceiverObject的foo改为77，
+```
 
