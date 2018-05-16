@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+     function MyDate(name){
+         this.name = name;
+     }
+    Reflect.defineProperty(MyDate,"now",{
+        value: () => Date.now()
+     });
+
+     MyDate.now();//  1526484377308
+     
+     let md1 = new MyDate("day1");
+    md1.now; //undefined
+
+</script>
+</body>
+</html>

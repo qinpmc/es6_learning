@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dfbce7f-22f2-44db-b26a-d330f483dad3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch13 Reflect/Reflect3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch13 Reflect/Reflect5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch13 Reflect/Reflect6.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch13 Reflect/README.md" afterPath="$PROJECT_DIR$/ch13 Reflect/README.md" />
     </list>
@@ -25,51 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="Reflect5.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="17" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reflect1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect1.html">
+      <file leaf-file-name="Reflect6.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect6.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.588236">
-              <caret line="28" column="78" selection-start-line="28" selection-start-column="78" selection-end-line="28" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reflect2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.088235">
-              <caret line="11" column="15" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reflect3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.882353">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="32" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch13 Reflect/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61273664">
-              <caret line="83" column="15" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.6443299">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -104,6 +75,8 @@
         <option value="$PROJECT_DIR$/ch13 Reflect/Reflect2.html" />
         <option value="$PROJECT_DIR$/ch13 Reflect/Reflect3.html" />
         <option value="$PROJECT_DIR$/ch13 Reflect/README.md" />
+        <option value="$PROJECT_DIR$/ch13 Reflect/Reflect5.html" />
+        <option value="$PROJECT_DIR$/ch13 Reflect/Reflect6.html" />
       </list>
     </option>
   </component>
@@ -113,8 +86,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="243" />
-    <option name="y" value="344" />
+    <option name="x" value="-3" />
+    <option name="y" value="151" />
     <option name="width" value="1936" />
     <option name="height" value="777" />
   </component>
@@ -260,7 +233,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="243" y="344" width="1936" height="777" extended-state="0" />
+    <frame x="-3" y="151" width="1936" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -518,8 +491,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ch13 Reflect/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61273664">
-          <caret line="83" column="15" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
+        <state vertical-scroll-proportion="-12.314285">
+          <caret line="86" column="15" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="17" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch13 Reflect/Reflect6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6443299">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="17" />
           <folding />
         </state>
       </provider>

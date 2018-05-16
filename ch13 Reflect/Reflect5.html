@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let obj1 = {
+            foo:1,
+            bar:"bar"
+        };
+        Reflect.has(obj1,"bar"); //true
+        Reflect.deleteProperty(obj1,"bar");
+        console.log(obj1.bar); //undefined
+
+
+        //Reflect.construct方法等同于new target(...args)
+
+        function Person(name){
+            this.name = name;
+        }
+
+        //Reflect.getPrototypeOf
+        let p1 = Reflect.construct(Person,["jack"]);//jack,注意：此处参数带有[]
+        console.log(p1.name);
+        console.log(Reflect.getPrototypeOf(p1)===Person.prototype);// true
+
+        //setPrototypeOf
+        Reflect.setPrototypeOf(p1,Object.prototype);
+        console.log(Reflect.getPrototypeOf(p1)===Person.prototype);//  false
+        console.log(Reflect.getPrototypeOf(p1)===Object.prototype);//  true
+    </script>
+</body>
+</html>

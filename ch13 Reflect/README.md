@@ -84,3 +84,31 @@ Reflect.get(obj,"name"); // "jack" 无论Proxy怎么修改默认行为，你总�
     console.log(myReceiverObject.foo);//77 myReceiverObject的foo改为77，
 ```
 
+### has /deleteProperty /getPrototypeOf /setPrototypeOf
+
+```
+let obj1 = {
+    foo:1,
+    bar:"bar"
+};
+Reflect.has(obj1,"bar"); //true
+Reflect.deleteProperty(obj1,"bar");
+console.log(obj1.bar); //undefined
+
+
+//Reflect.construct方法等同于new target(...args)
+
+function Person(name){
+    this.name = name;
+}
+
+//Reflect.getPrototypeOf
+let p1 = Reflect.construct(Person,["jack"]);//jack,注意：此处参数带有[]
+console.log(p1.name);
+console.log(Reflect.getPrototypeOf(p1)===Person.prototype);// true
+
+//setPrototypeOf
+Reflect.setPrototypeOf(p1,Object.prototype);
+console.log(Reflect.getPrototypeOf(p1)===Person.prototype);//  false
+console.log(Reflect.getPrototypeOf(p1)===Object.prototype);//  true
+```
