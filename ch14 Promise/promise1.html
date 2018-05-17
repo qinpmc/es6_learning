@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function asyncFun(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("Async Hello");
+                },1200)
+            })
+        }
+        asyncFun().then(function(value){
+            console.log(value);  //Async Hello
+        }).catch(function (error){
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
