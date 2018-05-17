@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function asyncFunc(ms){
+        return new Promise(function(resolve,reject){
+            setTimeout(resolve,ms,"end"); //end 为附加参数，一旦定时器到期，它们会作为参数传递给函数
+        });
+    }
+    function asyncFunc2(ms){
+        return new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve("over");
+            },ms); //end 为附加参数，一旦定时器到期，它们会作为参数传递给函数
+        });
+    }
+
+    asyncFunc(1200).then((value) => {
+        console.log(value); //end
+    })
+
+    asyncFunc2(2200).then((value) => {
+        console.log(value); //over
+    })
+</script>
+</body>
+</html>
