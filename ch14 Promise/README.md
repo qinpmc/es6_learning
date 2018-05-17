@@ -13,7 +13,84 @@
 4. Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+```
+        function asyncFun(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("Async Hello");
+                },1200)
+            })
+        }
+        asyncFun().then(function(value){
+            console.log(value);  //Async Hello
+        }).catch(function (error){
+            console.log(error);
+        });
 
+        asyncFun().then(function(value){
+            console.log(value); //Async Hello
+            err.call(); //故意制造错误
+        },function(err){
+            console.log(err);
+        }).then(function(value){
+            console.log(value+" success end") ;//
+        },function(e){
+            console.log("出错了！");//出错了！
+            console.log(e); //ReferenceError: err is not defined
+        });
+```
 
+### 1 Constructor
+new Promise构造器之后，会返回一个promise对象
+```
+var promise = new Promise(function(resolve, reject) {
+    // 异步处理
+    // 处理结束后、调用resolve 或 reject
+});
+```
 
+### 2 then
+1. then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为resolved时调用，
+第二个回调函数是Promise对象的状态变为rejected时调用。
+其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
+2. then方法返回的是一个 __新的Promise实例（注意，不是原来那个Promise实例）__ 。
+因此可以采用链式写法，即then方法后面再调用另一个then方法。
 
+### 3 catch
+1. .catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
+
+```
+function getURL(URL) {
+    return new Promise(function (resolve, reject) {
+        var req = new XMLHttpRequest();
+        req.open('GET', URL, true);
+        req.onload = function () {
+            if (req.status === 200) {
+                resolve(req.responseText);
+            } else {
+                reject(new Error(req.statusText));
+            }
+        };
+        req.onerror = function () {
+            reject(new Error(req.statusText));
+        };
+        req.send();
+    });
+}
+// 运行示例
+var URL = "http://httpbin.org/get";
+getURL(URL).then(function onFulfilled(value){
+    console.log(value);
+}).catch(function onRejected(error){
+    console.error(error);
+});
+
+//resolve(value) 在response的内容中加入了参数。
+//resolve方法的参数并没有特别的规则，基本上把要传给回调函数参数放进去就可以了,then 方法可以接收到这个参数值
+
+//传给reject 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。
+//这个参数的值可以被 then 方法的第二个参数或者 catch 方法中使用
+```
+
+##  Promise.resolve
+   静态方法Promise.resolve(value) 可以认为是 new Promise() 方法的快捷方式。
