@@ -18,6 +18,20 @@
         }).catch(function (error){
             console.log(error);
         });
+
+        asyncFun().then(function(value){
+            console.log(value); //Async Hello
+            err.call(); //故意制造错误
+        },function(err){
+            console.log(err);
+        }).then(function(value){
+            console.log(value+" success end") ;//
+        },function(e){
+            console.log("出错了！");//出错了！
+            console.log(e); //ReferenceError: err is not defined
+        });
+
+
     </script>
 </body>
 </html>
