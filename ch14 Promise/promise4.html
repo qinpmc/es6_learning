@@ -6,26 +6,24 @@
 </head>
 <body>
 <script>
-    function asyncFunc(ms){
-        return new Promise(function(resolve,reject){
-            setTimeout(resolve,ms,"end"); //end 为附加参数，一旦定时器到期，它们会作为参数传递给函数
-        });
-    }
-    function asyncFunc2(ms){
-        return new Promise(function(resolve,reject){
-            setTimeout(function(){
-                resolve("over");
-            },ms); //end 为附加参数，一旦定时器到期，它们会作为参数传递给函数
-        });
-    }
-
-    asyncFunc(1200).then((value) => {
-        console.log(value); //end
+    let mes = "wrong";
+    Promise.reject(mes).then(null,function(e){
+        console.log(e);   //wrong
+        console.log(e===mes);//true
     })
 
-    asyncFunc2(2200).then((value) => {
-        console.log(value); //over
-    })
+    //Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。
+    // 这一点与Promise.resolve方法不一致
+    const thenable = {
+        then(resolve, reject) {
+            reject('出错了');
+        }
+    };
+
+    Promise.reject(thenable)
+            .catch(e => {
+        console.log(e === thenable); // true
+    });
 </script>
 </body>
 </html>

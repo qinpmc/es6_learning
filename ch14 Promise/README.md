@@ -94,3 +94,51 @@ getURL(URL).then(function onFulfilled(value){
 
 ##  Promise.resolve
    静态方法Promise.resolve(value) 可以认为是 new Promise() 方法的快捷方式。
+```
+    //Promise.resolve
+
+    // 1. 参数是一个 Promise 实例,原封不动返回该实例
+    let p1 = new Promise(function(resolve,reject){
+        resolve("Promise.resolve test1");
+    })
+    let p11= Promise.resolve(p1);
+    console.log(p1 === p11); //  true 如果参数是 Promise 实例，那么Promise.resolve将不做任何修改、原封不动地返回这个实例
+
+    //2. 参数是一个thenable对象(thenable对象指的是具有then方法的对象)
+    let obj_thenable = {
+        then:function(resolve,reject){
+            resolve(-1);
+        }
+    };
+    Promise.resolve(obj_thenable).then(function(value){
+        console.log(value); //-1
+    })
+
+
+
+
+    //如果参数是一个原始值，或者是一个不具有then方法的对象，则Promise.resolve方法返回一个新的 Promise 对象，状态为resolved。
+
+    Promise.resolve(99).then(function(value){
+        console.log(value); //99
+    })
+
+    //等价上面代码
+    new Promise(function(resolve){
+        resolve(99);
+    }).then(function(value){
+        console.log(value); //99
+    });
+
+
+    //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
+    setTimeout(function () {
+        console.log('three');
+    }, 0);
+
+    Promise.resolve().then(function () {
+        console.log('two');
+    });
+
+    console.log('one');
+```
