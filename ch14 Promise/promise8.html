@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
+    setTimeout(function () {
+        console.log('three');
+    }, 0);
+
+    Promise.resolve().then(function () {
+        console.log('two');
+    });
+
+    console.log('one');
+    /*
+     * 输出顺序：one two three
+     * */
+</script>
+</body>
+</html>

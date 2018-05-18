@@ -33,7 +33,7 @@
         },function(err){
             console.log(err);
         }).then(function(value){
-            console.log(value+" success end") ;//
+            console.log(value+" success end") ;//此句不执行
         },function(e){
             console.log("出错了！");//出错了！
             console.log(e); //ReferenceError: err is not defined
@@ -130,7 +130,40 @@ getURL(URL).then(function onFulfilled(value){
         console.log(value); //99
     });
 
+```
+## Promise.reject
+Promise.reject(new Error("出错了")) 就是下面代码的语法糖形式。
 
+new Promise(function(resolve,reject){
+    reject(new Error("出错了"));
+});
+
+```
+let mes = "wrong";
+Promise.reject(mes).then(null,function(e){
+    console.log(e);   //wrong
+    console.log(e===mes);//true
+})
+
+//Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。
+// 这一点与Promise.resolve方法不一致
+const thenable = {
+    then(resolve, reject) {
+        reject('出错了');
+    }
+};
+
+Promise.reject(thenable)
+        .catch(e => {
+    console.log(e === thenable); // true
+});
+```
+
+
+
+##
+1.  __Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时__
+```
     //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
     setTimeout(function () {
         console.log('three');
