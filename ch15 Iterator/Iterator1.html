@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function makeIterator(array) {
+        var nextIndex = 0;
+        return {
+            next:function(){
+                return nextIndex < array.length?
+                {value:array[nextIndex++],done:false} :
+                {value:undefined,done:true}
+            }
+        }
+    }
+    let iterator1 = makeIterator([1,2,3]);
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+    console.log(iterator1.next());
+</script>
+</body>
+</html>
