@@ -159,6 +159,72 @@ Promise.reject(thenable)
 });
 ```
 
+## Promise.prototype.finally()
+finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
+
+
+
+
+##  Promise.all
+Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 实例
+
+1. 只有每个Promise 实例的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+2. 只要Promise 实例之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+```
+    // `delay`毫秒后执行resolve
+    function timerPromisefy(delay) {
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(delay);
+            }, delay);
+        });
+    }
+
+    let rejPromise = new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            reject(40);
+        }, 40);
+    });
+    var startDate = Date.now();
+    // 所有promise变为resolve后程序退出
+    Promise.all([
+        timerPromisefy(1),
+        timerPromisefy(32),
+        timerPromisefy(64),
+        timerPromisefy(128),
+        //rejPromise
+    ]).then(function (values) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(values);
+    }).catch(function (e) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(e);
+    });
+
+    /*   输出结果：
+    129ms
+    [1,32,64,128]*/
+```
+
+##  Promise.race
+
+只要Promise 实例之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数
+```
+    function timerPromisefy(delay){
+        return new Promise((resolve,reject) =>{
+             setTimeout(() =>resolve(delay),delay);
+        })
+    }
+    let startTime = Date.now();
+    Promise.race([timerPromisefy(24),timerPromisefy(1000),timerPromisefy(2000)]).then(
+            (value) =>{
+                console.log(Date.now() - startTime + 'ms');
+                console.log(value);
+    });
+/*    输出结果：
+    25ms
+      24*/
+```
 
 
 ##

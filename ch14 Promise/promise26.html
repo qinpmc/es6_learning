@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Promise 状态已经变成resolved，再抛出错误是无效的
+    new Promise((resolve,reject) => {
+        resolve("OK");
+        throw new Error("this wrong will not run");
+    }).then(r => console.log(r)).catch(e => console.log(e));
+/*    输出结果：//不会输出 :this wrong will not run
+      OK*/
+
+    //跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，
+    // Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应
+    new Promise((resolve,reject) => {
+        throw new Error("this wrong will  run"); //抛出错误，不处理
+    }).then(r => console.log(r));
+
+    setTimeout(() =>console.log("1秒后执行"),1000); //1秒后执行，上面的错误没处理，但此处会执行
+</script>
+</body>
+</html>

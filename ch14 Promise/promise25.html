@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const p1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                reject(new Error("fail"))
+            },3000)
+        })
+        const p2 = new Promise(function(resolve,reject){
+            setTimeout(() =>resolve(p1),100); //p1的状态就会传递给p2，p1的状态决定了p2的状态，3000ms后（并非100ms）才执行p2
+            //setTimeout(() =>resolve("p2"),100); //此时p2的状态 自行决定，100ms后即执行
+        })
+        p2.then(result => console.log(result)).catch(error => console.log(error));
+
+        //Promise 是在本轮事件循环的末尾执行，总是晚于本轮循环的同步任务
+        new Promise((resolve,reject) =>{
+            resolve(1);
+            console.log("22222");
+        }).then( r => console.log(r));
+/*        输出： 2222
+                 1
+           此处先执行了同步任务2222 后执行promise
+               */
+
+
+    </script>
+</body>
+</html>

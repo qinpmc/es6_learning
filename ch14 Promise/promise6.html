@@ -6,21 +6,45 @@
 </head>
 <body>
 <script>
-    //Promise 状态已经变成resolved，再抛出错误是无效的
-    new Promise((resolve,reject) => {
-        resolve("OK");
-        throw new Error("this wrong will not run");
-    }).then(r => console.log(r)).catch(e => console.log(e));
-/*    输出结果：//不会输出 :this wrong will not run
-      OK*/
+    // `delay`毫秒后执行resolve
+    function timerPromisefy(delay) {
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(delay);
+            }, delay);
+        });
+    }
 
-    //跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，
-    // Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应
-    new Promise((resolve,reject) => {
-        throw new Error("this wrong will  run"); //抛出错误，不处理
-    }).then(r => console.log(r));
+    let rejPromise = new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            reject(40);
+        }, 40);
+    });
+    var startDate = Date.now();
+    // 所有promise变为resolve后程序退出
+    Promise.all([
+        timerPromisefy(1),
+        timerPromisefy(32),
+        timerPromisefy(64),
+        timerPromisefy(128),
+        //rejPromise
+    ]).then(function (values) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(values);
+    }).catch(function (e) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(e);
+    });
 
-    setTimeout(() =>console.log("1秒后执行"),1000); //1秒后执行，上面的错误没处理，但此处会执行
+    /*   输出结果：
+    129ms
+    [1,32,64,128]*/
+
+
+
+
+
+
 </script>
 </body>
 </html>
