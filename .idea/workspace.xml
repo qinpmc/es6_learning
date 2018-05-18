@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dfbce7f-22f2-44db-b26a-d330f483dad3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch14 Promise/promise25.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch14 Promise/promise26.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch14 Promise/promise7.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ch14 Promise/promise8.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise28.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch14 Promise/promise25.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise9.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch14 Promise/promise26.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise10.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch14 Promise/promise28.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise8.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ch14 Promise/promise499.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise1_1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch14 Promise/README.md" afterPath="$PROJECT_DIR$/ch14 Promise/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch14 Promise/promise5.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch14 Promise/promise6.html" afterPath="$PROJECT_DIR$/ch14 Promise/promise6.html" />
     </list>
     <ignored path="es6_learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,51 +28,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch14 Promise/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30232558">
-              <caret line="225" column="10" selection-start-line="225" selection-start-column="10" selection-end-line="225" selection-end-column="10" />
+            <state vertical-scroll-proportion="8.285714">
+              <caret line="248" column="13" selection-start-line="248" selection-start-column="13" selection-end-line="248" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="promise28.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise28.html">
+      <file leaf-file-name="promise8.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise8.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.970589">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state vertical-scroll-proportion="-13.235294">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="promise26.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise26.html">
+      <file leaf-file-name="promise10.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise10.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.294118">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            <state vertical-scroll-proportion="-16.17647">
+              <caret line="22" column="71" selection-start-line="16" selection-start-column="4" selection-end-line="22" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="promise25.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise25.html">
+      <file leaf-file-name="promise9.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise9.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.088235">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.1470585">
+              <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="promise499.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise499.html">
+      <file leaf-file-name="promise1_1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch14 Promise/promise1_1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.3529415">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.4773519">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -369,7 +367,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise499.html">
+    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise1_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
@@ -655,38 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise25.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.088235">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise26.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.294118">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise28.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.970589">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise499.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.3529415">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch14 Promise/promise5.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.294118">
@@ -711,10 +677,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise8.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.235294">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise9.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.1470585">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise10.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.17647">
+          <caret line="22" column="71" selection-start-line="16" selection-start-column="4" selection-end-line="22" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch14 Promise/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30232558">
-          <caret line="225" column="10" selection-start-line="225" selection-start-column="10" selection-end-line="225" selection-end-column="10" />
+        <state vertical-scroll-proportion="8.285714">
+          <caret line="248" column="13" selection-start-line="248" selection-start-column="13" selection-end-line="248" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch14 Promise/promise1_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4773519">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
           <folding />
         </state>
       </provider>

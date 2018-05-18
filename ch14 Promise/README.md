@@ -227,7 +227,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 ```
 
 
-##
+##  Promise注意点
 1.  __Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时__
 ```
     //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
@@ -240,4 +240,49 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
     });
 
     console.log('one');
+        /*
+         * 输出顺序：one two three
+         * */
+
 ```
+
+2.  Promise状态传递
+```
+const p1 = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        reject(new Error("fail"))
+    },3000)
+})
+const p2 = new Promise(function(resolve,reject){
+    setTimeout(() =>resolve(p1),100); //p1的状态就会传递给p2，p1的状态决定了p2的状态，3000ms后（并非100ms）才执行p2
+    //setTimeout(() =>resolve("p2"),100); //此时p2的状态 自行决定，100ms后即执行
+})
+p2.then(result => console.log(result)).catch(error => console.log(error));
+```
+
+
+3. Promise 状态一经改变，就不会再变
+
+```
+    //Promise 状态已经变成resolved，再抛出错误是无效的
+    new Promise((resolve,reject) => {
+        resolve("OK");
+        throw new Error("this wrong will not run");
+    }).then(r => console.log(r)).catch(e => console.log(e));
+/*    输出结果：//不会输出 :this wrong will not run
+      OK*/
+
+```
+4. Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应
+
+```
+//跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，
+    // Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应
+    new Promise((resolve,reject) => {
+        throw new Error("this wrong will  run"); //抛出错误，不处理
+    }).then(r => console.log(r));
+
+    setTimeout(() =>console.log("1秒后执行"),1000); //1秒后执行，上面的错误没处理，但此处会执行
+```
+
+
