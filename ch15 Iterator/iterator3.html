@@ -11,6 +11,25 @@
             this.start = start;
             this.stop = stop;
         }
+        [Symbol.iterator](){
+            return this;
+        }
+        next(){
+            let value = this.start;
+            if(value<this.stop){
+                this.start++;
+                return {value:value,done:false}
+            }
+            return{value:undefined,done:true};
+        }
+    }
+    let myIter1 = new MyItertor(0,2);
+    console.log(myIter1);
+    //console.log(myIter1.next());
+
+
+    for(let i of myIter1){
+        console.log(i); //0 ,1
     }
 </script>
 </body>

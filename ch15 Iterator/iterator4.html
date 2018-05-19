@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        let ary1 = [...document.querySelectorAll("div")];
+        console.log(ary1);
+
+        NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+        console.log([...ary1]);
+
+        let likeAryObj = {
+            0:"a",
+            1:"b",
+            2:"c",
+            length:3,
+            [Symbol.iterator]: Array.prototype[Symbol.iterator]
+
+        }
+        for(let i of likeAryObj){
+            console.log(i); //a b c
+        }
+
+        let obj2 = [...likeAryObj];
+        console.log(obj2); //["a", "b", "c"]
+    </script>
+</body>
+</html>

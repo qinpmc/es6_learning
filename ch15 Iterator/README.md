@@ -32,6 +32,12 @@ console.log(iterator1.next());
 就可以认为是“可遍历的”（iterable）。
 Symbol.iterator属性本身是一个 __函数__ ，就是当前数据结构默认的遍历器生成函数。执行这个函数，就会 __返回一个遍历器__。
 
+## for of 循环
+
+
+
+
+
 
 
 
