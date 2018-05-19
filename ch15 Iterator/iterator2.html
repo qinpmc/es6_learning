@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [2,3];
+    let iterFun = arr[Symbol.iterator]();
+    console.log(iterFun.next()); //{value: 2, done: false}
+    console.log(iterFun.next()); //{value: 3, done: false}
+    console.log(iterFun.next()); //{value: undefined, done: true}
+
+    let iterFun2 = arr[Symbol.iterator];
+    console.log(typeof iterFun2);// function
+    let iterator = iterFun2() ;// Cannot convert undefined or null to object ?
+
+</script>
+</body>
+</html>
