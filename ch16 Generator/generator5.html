@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Generator.prototype.throw()
+    // Generator 函数返回的遍历器对象，都有一个throw方法，可以在函数体外抛出错误，然后在 Generator 函数体内捕获
+/*    let g = function* (){
+        try{
+            yield ; //  ①
+        }catch (e){
+            console.log("内部捕获",e);// ②
+        }
+    }
+    let i = g();
+    i.next(); // ①
+    try{
+        i.throw("a"); // ②
+        i.throw("b");// ③
+    }catch (e){
+        console.log("外部捕获",e); // ④
+    }
+/!*    内部捕获 a
+    外部捕获 b*!/*/
+
+     //throw方法抛出的错误要被内部捕获，前提是必须至少执行过一次next方法。
+    //如果没有，这时throw方法抛错只可能抛出在函数外部
+/*    let g = function* (){
+        try{
+            yield ; //
+        }catch (e){
+            console.log("内部捕获",e);//
+        }
+    }
+    let i = g();
+    //i.next(); // 注意 ：注释掉此句，与上一段代码比较！！
+    try{
+        i.throw("a"); // ①
+        i.throw("b");//  未执行
+    }catch (e){
+        console.log("外部捕获",e); // ②
+    }
+    /!*
+     外部捕获 a*!/*/
+
+
+
+    //Generator 函数内部没有部署try...catch代码块，那么throw方法抛出的错误，将被外部try...catch代码块捕获
+    let g = function* (){
+        while(true){
+            yield;
+            console.log("内部捕获：",e);
+        }
+    }
+    let i = g();
+    i.next();
+    try{
+        i.throw("a");
+        i.throw("b");
+    }catch(e){
+        console.log("外部捕获：",e);
+    }
+     /*外部捕获： a*/
+
+</script>
+</body>
+</html>

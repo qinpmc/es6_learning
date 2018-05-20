@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //Generator.prototype.return()
+    //遍历器对象调用return方法后，返回值的value属性就是return方法的参数。
+    // 并且，Generator 函数的遍历就终止了，返回值的done属性为true，以后再调用next方法，done属性总是返回true。
+    function* numbers(){
+        yield 1;
+        try{
+            yield 2;
+        }finally {
+            yield 4;
+            yield 5;
+        }
+        yield 6;
+    }
+    var g = numbers();
+
+    //如果 Generator 函数内部有try...finally代码块，那么return方法会推迟到finally代码块执行完再执行。
+    /*
+    g.next() // { value: 1, done: false }
+    g.next() // { value: 2, done: false }
+    g.return(7) // { value: 4, done: false }
+    g.next() // { value: 5, done: false }
+    g.next() // { value: 7, done: true }  注意：此次返回的值7 为return传入的
+    */
+
+    g.next() // {value: 1, done: false}
+    g.return(7) // {value: 7, done: true}
+    g.next(); //{value: undefined, done: true}
+
+
+</script>
+</body>
+</html>

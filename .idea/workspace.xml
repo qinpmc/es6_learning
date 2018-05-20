@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dfbce7f-22f2-44db-b26a-d330f483dad3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch16 Generator/generator8.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch16 Generator/README.md" afterPath="$PROJECT_DIR$/ch16 Generator/README.md" />
     </list>
@@ -27,31 +28,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="generator2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator2.html">
+      <file leaf-file-name="generator5.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.235294">
-              <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+            <state vertical-scroll-proportion="16.911764">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generator3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator3.html">
+      <file leaf-file-name="generator7.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator7.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.852942">
-              <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+            <state vertical-scroll-proportion="-29.411764">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generator4.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator4.html">
+      <file leaf-file-name="generator6.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator6.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2879747">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="31" />
+            <state vertical-scroll-proportion="-2.2058823">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="24" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -60,28 +61,48 @@
       <file leaf-file-name="generator1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch16 Generator/generator1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.294118">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.382353">
+              <caret line="17" column="65" selection-start-line="8" selection-start-column="7" selection-end-line="17" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Iterator1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch15 Iterator/Iterator1.html">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.235294">
-              <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state vertical-scroll-proportion="5.2906976">
+              <caret line="182" column="69" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iterator2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ch15 Iterator/iterator2.html">
+      <file leaf-file-name="generator8.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator8.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.294118">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="16" />
+            <state vertical-scroll-proportion="-5.882353">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="35" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generator2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.382353">
+              <caret line="44" column="66" selection-start-line="37" selection-start-column="8" selection-end-line="44" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generator3.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch16 Generator/generator3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.147058">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -92,6 +113,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -137,10 +159,15 @@
         <option value="$PROJECT_DIR$/ch15 Iterator/iterator6.html" />
         <option value="$PROJECT_DIR$/ch15 Iterator/README.md" />
         <option value="$PROJECT_DIR$/ch16 Generator/generator1.html" />
-        <option value="$PROJECT_DIR$/ch16 Generator/README.md" />
         <option value="$PROJECT_DIR$/ch16 Generator/generator2.html" />
         <option value="$PROJECT_DIR$/ch16 Generator/generator3.html" />
         <option value="$PROJECT_DIR$/ch16 Generator/generator4.html" />
+        <option value="$PROJECT_DIR$/ch16 Generator/generator5.css" />
+        <option value="$PROJECT_DIR$/ch16 Generator/generator5.html" />
+        <option value="$PROJECT_DIR$/ch16 Generator/generator7.html" />
+        <option value="$PROJECT_DIR$/ch16 Generator/generator6.html" />
+        <option value="$PROJECT_DIR$/ch16 Generator/generator8.html" />
+        <option value="$PROJECT_DIR$/ch16 Generator/README.md" />
       </list>
     </option>
   </component>
@@ -150,10 +177,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="429" />
-    <option name="y" value="97" />
-    <option name="width" value="1522" />
-    <option name="height" value="827" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -226,6 +253,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="H:\nodejs\node.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -299,10 +327,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="429" y="97" width="1522" height="827" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1679947" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -336,34 +364,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch10 Symbol/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch10 Symbol/Symbol5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch10 Symbol/Symbol4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch10 Symbol/Symbol3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch10 Symbol/Symbol1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -649,14 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch16 Generator/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.742857">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch15 Iterator/iterator2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.294118">
@@ -673,34 +665,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator1.html">
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.294118">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="-18.147058">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch16 Generator/generator2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.235294">
-          <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+        <state vertical-scroll-proportion="-10.382353">
+          <caret line="44" column="66" selection-start-line="37" selection-start-column="8" selection-end-line="44" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator3.html">
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.852942">
-          <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+        <state vertical-scroll-proportion="-10.382353">
+          <caret line="17" column="65" selection-start-line="8" selection-start-column="7" selection-end-line="17" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator7.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.411764">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ch16 Generator/generator4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2879747">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.37370244">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="18" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2058823">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.911764">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/generator8.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.882353">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch16 Generator/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.2906976">
+          <caret line="182" column="69" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
           <folding />
         </state>
       </provider>

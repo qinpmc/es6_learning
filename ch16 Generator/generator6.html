@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //throw方法被捕获以后，会附带执行下一条yield表达式。也就是说，会附带执行一次next方法。
+    function* gen(){
+        try{
+          yield console.log("a");
+        }catch(e){
+            console.log("****");
+        }
+        yield console.log("b");
+        yield console.log("c");
+    }
+
+    var g = gen();
+    console.log(g.next());   // a {value: undefined, done: false}
+    console.log(g.next());   // b {value: undefined, done: false},该句注释掉正常
+    console.log(g.throw()); // 报错 generator6.html:17 Uncaught undefined
+    console.log(g.next());  // c
+
+
+
+</script>
+</body>
+</html>
