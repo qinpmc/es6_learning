@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function readLineSync(file){
+        let fileDoc = new File(["First Line Text","Second Line Text"],file);
+        return {
+            [Symbol.iterator](){
+                return{
+                    next(){
+                        return {value:fileDoc,done:false};
+                    },
+                    return(){
+                        console.log("stop");
+                        return {done:true};
+                    }
+                }
+            }
+        }
+    }
+
+    let res1 = readLineSync("test1.txt");
+    for(let line of res1){
+        console.log(line);
+        break;
+    }
+
+</script>
+</body>
+</html>
