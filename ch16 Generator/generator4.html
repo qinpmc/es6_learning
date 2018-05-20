@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function* dataConsumer() {
+        console.log('Started');
+        console.log(`1. ${yield}`);
+        console.log(`2. ${yield}`);
+        return 'result';
+    }
+
+    let genObj = dataConsumer();
+    console.log(genObj.next()); //Started {value: undefined, done: false}
+    console.log(genObj.next("a")); // 1. a  {value: undefined, done: false}
+    console.log(genObj.next("b")); // 2. b {value: "result", done: true}
+
+</script>
+</body>
+</html>

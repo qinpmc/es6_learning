@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var arr = [1, [[2, 3], 4], [5, 6]];
+        var gen1 = function* (arr){
+            for(let i = 0;i<arr.length;i++){
+                if(typeof  arr[i] !== "number"){
+                    yield* gen1(arr[i]);
+                }else{
+                    yield arr[i];
+                }
+            }
+        }
+
+        //yield表达式只能用在 Generator 函数里面，用在其他地方都会报错。
+        // 下例中在foreach中使用了 yield
+/*        var gen1 = function* (arr) {
+            arr.forEach(function (item) {
+                if (typeof item !== 'number') {
+                    yield* gen1(item);
+                } else {
+                    yield item;
+                }
+            });
+        };*/
+
+        for(let item of gen1(arr)){
+            console.log(item); //// 1, 2, 3, 4, 5, 6
+        }
+
+
+/*        //yield表达式如果用在另一个表达式之中，必须放在圆括号里面。
+        function* demo() {
+            console.log('Hello' + (yield)); // OK
+            console.log('Hello' + (yield 123)); // OK
+        }
+        let res1 = demo();
+        console.log(res1.next()); //{value: undefined, done: false}
+        console.log(res1.next()); //{value: 123, done: false}
+        console.log(res1.next()); //{value: undefined, done: true}*/
+    </script>
+</body>
+</html>
