@@ -23,15 +23,7 @@
     //printName方法中的this，默认指向Logger类的实例。
     // 但是，如果将这个方法提取出来单独使用，this会指向该方法运行时所在的环境，因为找不到print方法而导致报错
 
-    function foo() {
-        setTimeout(function(){
-            console.log('id:', this.id);
-    }, 100);
-    }
 
-    var id = 21;
-
-    foo.call({ id: 42 });
 
 </script>
 </body>
