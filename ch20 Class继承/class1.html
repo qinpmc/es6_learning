@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class Point{
+
+        }
+
+        class ColorPoint extends Point{
+            constructor(){
+                super();
+                console.log(this === ColorPoint);
+                console.log(this === Point);
+            }
+        }
+
+        let cp1 = new ColorPoint(); //false false
+        console.log(cp1 instanceof ColorPoint);// true
+        console.log(cp1 instanceof Point); // true
+
+    </script>
+</body>
+</html>

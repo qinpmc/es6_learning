@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class A{
+            constructor(){
+                this.x = 1;
+            }
+            p(){
+                return 20;
+            }
+        }
+        class B extends A{
+            constructor(){
+                super(); //super作为函数使用,里面的this指向子类实例对象
+                console.log(super.x); // undefined   super作为对象使用，在普通方法中，指向原型对象(原型上没x)
+                console.log(super.p()); //20   super作为对象使用，在普通方法中，指向原型对象(原型上有p方法)
+                                        // super.p方法中this 指向的仍然是子类实例
+            }
+        }
+        let b = new B();
+
+
+    </script>
+</body>
+</html>

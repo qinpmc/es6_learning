@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class A{
+            constructor(){
+                console.log(new.target.name);
+            }
+        }
+        class B extends A{
+            constructor(){
+                super();
+                 
+            }
+        }
+        let a = new A(); //A
+        let b = new B(); ///B super指向的是子类 的构造函数
+
+
+    </script>
+</body>
+</html>

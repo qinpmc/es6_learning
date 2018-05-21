@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class A{
+            constructor(){
+                this.x = 1;
+            }
+        }
+        class B extends A{
+            constructor(){
+                super();
+                this.x = 2;
+                super.x = 3; // 此处等同于 this.x
+                //console.log(super === this); //用super的时候，必须显式指定是作为函数、还是作为对象使用，否则会报错。
+                console.log(super.x); // undefined 读的是A.prototype.x，所以返回undefined
+                console.log(this.x);  // 3
+            }
+        }
+        let b = new B();
+
+
+    </script>
+</body>
+</html>

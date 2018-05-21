@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    //super作为对象，用在静态方法之中，这时super将指向父类，而不是父类的原型对象
+        class A{
+            static myMethod(msg){
+                console.log("static :",msg);
+            }
+            myMethod(msg){
+                console.log("instance :",msg);
+            }
+        }
+        class B extends A{
+            static myMethod(msg){
+                super.myMethod(msg); 
+            }
+            myMethod(msg){
+                 super.myMethod(msg);
+            }
+
+        }
+        let b = new B();
+        b.myMethod(-1); //instance : -1 ,普通方法中，指向父类的原型对象
+
+        B.myMethod(99); //static : 99   静态方法中，指向父类
+
+    </script>
+</body>
+</html>
