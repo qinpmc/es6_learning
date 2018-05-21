@@ -54,3 +54,35 @@ b.myMethod(-1); //instance : -1 ,普通方法中，指向父类的原型对象
 
 B.myMethod(99); //static : 99   静态方法中，指向父类
 ```
+
+```
+//子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例
+class A{
+    constructor(){
+        this.x = 1;
+    }
+    static print(){
+        console.log(this.x);
+    }
+}
+class B extends A{
+    constructor(){
+        super();
+        this.x = 2;
+    }
+    static m(){
+        super.print();
+    }
+
+}
+let b = new B();
+B.m(); //undefind ,注意 不是2 ，也不是1，
+B.x = 99;
+B.m(); //99
+```
+
+## 类的 prototype 属性和__proto__属性 
+1. 子类的__proto__属性，表示构造函数的继承，总是指向父类。
+2. 子类prototype属性的__proto__属性，表示方法的继承，
+   总是指向父类的prototype属性
+
