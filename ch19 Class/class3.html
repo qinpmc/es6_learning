@@ -7,6 +7,7 @@
 <body>
 <script>
     // class 表达式
+    //这个类的名字是MyClass而不是Me，Me只在 Class 的内部代码可用，指代当前类。
     const Myclass = class Me{
         getClassName(){
             return Me.name;
@@ -14,8 +15,8 @@
     }
     let mc1 = new Myclass();
     console.log(mc1.getClassName()); //Me  
-
-
+	console.log(Me); // Me is not defined  Me只在 Class 的内部代码可用
+  
 </script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+<script>
+    // Class 的取值函数（getter）和存值函数（setter）
+
+    let obj1 ={
+    	get prop(){
+    		return "getter";
+    	},
+    	set prop(value){
+    		console.log("setter: "+value);
+    	}
+    }
+
+    "prop" in obj1; //true
+    "get" in obj1; //false
+    "set" in obj1; //false
+
+    class Myclass{
+    	constructor(ele){
+    		this.ele = ele;
+    	}
+    	get html(){
+    		return this.ele.innerHTML;
+    	}
+    	set html(value){
+    		this.ele.innerHTML = value;
+    	}
+    }
+    let myClass1 = new Myclass(document.getElementsByTagName("body")[0]);
+
+    "html" in myClass1 ;// true
+    "get" in myClass1  ;// false
+
+    let des = Object.getOwnPropertyDescriptor(Myclass.prototype,"html");
+    "get" in des; //true
+
+ 
+</script>
+</body>
+</html>

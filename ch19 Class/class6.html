@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+<script>
+    //new.target
+    class MyClass{
+    	constructor(){
+    		console.log(new.target === this);  
+    		console.log(new.target === MyClass);   
+    	}
+    }
+
+    let mc1 = new MyClass(); // false true
+
+    class ChildClass extends MyClass{
+/*    	constructor(){
+    		super();
+    	}*/
+    }
+
+    let cmc1 = new ChildClass();  //false false
+
+
+</script>
+</body>
+</html>
