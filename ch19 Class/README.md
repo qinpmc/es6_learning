@@ -23,3 +23,6 @@ let p1= new Point(2,3);
 console.log(p1.hasOwnProperty("x")); //true
 console.log(p1.hasOwnProperty("toString")); //false
 ```
+## class 表达式
+
+

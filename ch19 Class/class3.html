@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+<script>
+    // class 表达式
+    const Myclass = class Me{
+        getClassName(){
+            return Me.name;
+        }
+    }
+    let mc1 = new Myclass();
+    console.log(mc1.getClassName()); //Me  
+
+
+</script>
+</body>
+</html>
