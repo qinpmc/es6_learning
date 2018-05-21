@@ -127,7 +127,39 @@ class ChildClass extends MyClass{
 
 let cmc1 = new ChildClass();  //false false
 ```
+##  extends 的继承目标
+```
+class A {
+}
 
+class B extends A {
+}
+
+console.log(B.__proto__ === A); // true
+console.log(B.prototype.__proto__ === A.prototype); // true
+let b = new B();
+
+
+class Point{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+    class ColorPoint extends Point{
+        constructor(x,y,color){
+            super(x,y);
+            this.color = color;
+        }
+    }
+    let p1 = new Point(2,3);
+    let cp1 = new ColorPoint(4,5,"red");
+    p1.__proto__ === Point.prototype; //true
+    p2.__proto__.__proto__ === p1.__proto__ ;// true
+    Point.__proto__ === Function.prototype;// true
+    Point.prototype.__proto__ ===Object.prototype;// true
+
+```
 
 
 

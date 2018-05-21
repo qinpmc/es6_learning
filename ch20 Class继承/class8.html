@@ -20,7 +20,10 @@
     }
     let p1 = new Point(2,3);
     let cp1 = new ColorPoint(4,5,"red");
-
+    p1.__proto__ === Point.prototype; //true
+    p2.__proto__.__proto__ === p1.__proto__ ;// true
+    Point.__proto__ === Function.prototype;// true
+    Point.prototype.__proto__ ===Object.prototype;// true
 </script>
 </body>
 </html>
