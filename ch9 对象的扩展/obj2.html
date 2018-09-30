@@ -7,6 +7,10 @@
 	<div id="div1" style="background:yellow"></div>
 	<body>
 		<script type="text/javascript">
+
+		/*对象的方法使用了取值函数（getter）和存值函数（setter），则name属性不是在该方法上面，
+		而是该方法的属性的描述对象的get和set属性上面，返回值是方法名前加上get和set。*/
+
 		const cart = {
 			_wheels:4,
 			get wheels(){
@@ -20,8 +24,17 @@
 			}
 
 		}
- 
+ 		var des = Object.getOwnPropertyDescriptor(cart,"wheels");
+		console.dir(des);
+/*		configurable: true
+		enumerable: true
+		get: ƒ wheels()
+		set: ƒ wheels(value)
+		__proto__: Object*/
 
+		console.log(des.get.name);//get wheels
+		console.log(des.set.name);//set wheels
+		console.log(obj.foo.name); // Uncaught ReferenceError: obj is not defined
 	</script>
 	</body>
 	</html>
