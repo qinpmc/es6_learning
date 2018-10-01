@@ -16,9 +16,10 @@
 * Number.isSafeInteger() 一个整数是否安全
 
 ### Math 对象的扩展
-* Math.trunc() 去除一个数的小数部分，返回整数部分
-  - 非数值，Math.trunc内部使用Number方法将其先转为数值。
-  - 对于空值和无法截取整数的值，返回NaN
+* Math.trunc() 去除一个数的小数部分，返回整数部分  
+  - 非数值，Math.trunc内部使用Number方法将其先转为数值。   
+  - 对于空值和无法截取整数的值，返回NaN  
+  
 ```
 Math.trunc(4.1) // 4
 Math.trunc(4.9) // 4

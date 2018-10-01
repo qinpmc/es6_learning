@@ -13,12 +13,12 @@
 		onScale:"home"
 	}
 	let oDiv  =document.getElementById("div1");
-    oDiv.innerHTML= `There are <b> ${basket.count}</b> items in your ${basket.onScale} !` ;
+    oDiv.innerHTML= `There are <b> ${basket.count}</b> items in your ${basket.onScale} !` ; //There are 1 items in your home !
 
     let x = 1;
 	let y = 2;
-	`${x} + ${y} = ${x + y}`  ;// "1 + 2 = 3"
-
+	var res1 = `${x} + ${y} = ${x + y}`  ;// "1 + 2 = 3"
+	console.log(res1);// "1 + 2 = 3"
 
 	// 变量place没有声明, 模板字符串中的变量没有声明，将报错
 	//let msg = `Hello, ${place}`; // 报错

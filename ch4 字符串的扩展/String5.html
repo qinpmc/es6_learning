@@ -7,41 +7,30 @@
 <div id="div"></div>  
 <body>
 	<script type="text/javascript">
-		let template = `  
-		<ul>  
-			<% for(let i=0; i < data.supplies.length; i++) { %>  
-				<li><%= data.supplies[i] %></li>  
-			<% } %>  
-		</ul>  
-			`;  
-		function compile(template){  
-			const evalExpr = /<%=(.+?)%>/g;  
-			const expr = /<%([\s\S]+?)%>/g;  
+		const data = [
+			{ first: '<Jane>', last: 'Bond' },
+			{ first: 'Lars', last: '<Croft>' },
+		];
 
-			template = template  
-			.replace(evalExpr, '`); \n  echo( $1 ); \n  echo(`')  
-			.replace(expr, '`); \n $1 \n  echo(`');  
+		const tmpl = addrs => `
+			<table>
+				${addrs.map(addr => `
+					<tr><td>${addr.first}</td></tr>
+					<tr><td>${addr.last}</td></tr>
+				`).join("")}
+			</table>
+		`
+		console.log(tmpl(data));
 
-			template = 'echo(`' + template + '`);';  
+/*		<table>
 
-			let script =  
-			`(function parse(data){  
-				let output = "";  
+		<tr><td><Jane></td></tr>
+		<tr><td>Bond</td></tr>
 
-				function echo(html){  
-					output += html;  
-				}  
+		<tr><td>Lars</td></tr>
+		<tr><td><Croft></td></tr>
 
-				${ template }  
-
-				return output;  
-			})`;  
-
-			return script;  
-		}  
-		let parse = eval(compile(template));  
-		document.getElementById('div').innerHTML = parse({ supplies: [ "broom", "mop", "cleaner" ]});
-		
-		</script>
+		</table>*/
+	</script>
 	</body>
 	</html>

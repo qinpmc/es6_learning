@@ -3,6 +3,7 @@
 ## 属性的简洁表示
 * ES6 允许直接写入变量和函数，作为对象的属性和方法
 * ES6 允许在对象之中，直接写变量。这时，属性名为变量名, 属性值为变量的值
+
 ```
 let birthday = "2018-09-09"; // obj1 使用了该属性，因此应该在obj1前声明
 let obj1 = {
@@ -17,6 +18,7 @@ let obj1 = {
 
 ## 属性名表达式
 * ES6 允许字面量定义对象时，用 表达式作为对象的属性名，即把表达式放在方括号内。
+
 ```
 let propkey = "koo";
 let obj1 = {
@@ -29,6 +31,7 @@ let obj1 = {
 
 ## Object.is
 * 用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致
+
 ```
 //Object.is 与 === 区别
 +0 === -0 //true
@@ -48,6 +51,7 @@ Object.is(NaN, NaN) // true
    （不拷贝继承属性 ），也不拷贝不可枚举的属性（enumerable: false）
    5. Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用
    6.  Object.assign可以用来处理数组，但是会把数组视为对象。
+   
 ```
 const v1 = 'abc';
 const v2 = true;
@@ -70,6 +74,7 @@ Object.assign(obj,Object.defineProperty({},"invisible",{
 console.log(obj);
 ```
 * Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制
+
 ```
 const source = {
   get foo() { return 1 },
