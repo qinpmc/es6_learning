@@ -18,14 +18,19 @@
 		f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
 		*/
 
-		let x = 1;
-
+/*		let x = 1;
 		function f(y = x) {  //括号里的x指向外部 x ,x=1
 			let x = 2;
 			console.log(y);
 		}
+		f() ;// 1*/
 
-		f() ;// 1
+
+		var x = 1;
+		function f(x, y = x) {  //默认值变量x指向第一个参数x，而不是全局变量x
+			console.log(y);
+		}
+		f(2) // 2
 	</script>
 	</body>
 	</html>

@@ -35,7 +35,7 @@ function foo(x, x, y = 1) {
 ## 3 与解构赋值默认值值结合使用
 
 ```
-function foo({x, y = 5}) {
+function foo({x, y = 5}) {   //只使用了对象的解构赋值默认值，没有使用函数参数的默认值。
   console.log(x, y);
 }
 
@@ -43,7 +43,7 @@ foo({}) // undefined 5
 foo({x: 1}) // 1 5
 foo({x: 1, y: 2}) // 1 2
 foo() // TypeError: Cannot read property 'x' of undefined
-//只使用了对象的解构赋值默认值，没有使用函数参数的默认值。
+//
 //只有当函数foo的参数是一个对象时，变量x和y才会通过解构赋值生成。
 //如果函数foo调用时没提供参数，变量x和y就不会生成，从而报错
 
@@ -77,23 +77,39 @@ f(undefined, 1) // [1, 1]
 
 ```
 /*
-    function f(x,y){
-      let x = 2;
-      y = x;
-      console.log(y);
-    }
+		/*
+		function f(x,y){
+			let x = 2;
+			y = x;
+			console.log(y);
+		}
 
-    f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
-    */
+		f(); //  Uncaught SyntaxError: Identifier 'x' has already been declared
+		*/
 
-    let x = 1;
+/*		let x = 1;
+		function f(y = x) {  //括号里的x指向外部 x ,x=1
+			let x = 2;
+			console.log(y);
+		}
+		f() ;// 1*/
 
-    function f(y = x) {  //括号里的x指向外部 x ,x=1
-      let x = 2;
-      console.log(y);
-    }
-
-    f() ;// 1
+		
+		var x = 1;
+		function f(x, y = x) {  //默认值变量x指向第一个参数x，而不是全局变量x
+			console.log(y);
+		}
+		f(2) // 2
+		
+		
+		let foo = 'outer';
+        
+        function bar(func = () => foo) { //foo 指向外层 foo
+          let foo = 'inner';
+          console.log(func());
+        }
+        
+        bar(); // outer
 ```
 
 ```
@@ -172,6 +188,7 @@ f(undefined, 1) // [1, 1]
 ## 7 箭头函数  
 
 * 箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分
+* 只有一个参数，可以省略（），如果只有一行return 语句，可以省略{}
 
 ```
 var f = () => 5;
