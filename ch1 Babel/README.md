@@ -1,12 +1,12 @@
 
-## ES6 ×ª»»
-* Window7»·¾³£¬32Î»  
-* °²×°babel  
-npm install babel-cli -g (È«¾Ö°²×°babel-cli);  
-npm install babel-cli babel-preset-es2015 --save-dev(±¾µØ°²×°);
-
-Èç¹ûÏîÄ¿ÏÂÃ»ÓĞ.babelrcÎÄ¼ş£¬×Ô¼º´´½¨Ò»¸ö.babelrcÎÄ¼ş£¬£¨windowsÏÂÏÈ´´½¨Ò»¸ötxtÎÄ¼ş£¬È»ºó½«ÆäĞŞ¸ÄÎª.babelrc.ÎÄ¼ş£©
-ÆäÖĞ.babelrcÎÄ¼şÄÚÈİÎª:
+## ES6 è½¬æ¢
+* Window7ç¯å¢ƒï¼Œ32ä½
+* å®‰è£…babel
+npm install babel-cli -g (å…¨å±€å®‰è£…babel-cli);
+npm
+install babel-cli babel-preset-es2015 --save-dev(æœ¬åœ°å®‰è£…);
+å¦‚æœé¡¹ç›®ä¸‹æ²¡æœ‰.babelrcæ–‡ä»¶ï¼Œè‡ªå·±åˆ›å»ºä¸€ä¸ª.babelrcæ–‡ä»¶ï¼Œï¼ˆwindowsä¸‹å…ˆåˆ›å»ºä¸€ä¸ªtxtæ–‡ä»¶ï¼Œç„¶åå°†å…¶ä¿®æ”¹ä¸º.babelrc.æ–‡ä»¶ï¼‰
+å…¶ä¸­.babelrcæ–‡ä»¶å†…å®¹ä¸º:
 ```
 {
     "presets": [
@@ -16,16 +16,16 @@ npm install babel-cli babel-preset-es2015 --save-dev(±¾µØ°²×°);
 
     ]
 }
-```  
-* ²âÊÔES6±àÒëÎªES5    
-1. ×¼±¸²âÊÔÎÄ¼şbableTest1.js£º
+```
+* æµ‹è¯•ES6ç¼–è¯‘ä¸ºES5
+1. å‡†å¤‡æµ‹è¯•æ–‡ä»¶bableTest1.jsï¼š
 ```
 	let fun = () => console.log('babel')
 ```
 
-2. cmdÖĞÊäÈëÃüÁî£ºbabel bableTest1.js -o babled1.js
+2. cmdä¸­è¾“å…¥å‘½ä»¤ï¼šbabel bableTest1.js -o babled1.js
 
-3. ×ªÒëµÄÎÄ¼şbabled1.js
+3. è½¬è¯‘çš„æ–‡ä»¶babled1.js
 ```
 	'use strict';
 
@@ -38,3 +38,4 @@ npm install babel-cli babel-preset-es2015 --save-dev(±¾µØ°²×°);
 
 
 
+":" + NNNNNNNNNMBN 
