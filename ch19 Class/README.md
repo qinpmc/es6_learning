@@ -8,6 +8,7 @@
 4. 一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
 5. 类 __必须使用new调用__，否则会报错
 6. __不存在变量提升__.
+
 ```
 class Point{
     constructor(x,y){
@@ -26,6 +27,7 @@ console.log(p1.hasOwnProperty("toString")); //false
 
 ## class 表达式
 1. class 表达式名称只在 Class 的内部代码可用
+
 ```
 //这个类的名字是MyClass而不是Me，Me只在 Class 的内部代码可用，指代当前类。
     const Myclass = class Me{
@@ -40,6 +42,7 @@ console.log(p1.hasOwnProperty("toString")); //false
 
 ##  Class 的取值函数（getter）和存值函数（setter）
 1. 存值函数和取值函数是设置在属性的 Descriptor 对象上的,与ES5一致。
+
 ```
 let obj1 ={
     get prop(){
@@ -75,9 +78,10 @@ let des = Object.getOwnPropertyDescriptor(Myclass.prototype,"html");
 ```
 
 ## 静态方式
-1. 类的方法前，加上static关键字，表示该方法不会被实例继承，而是直接通过类来调用
-2. 静态方法包含this关键字，这个this指的是类，而不是实例。
-3. 父类的静态方法，可以被子类继承。
+1. 类的方法前，加上static关键字，表示该方法不会被实例继承，而是直接通过类来调用(通过实例调用会报错)
+2.  **静态方法中的this指的是类**，而不是实例。
+3. 父类的静态方法，可以被子类继承（子类也通过类名调用）。
+
 ```
   class Foo {
     static classMethod() {
@@ -106,9 +110,10 @@ Foo.stMethod();// static bar
 ```
 
 ## new.target
-1. 该属性一般用在构造函数之中，返回new命令作用于的那个构造函数。
+1. 该属性一般用在构造函数之中，返回new命令作用于的那个构造函数（Class 内部调用new.target，返回当前 Class。）。
 如果构造函数不是通过new命令调用的，new.target会返回undefined，
 2. 子类继承父类时，new.target会返回子类
+
 ```
 class MyClass{
     constructor(){
@@ -128,6 +133,8 @@ class ChildClass extends MyClass{
 let cmc1 = new ChildClass();  //false false
 ```
 ##  extends 的继承目标
+* Class 可以通过extends关键字实现继承
+
 ```
 class A {
 }
@@ -161,5 +168,41 @@ class Point{
 
 ```
 
+## super
 
+* 子类必须在constructor方法中调用super方法，否则新建实例时会报错
+  （1.可以不显示的写构造，此时不用调super-----实际默认调用了super
+    2.构造函数中返回对象
+  ）.
+* 在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例
+(ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。
+ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this)
 
+* 只可在派生类的构造函数中使用super()，在非派生类（不使用extends声明的类）或函数中使用会抛出错误；
+*  super虽然代表了父类A的构造函数，但是返回的是子类B的实例
+```
+    class MyClass{
+        constructor(){
+            console.log("MyClass");
+        }
+    }
+
+    class ChildClass extends MyClass{
+    /*
+        // 第一种：该部分可省略 或加上该部分
+    constructor(){
+         super();
+         }*/
+
+    // 第二种：构造函数中返回对象可省略super
+        constructor(){
+            return {
+                name:"ChildClass"
+            }
+        }
+
+    }
+    let cmc1 = new ChildClass();  //
+    console.log(cmc1);  //{name: "ChildClass"}
+
+```

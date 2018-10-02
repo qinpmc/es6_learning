@@ -19,7 +19,7 @@
 
     const logger = new Logger();
     const { printName } = logger;
-    //printName(); // TypeError: Cannot read property 'print' of undefined
+    printName(); // TypeError: Cannot read property 'print' of undefined
     //printName方法中的this，默认指向Logger类的实例。
     // 但是，如果将这个方法提取出来单独使用，this会指向该方法运行时所在的环境，因为找不到print方法而导致报错
 
