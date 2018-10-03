@@ -34,10 +34,18 @@
     }
     let myClass1 = new Myclass(document.getElementsByTagName("body")[0]);
 
+/*	//myClass1
+    Myclass:{
+		ele: body.md.inited
+		html: (...)
+	}*/
+
+
     "html" in myClass1 ;// true
     "get" in myClass1  ;// false
 
-    let des = Object.getOwnPropertyDescriptor(Myclass.prototype,"html");
+    let des = Object.getOwnPropertyDescriptor(Myclass.prototype,"html"); //{get: ƒ, set: ƒ, enumerable: false, configurable: true}
+
     "get" in des; //true
 
  

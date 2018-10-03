@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>class</title>
+    </head>
+    <body>
+    <script>
+
+    class MyClass{
+        constructor(){
+            console.log("MyClass");
+        }
+    }
+
+
+    class ChildClass extends MyClass{
+    /*
+        // 第一种：该部分可省略 或加上该部分
+    constructor(){
+         super();
+         }*/
+
+
+    // 第二种：构造函数中返回对象可省略super
+        constructor(){
+            return {
+                name:"ChildClass"
+            }
+        }
+
+    }
+
+    let cmc1 = new ChildClass();  //
+    console.log(cmc1);  //{name: "ChildClass"}
+</script>
+</body>
+</html>
