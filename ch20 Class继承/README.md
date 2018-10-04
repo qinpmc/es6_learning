@@ -4,15 +4,31 @@
 super这个关键字，既可以当作 __函数__使用，也可以当作 __对象__使用
 
 ### super作为函数使用
-1. 子类必须在constructor方法中调用super方法，否则新建实例时会报错
-2. 在子类的constructor中，只有调用super之后，才可以使用this关键字，
+1. 子类必须在constructor方法中调用super()方法(代表调用父类的构造函数)，否则新建实例时会报错
+2. 在子类的constructor中，只有调用super()之后，才可以使用this关键字，
    否则会报错（super 出现在首行）
 3. super在子类构造函数中使用时，super内部的this指向 __子类实例对象__
 
+```
+class A {
+  constructor() {
+    console.log(this);
+  }
+}
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+new A() // A {}
+new B() // B {}
+```
+ 
 ### super作为对象使用
-1. 在 __普通方法__ 中，指向 __父类的原型对象__；
+1. 在 __普通方法__ 中，指向 __父类的原型对象__(定义在父类实例上的方法或属性，是无法通过super调用的)；
 2. 在 __静态方法__中，指向 __父类__。
 3. 子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。
+
 ```
 class A{
     constructor(){
