@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 
+<script>
+	let total = 30;
+	let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+	function passthru(literals) {
+	  let result = '';
+	  let i = 0;
+
+	  while (i < literals.length) {  // literals:["The total is ", " (", " with tax)"]
+		result += literals[i++];  
+		if (i < arguments.length) { // arguments:["The total is ", " (", " with tax)"], 30, 31.5]
+		  result += arguments[i];
+		}
+	  }
+
+	  return result;
+	} 
+	
+	msg;
+</script>
+</body>
+</html>

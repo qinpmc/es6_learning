@@ -41,6 +41,9 @@
 * repeat
 * padStart()
 * padEnd()
+* String.raw 
+
+
 
 ```
 	// 新增的方法
@@ -68,5 +71,58 @@
 
 	'x'.padEnd(5, 'ab') // 'xabab'
 	'x'.padEnd(4, 'ab') // 'xaba'
+```
+
+String.raw   
+往往用来充当模板字符串的处理函数,返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串,对应于替换变量后的模板字符串      
+String.raw方法也可以作为正常的函数使用。这时，它的第一个参数，应该是一个具有raw属性的对象，且raw属性的值应该是一个数组。   
+
+
+```
+String.raw`Hi\n${2+3}!`;
+// 返回 "Hi\\n5!"
+
+String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
+// 't0e1s2t'
+
+
+```
+
+
+### 模板字符串 
+ 
+- 模板字符串（template string）是增强版的字符串，用反引号（`）标识
+- 如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。
+- 模板字符串的空格和换行，都是被保留的
+- 模板字符串的大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。
+- 模板字符串之中还能调用函数（`foo ${fn()} bar`）
+- 模板字符串甚至还能嵌套
+
+```
+const tmpl = addrs => `
+  <table>
+  ${addrs.map(addr => `
+    <tr><td>${addr.first}</td></tr>
+    <tr><td>${addr.last}</td></tr>
+  `).join('')}
+  </table>
+`;
+
+const data = [
+    { first: '<Jane>', last: 'Bond' },
+    { first: 'Lars', last: '<Croft>' },
+];
+
+console.log(tmpl(data));
+// <table>
+//
+//   <tr><td><Jane></td></tr>
+//   <tr><td>Bond</td></tr>
+//
+//   <tr><td>Lars</td></tr>
+//   <tr><td><Croft></td></tr>
+//
+// </table>
+
 ```
 
