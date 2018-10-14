@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //箭头函数本身所在的对象为obj，而obj的父执行上下文就是window，
+    //因此这里的this.x实际上表示的是window
+
+    var prop = 'global';
+    var obj = {
+            prop: 'obj',
+            showName: () => {
+                console.log(this.prop);
+        }
+    };
+    obj.showName();// 'global'
+
+   var obj2 = {
+           prop: 'obj2',
+           showName:  function(){
+               return () => {
+                   console.log(this.prop);
+            }
+        }
+   }
+   obj2.showName()();// 'obj2'
+
+
+    var c = {
+                a: a,
+                prop: "a"
+            }
+    function a(){
+        console.log(this, '是a的this');
+        var b = ()=>console.log(this); //{a: ƒ, prop: "a"}---c
+        var d = {};
+        d.b = b;
+        d.b();  //{a: ƒ, prop: "a"}  --- 这里也是c
+    }
+    c.a(); // {a: ƒ, prop: "a"}---c
+
+
+
+
+    var obj3 = {
+        id: 333,
+        test: function(){
+            (()=>{
+                console.log(this)
+            })()
+        }
+    };
+
+    var obj4 = {
+        id: 444,
+    };
+    obj3.test.apply(obj4); // obj4
+
+</script>
+</body>
+</html>

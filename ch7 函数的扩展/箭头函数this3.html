@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj={
+        num:3,
+        fn:function(){
+            setTimeout(function(){
+                console.log(this.num);
+            });
+        }
+    }
+    obj.fn();//undefined
+    //............................................................
+    var obj1={
+        num:4,
+        fn:function(){
+            setTimeout(() => {
+                console.log(this.num);
+        });
+        }
+    }
+    obj1.fn();//4
+</script>
+</body>
+</html>

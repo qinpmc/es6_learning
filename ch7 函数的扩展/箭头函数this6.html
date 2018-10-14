@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var res1 = (function() {
+        return (() => console.log(this.x)).bind({ x: 'inner' })()  // outer
+
+    }).call({ x: 'outer' });
+
+
+
+/////////////////////////////
+    function foo() {
+        //返回箭头函数
+        return(a) => {
+            //this 继承自foo()
+            console.log(this.a);
+        };
+    }
+    var obj1 = {
+        a:2
+    };
+    var obj2 ={
+        a:3
+    };
+    var bar = foo.call(obj1);
+    bar.call(obj2); //是2， 不是3！！！
+
+</script>
+</body>
+</html>

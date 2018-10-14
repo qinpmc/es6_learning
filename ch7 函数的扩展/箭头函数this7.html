@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    var obj1={
+        num:11,
+        fn:function(){
+            var innerObj = {
+                inner:-99
+            }
+            var f=function(){
+                console.log(this); //innerObj,因为函数f定义后并没有对象调用，this直接绑定到最外层的innerObj对象
+                setTimeout(() => {
+                    console.log(this);//innerObj，外层this绑定到了innerObj,内层也相当于定义在innerObj层
+            });
+            }
+            f.apply(innerObj);
+        }
+    }
+    obj1.fn();
+
+    var a=11;
+    function test1(){
+        this.a=22;
+        let b=function(){
+            console.log(this.a);
+        };
+        b();
+    }
+    var x=new test1(); //输出11
+
+    var a2=22;
+    function test22(){
+        this.a2=22;
+        let b=()=>{console.log(this.a2)}
+        b();
+    }
+    var x2=new test22();//输出22
+
+
+
+</script>
+</body>
+</html>
