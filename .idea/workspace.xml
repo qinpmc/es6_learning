@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66b728b3-46a2-4636-a416-d4a4299ad234" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this6.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this7.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch11 Set和Map/README.md" afterPath="$PROJECT_DIR$/ch11 Set和Map/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7 函数的扩展/README.md" afterPath="$PROJECT_DIR$/ch7 函数的扩展/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch8 数组的扩展/README.md" afterPath="$PROJECT_DIR$/ch8 数组的扩展/README.md" />
     </list>
     <ignored path="es6_learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +29,8 @@
         <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="-0.5363528">
-                <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="1" />
+              <first_editor vertical-scroll-proportion="-0.71513706">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -73,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="箭头函数this7.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="箭头函数this7.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this7.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17921147">
+            <state vertical-scroll-proportion="-4.4117646">
               <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
               <folding />
             </state>
@@ -89,6 +84,32 @@
             <state vertical-scroll-proportion="-41.52941">
               <caret line="60" column="3" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch8 数组的扩展/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.8045292">
+                <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ch11 Set和Map/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="6.0223265">
+                <caret line="205" column="2" selection-start-line="205" selection-start-column="2" selection-end-line="205" selection-end-column="2" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -113,9 +134,11 @@
       <list>
         <option value="$PROJECT_DIR$/ch22 Module/README.md" />
         <option value="$PROJECT_DIR$/ch7 函数的扩展/function2.html" />
-        <option value="$PROJECT_DIR$/ch7 函数的扩展/README.md" />
         <option value="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this5.html" />
         <option value="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this6.html" />
+        <option value="$PROJECT_DIR$/ch7 函数的扩展/README.md" />
+        <option value="$PROJECT_DIR$/ch8 数组的扩展/README.md" />
+        <option value="$PROJECT_DIR$/ch11 Set和Map/README.md" />
       </list>
     </option>
   </component>
@@ -125,10 +148,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="2" />
-    <option name="width" value="1934" />
-    <option name="height" value="1036" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -187,20 +210,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es6_learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ch7 函数的扩展" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -231,10 +240,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="2" width="1934" height="1036" extended-state="0" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25052193" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -361,11 +370,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.529411">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this7.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4117646">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="-0.5363528">
-            <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="1" />
+          <first_editor vertical-scroll-proportion="-0.71513706">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
@@ -396,14 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this6.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.529411">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this5.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-41.52941">
@@ -412,11 +429,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/箭头函数this7.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17921147">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/ch8 数组的扩展/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.8045292">
+            <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch11 Set和Map/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="6.0223265">
+            <caret line="205" column="2" selection-start-line="205" selection-start-column="2" selection-end-line="205" selection-end-column="2" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

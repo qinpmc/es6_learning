@@ -62,10 +62,20 @@ console.log(set1); //Set(2) {2, 4}
 ```
 
 ## WeakSet
-* WeakSet 的成员只能是对象，而不能是其他类型的值
+* WeakSet 的 __成员只能是对象__，而不能是其他类型的值
 * WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就
   是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的
   内存，不考虑该对象还存在于 WeakSet 之中
+
+* WeakSet 没有size属性
+* WeakSet 不能遍历(因为成员都是弱引用，随时可能消失，遍历机制无法保证成员的存在，很可能刚刚遍历结束，成员就取不到了)
+
+- 方法：
+-WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员。
+-WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员。
+-WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中
+
+
 ```
         //数组的成员成为 WeakSet 的成员，而不是数组本身
         //let weakSet1 = new WeakSet([1,2]); //Invalid value used in weak set
@@ -98,6 +108,10 @@ console.log(set1); //Set(2) {2, 4}
 
 Map数据结构是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
 ### Map 的基本概念
+
+- 作为构造函数，Map 也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。
+- Set和Map也都可以用来生成新的 Map
+
 ```
 // Map 的基本概念
 let map1 = new Map();
@@ -115,6 +129,8 @@ console.log(map2.get("title"));  //author
 ```
 
 ### Map 的键的问题
+
+
 ```
 // Map 的键的问题
 
@@ -170,9 +186,10 @@ strMapToObj(myMap); //{yes: true, no: false}
 
 ## WeakMap
 
-* WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
+* WeakMap只接受 __对象作为键名（null除外）__，不接受其他类型的值作为键名。
 * WeakMap 的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内
 * WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+
 ```
         //WeakMap 弱引用的只是键名，而不是键值
         let wm = new WeakMap();
@@ -183,3 +200,7 @@ strMapToObj(myMap); //{yes: true, no: false}
         value = null ;
         console.log(wm.get(key)); // {foo:1}
 ```
+
+### WeakMap注意点
+- 没有遍历操作（即没有keys()、values()和entries()方法），也没有size属性。因为没有办法列出所有键名，某个键名是否存在完全不可预测，跟垃圾回收机制是否运行相关。
+- 无法清空，即不支持clear方法。因此，WeakMap只有四个方法可用：get()、set()、has()、delete()。
