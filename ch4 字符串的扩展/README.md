@@ -126,3 +126,27 @@ console.log(tmpl(data));
 
 ```
 
+
+## 标签模板
+
+```
+let a = 5;
+let b = 10;
+
+function tag(s, v1, v2) {
+  console.log(s[0]);
+  console.log(s[1]);
+  console.log(s[2]);
+  console.log(v1);
+  console.log(v2);
+
+  return "OK";
+}
+
+tag`Hello ${ a + b } world ${ a * b}`; //第一个参数为数组，由模板字符串中的变量（此例中为 ${a+b}/${a*b}分割后的字符串数组
+//即为[ "Hello "," world ",""];
+//后续的参数为 模板字符串中的变量 ${a+b}、${a*b}
+// 15
+// 50
+// "OK"
+```
