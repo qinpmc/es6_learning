@@ -11,11 +11,12 @@
 		let ary1 = [1,2,3].fill(7); //[7,7,7]
 
 		//填充的类型为对象，那么被赋值的是同一个内存地址的对象，而不是深拷贝对象。
+		let ary2 =[1,2,3];
 		ary2.fill({name:"mark"});// [{name: "mark"}, {name: "mark"},{name: "mark"}]
-		ary2[0].name = "jack";// [{name: "jack"},{name: "jack"},{name: "jack"}]
+		ary2[0].name = "jack";// [{name: "jack"},{name: "jack"},{name: "jack"}
+		let ary3=[];
+		ary3.fill(3); // [] ,仍然为空
 
-
- 
 	</script>
 	</body>
 	</html>

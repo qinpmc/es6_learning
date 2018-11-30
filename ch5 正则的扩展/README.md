@@ -52,6 +52,19 @@ r.sticky // true
 /abc/ig.flags ;// 'gi'
 ```
 
+### u 修饰符
+u修饰符，含义为“Unicode 模式”，用来正确处理大于\uFFFF的 Unicode 字符。也就是说，会正确处理四个字节的 UTF-16 编码。
+
+```
+/^\uD83D/u.test('\uD83D\uDC2A') // false,因为添加了u修饰符， \uD83D\uDC2A 被看作一个字符
+/^\uD83D/.test('\uD83D\uDC2A') // true， \uD83D\uDC2A 被识别为两个字符
+
+```
+
+ ### unicode属性
+ - 表示是否设置了u修饰符。
+
+
 
 
 

@@ -1,5 +1,30 @@
 ## 字符串的扩展
  
+###  字符的 Unicode 表示法
+ 
+- JavaScript 允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。  
+但是，这种表示法只限于码点在 **\u0000~\uFFFF**之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。
+ 
+```
+"\uD842\uDFB7"
+// "𠮷"
+
+"\u20BB7"
+// " 7"
+```
+
+ES6改进:只要将码点放入**大括号**，就能正确解读该字符。
+
+```
+"\u{20BB7}"
+// "𠮷"
+
+"\u{41}\u{42}\u{43}"
+// "ABC"
+```
+
+ 
+ 
 ### 1 字符串的遍历器接口 for of
 
 ```
@@ -15,17 +40,12 @@
 
 
 ### 2 针对码点大于0xFFFF的字符的一些方法
-
-* at
-* fromCodePoint
-* codePointAt
+ 
+* fromCodePoint         从从码点返回对应字符   es5:fromCharCode
+* codePointAt           根据字符下标返回一个字符的码点  es5: charCodeAt
 
 ```
-	 // 针对码点大于0xFFFF的字符的一些方法
-	 //at  es5:charAt
-	 '𠮷'.at(0) // "𠮷"
-
-
+ 
 	 //fromCodePoint  es5:fromCharCode
 	String.fromCodePoint(0x20BB7)；// "𠮷"
 	
@@ -38,9 +58,9 @@
 * startsWith
 * endsWith
 * includes
-* repeat
-* padStart()
-* padEnd()
+* repeat   参数是负数或者Infinity，会报错 ； 果是小数，会被取整。
+* padStart()        padStart()用于字符串头部补全
+* padEnd()          padEnd()用于字符串尾部补全
 * String.raw 
 
 
@@ -52,12 +72,12 @@
 	s.endsWith("world"); //true
 	s.includes("o"); //true
 
-	//支持第二个参数，表示开始搜索的位置
+	//支持第二个参数，表示开始搜索的位置；
 	s.startsWith('world', 6) // true
 	s.endsWith('Hello', 5) // true
 	s.includes('Hello', 6) // false
 	
-	//repeat 
+	//repeat  参数是负数或者Infinity，会报错 ； 果是小数，会被取整。
 	'x'.repeat(3) // "xxx"
 	'hello'.repeat(2) // "hellohello"
 	'na'.repeat(0) // ""
@@ -126,3 +146,29 @@ console.log(tmpl(data));
 
 ```
 
+### 标签模板
+函数的第一个参数是一个数组，该数组的成员是模板字符串中**那些没有变量替换的部分**，    
+也就是说，变量替换只发生在数组的第一个成员与第二个成员之间、第二个成员与第三个成员之间，以此类推
+
+```
+let a = 5;
+let b = 10;
+
+function tag(s, v1, v2) {  //
+  console.log(s[0]);
+  console.log(s[1]);
+  console.log(s[2]);
+  console.log(v1);
+  console.log(v2);
+
+  return "OK";
+}
+
+tag`Hello ${ a + b } world ${ a * b}`; //第一个参数：['Hello ', ' world ', '']
+// "Hello "
+// " world "
+// ""
+// 15
+// 50
+// "OK"
+```

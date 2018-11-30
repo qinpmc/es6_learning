@@ -18,7 +18,20 @@
 
 		// 等同于
 		String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
-		
+
+		function raw(literals, ...substituions){
+			let result ="";
+			for(let i=0;i<substituions.length;i++){
+				result+=literals.raw[i];
+				result+=substituions[i];
+			}
+			result+=literals.raw[literals.length-1];
+			return result;
+		}
+		let message = raw `Multiline\nstring`;
+		console.log(message);
+
+
 	</script>
 </body>
 </html>
