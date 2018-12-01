@@ -1,0 +1,44 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<div id="div1" style="background:yellow"></div>
+	<body>
+		<script type="text/javascript">
+			/**/
+			function foo1(x = 5) {
+				let x = 1; // error
+				console.log(x);
+			}
+			//foo1();  //Identifier 'x' has already been declared
+
+
+			function foo2(x) {
+				let x = 1; // error
+				console.log(x);
+			}
+			//foo2(5);  //Identifier 'x' has already been declared
+
+
+			/*
+			let x = 1;
+			function f(y = x) {
+				let x = 2;
+				console.log(y,x); // 1 2
+
+			}
+			f() // 1
+			*/
+			let x = 1;
+			function f(x,y = x) {
+				let x = 2;
+				console.log(y,x); //
+
+			}
+			f(9) //
+
+		</script>
+	</body>
+	</html>

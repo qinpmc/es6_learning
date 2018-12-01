@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let ary1 = [];
+ 		for(let i=0;i<5;i++){
+			ary1.push(function(){
+				console.log(i);
+			})
+		}
+		ary1[2](); //2  ;注意使用let，上面每次循环创建新的 i，因此输出2
+
+		let ary2 = [];
+		for(var i2=0;i2<5;i2++){
+			ary2.push(function(){
+				console.log(i2);
+			})
+		}
+		ary2[2](); // 5 ; 注意使用var，只有一个 i2，因此输出5
+
+
+/*		let ary3 = [];
+		for(const i3=0;i3<5;i3++){ // i3++ 编译报错 ，const 不能重新赋值
+			ary3.push(function(){
+				console.log(i3);
+			})
+		}*/
+
+		let ary4 = [],
+			array4 = ["a","b","c"];
+
+		for(let key of array4){
+			ary4.push(function(){
+				console.log(key);
+			})
+		}
+		ary4[2](); //c
+
+
+		let ary5 = [],
+				array5 = ["a","b","c"];
+
+		for(const key of array5){  //注意：这里使用const，在for-of中可行
+			ary5.push(function(){
+				console.log(key);
+			})
+		}
+		ary5[2](); //c
+
+	</script>
+</body>
+</html>

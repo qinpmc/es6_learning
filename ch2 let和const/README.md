@@ -34,7 +34,9 @@ for (let i = 0; i < 10; i++) {
 }
 a[6](); // 6,变量i仅在块级作用域内有效
 ```
+
 **for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。**   
+
 ```
 for (let i = 0; i < 3; i++) {
   
@@ -92,6 +94,7 @@ function func() {
 
 **ES6规定：var命令和function命令声明的全局变量，依旧是顶层对象的属性;    
 另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性**
+
 ```
 var a = 1;
 // 如果在 Node 的 REPL 环境，可以写成 global.a
@@ -102,6 +105,29 @@ let b = 1;
 window.b // undefined
 ```
 
+## 循环体中let，const
+ for-in 或 for-of 循环中使用const或 let时，每次循环创建新的变量
+ 
+```
+
+let ary5 = [],
+        array5 = ["a","b","c"];
+
+for(const key of array5){  //注意：这里使用const，在for-of中可行
+    ary5.push(function(){
+        console.log(key);
+    })
+}
+ary5[2](); //c
+
+
+/*		let ary3 = [];
+		for(const i3=0;i3<5;i3++){ // i3++ 编译报错 ，const 不能重新赋值
+			ary3.push(function(){
+				console.log(i3);
+			})
+		}*/
+```
 
 
 

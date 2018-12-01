@@ -13,11 +13,11 @@
 		//String.raw方法也可以作为正常的函数使用。
 		//这时，它的第一个参数，应该是一个具有raw属性的对象，且raw属性的值应该是一个数组。
 
-		String.raw({ raw: 'test' }, 0, 1, 2);
+		//String.raw({ raw: 'test' }, 0, 1, 2);
 		// 't0e1s2t'
 
 		// 等同于
-		String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
+		//String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
 
 		function raw(literals, ...substituions){
 			let result ="";
@@ -25,7 +25,8 @@
 				result+=literals.raw[i];
 				result+=substituions[i];
 			}
-			result+=literals.raw[literals.length-1];
+			let tmp =literals.raw[literals.length-1];
+			result = result+ tmp;
 			return result;
 		}
 		let message = raw `Multiline\nstring`;
