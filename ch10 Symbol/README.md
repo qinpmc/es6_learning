@@ -38,6 +38,8 @@ console.log(s3);//Symbol([object Object])
 
 let s4 = Symbol(obj);
 console.log(s3===s4); //false
+
+
 ```
 
 
@@ -96,6 +98,17 @@ a['mySymbol'] // "Hello!"
 但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
 * Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
 
+```
+let obj = {
+  [Symbol('my_key')]: 1,
+  enum: 2,
+  nonEnum: 3
+};
+
+Reflect.ownKeys(obj)
+//  ["enum", "nonEnum", Symbol(my_key)]
+```
+
 
 ## Symbol.for()，Symbol.keyFor()
 
@@ -107,21 +120,20 @@ a['mySymbol'] // "Hello!"
 
 
 ```
-let s1 = Symbol();
-console.log(typeof s1); //symbol ,是小写
-let s2 = Symbol('bar');
-console.log(s2);//Symbol(bar)
+    let s1 = Symbol.for("test");
+    let s2 = Symbol.for("test");
+    console.log(s1===s2); //true
 
-//Symbol 的参数是一个对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值
+    let s12 = Symbol("test2");
+    let s22 = Symbol("test2");	
+    console.log(s12 ===s22); //false
 
-let obj = {name:"jack"};
-let s3 = Symbol(obj);
-console.log(s3);//Symbol([object Object])
-
-//Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。
-
-let s4 = Symbol(obj);
-console.log(s3===s4); //false
+    //Symbol.keyFor方法返回一个已登记的Symbol类型值的key。
+    let sk1 = Symbol.keyFor(s2);
+    console.log(sk1); //test
+    
+    let sk12 = Symbol.keyFor(s12);
+    console.log(sk1); // undefined;  s12未注册
 ```
 
 ## 内置的 Symbol 值
