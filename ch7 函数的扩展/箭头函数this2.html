@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    var obj={
+        fn:function(){
+            setTimeout(function(){
+                console.log(this);
+            });
+        }
+    }
+    obj.fn();//window
+
+    var obj={
+        fn:function(){
+            setTimeout(() => {
+                console.log(this);
+        });
+        }
+    }
+    obj.fn();//object
+</script>
+</body>
+</html>

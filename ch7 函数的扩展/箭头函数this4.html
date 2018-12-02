@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //1. 箭头函数中的this是在定义函数的时候绑定，而不是在执行函数的时候绑定
+    //2. 箭头函数中，this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，
+    // 导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。
+    //3. 由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。
+    // 4.箭头函数是根据外层（函数或者全局）作用域来决定this
+
+    var obj1={
+        num:4,
+        fn:function(){
+            var f=() => {    //object，也就是指obj1
+                console.log(this);
+                setTimeout(() => {
+                    console.log(this);// //object，也就是指obj1
+            });
+            }
+            f();
+        }
+    }
+    //obj1.fn();
+
+
+
+    var obj2={
+        num:4,
+        fn:function(){
+            var f=function(){
+                console.log(this); //window,因为函数f定义后并没有对象调用，this直接绑定到最外层的window对象
+                setTimeout(() => {
+                    console.log(this);//window，外层this绑定到了window,内层也相当于定义在window层（全局环境）
+            });
+            }
+            f();
+        }
+    }
+    //obj2.fn();
+
+    var obj3={
+        num:4,
+        fn:function(){
+            var f=() => {
+                console.log(this); //object,f()定义在obj3对象中，this就指向obj3,这就是箭头函数this指向的关键
+                setTimeout(function() {
+                    console.log(this);//window，非箭头函数的情况下还是要看宿主对象是谁，如果没有被对象调用，函数体中的this就绑定的window上
+                });
+            }
+            f();
+        }
+    }
+    obj3.fn();
+</script>
+</body>
+</html>

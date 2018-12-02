@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    // 错误的用法
+    var button = document.getElementById('press');
+    button.addEventListener('click', () => {
+        this.classList.toggle('on');  //this就是全局对象
+    });
+
+    // 错误的用法
+    const cat = {
+            lives: 9,
+            jumps: () => {
+            this.lives--;
+        }
+    }
+    cat.jumps();//this指向全局对象
+
+    var handler = {
+        id: '123456',
+
+        init: function() {
+            document.addEventListener('click',
+                    event => this.doSomething(event.type), false); //this，总是指向handler对象
+        },
+
+        doSomething: function(type) {
+            console.log('Handling ' + type  + ' for ' + this.id);
+        }
+    };
+
+    handler.init();
+</script>
+</body>
+</html>
