@@ -22,6 +22,10 @@
 		target.foo = 1000;//1000,并未输出 2222
 		target; //{foo: 1000}
 
+		source.foo;// 1
+		source.foo=99;// 2222,会输出 2222
+		source;// {foo: 1get foo: ƒ foo()set foo: ƒ foo(value)__proto__: Object }
+
 	</script>
 	</body>
 	</html>

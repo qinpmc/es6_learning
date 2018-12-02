@@ -95,7 +95,7 @@ obj[key1].name // "[description]"
 obj[key2].name // "
 ```
 
-
+ 
 ## Object.is
 * 用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致
 
@@ -154,6 +154,10 @@ Object.assign(target,source); //{foo: 1}  ,取值函数进行了求值，然后�
 target.foo; //1 
 target.foo = 1000;//1000,并未输出 2222
 target; //{foo: 1000}
+
+source.foo;// 1
+source.foo=99;// 2222,会输出 2222
+source;// {foo: 1get foo: ƒ foo()set foo: ƒ foo(value)__proto__: Object }
 ```
 
 ## 属性的可枚举性
@@ -215,10 +219,50 @@ super，指向当前对象的原型对象
 
 ```
 
+## 对象的扩展运算符
+- 对象的解构赋值用于从一个对象取值，相当于将目标对象自身的所有可遍历的（enumerable）、但尚未被读取的属性，分配到指定的对象上面。所有的键和它们的值，都会拷贝到新对象上面。
 
 
+```
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x // 1
+y // 2
+z // { a: 3, b: 4 }
+
+```
 
 
+- 解构赋值**必须是最后一个参数，否则会报错**。
+
+```
+let { ...x, y, z } = obj; // 句法错误
+let { x, ...y, ...z } = obj; // 句法错误
+```
+
+- 解构赋值的拷贝是浅拷贝
+- 扩展运算符的解构赋值，不能复制继承自原型对象的属性
+
+```
+let o1 = { a: 1 };
+let o2 = { b: 2 };
+o2.__proto__ = o1;
+let { ...o3 } = o2;
+o3 // { b: 2 }
+o3.a // undefined
+```
+
+
+- 扩展运算符可以用于合并两个对象。
+
+```
+let a = { a: 3};
+let b = {  b: 4 };
+let ab = { ...a, ...b };
+ab;// {a: 3, b: 4}
+// 等同于
+let ab = Object.assign({}, a, b);
+
+```
 
 
 

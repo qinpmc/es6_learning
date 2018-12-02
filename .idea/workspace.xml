@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d2a015e-1704-47cb-a6d5-45bed9240655" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this5.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this6.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this7.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7 函数的扩展/README.md" afterPath="$PROJECT_DIR$/ch7 函数的扩展/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7 函数的扩展/function3-2.html" afterPath="$PROJECT_DIR$/ch7 函数的扩展/function3-2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch7 函数的扩展/function6-默认值表达式.html" afterPath="$PROJECT_DIR$/ch7 函数的扩展/function6-默认值表达式.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch3 解构赋值/README.md" afterPath="$PROJECT_DIR$/ch3 解构赋值/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9 对象的扩展/README.md" afterPath="$PROJECT_DIR$/ch9 对象的扩展/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9 对象的扩展/obj2.html" afterPath="$PROJECT_DIR$/ch9 对象的扩展/obj2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9 对象的扩展/obj4.html" afterPath="$PROJECT_DIR$/ch9 对象的扩展/obj4.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ch9 对象的扩展/obj8.html" afterPath="$PROJECT_DIR$/ch9 对象的扩展/obj8.html" />
     </list>
     <ignored path="es6_learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,12 +27,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="obj3.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.59375">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj4.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7313433">
+              <caret line="26" column="81" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/README.md">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.18880208">
-                <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+              <first_editor vertical-scroll-proportion="0.70703125">
+                <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -46,6 +60,76 @@
           </provider>
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj5.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj5.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj6.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj6.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj7.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj7.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="10.84375">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj8.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj8.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.477612">
+              <caret line="12" column="67" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj9-super.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj9-super.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj10-super.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj10-super.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="obj2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.0625">
+              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -69,6 +153,11 @@
         <option value="$PROJECT_DIR$/ch7 函数的扩展/function3-2.html" />
         <option value="$PROJECT_DIR$/ch7 函数的扩展/README.md" />
         <option value="$PROJECT_DIR$/ch7 函数的扩展/箭头函数this8.html" />
+        <option value="$PROJECT_DIR$/ch3 解构赋值/README.md" />
+        <option value="$PROJECT_DIR$/ch9 对象的扩展/obj2.html" />
+        <option value="$PROJECT_DIR$/ch9 对象的扩展/obj4.html" />
+        <option value="$PROJECT_DIR$/ch9 对象的扩展/obj8.html" />
+        <option value="$PROJECT_DIR$/ch9 对象的扩展/README.md" />
       </list>
     </option>
   </component>
@@ -137,21 +226,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ch8 数组的扩展" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es6_learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es6_learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ch7 函数的扩展" />
+              <option name="myItemId" value="ch9 对象的扩展" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,7 +308,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -270,33 +345,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ch7 函数的扩展/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ch4 字符串的扩展/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ch5 正则的扩展/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -629,6 +677,114 @@
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.18880208">
             <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch3 解构赋值/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="-2.701823">
+            <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj7.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.84375">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj9-super.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj10-super.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.0625">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.59375">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7313433">
+          <caret line="26" column="81" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/obj8.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.477612">
+          <caret line="12" column="67" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ch9 对象的扩展/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.70703125">
+            <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
