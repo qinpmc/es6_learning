@@ -26,8 +26,9 @@ new B() // B {}
  
 ### super作为对象使用
 1. 在 __普通方法__ 中，指向 __父类的原型对象__(定义在父类实例上的方法或属性，是无法通过super调用的)；
-2. 在 __静态方法__中，指向 __父类__。
-3. 子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。
+2. 在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。
+3. 在 __静态方法__中，指向 __父类__。
+4. 子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。
 
 ```
 class A{
@@ -39,9 +40,9 @@ class B extends A{
     constructor(){
         super();
         this.x = 2;
-        super.x = 3; // 此处等同于 this.x
+        super.x = 3; // 此处等同于 this.x； 由于this指向子类实例，所以如果通过super对某个属性 赋值，这时super就是this，赋值  的属性会变成子类实例的属性。
         //console.log(super === this); //用super的时候，必须显式指定是作为函数、还是作为对象使用，否则会报错。
-        console.log(super.x); // undefined 读的是A.prototype.x，所以返回undefined
+        console.log(super.x); // undefined 读的是A.prototype.x，所以返回undefined；  而当读取super.x的时候，读的是A.prototype.x，所以返回undefined。
         console.log(this.x);  // 3
     }
 }
