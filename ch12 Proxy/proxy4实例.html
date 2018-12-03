@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function validator(target,validator){
+            return new Proxy(target,{  //返回一个代理proxy
+                _validator:validator,
+                set(target,key,value,proxy){
+                    if(target.hasOwnProperty(key)){
+                        let val = this._validator[key];
+                        if(!!val(value)){
+                            return Reflect.set(target,key,value,proxy);
+                        }else{
+                            throw Error(`不能设置${key} 到 ${value}`)
+                        }
+                    }else{
+                        throw Error(`${key} 不存在`)
+                    }
+                }
+            })
+        }
+
+        const Handler = { // 验证器
+            name(value){  //验证name
+                return typeof value ==="string";
+            },
+            age(value){ //验证 age
+                return typeof value =="number" && value >18;
+            }
+        }
+
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+                return validator(this,Handler);
+            }
+        }
+        let p1 = new Person("zhangsan",48);  // 返回的是一个代理proxy
+        p1.name = "wangwu";  //Proxy {name: "wangwu", age: 48}
+        // p1.name = 33;  //Uncaught Error: 不能设置name 到 33
+        // p1.prop = "no prop";  //proxy4实例.html:21 Uncaught Error: prop 不存在
+        p1.age = 11; //Uncaught Error: 不能设置age 到 11
+    </script>
+</body>
+</html>
