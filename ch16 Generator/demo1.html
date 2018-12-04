@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="drawBtn">抽奖</button>
+<span >抽奖剩余</span><span id="count"></span><span>次</span>
+<script>
+    let countObj = document.getElementById("count");
+    let drawBtn = document.getElementById("drawBtn");
+    let totalCount = 5;
+    // 抽奖
+    function draw(count){
+        countObj.innerHTML = count;
+    }
+    let residue = function* (totalCount){
+        while(totalCount>0){
+            totalCount--;
+            yield draw(totalCount);
+        }
+    }
+
+    let starDraw = residue(totalCount);
+    countObj.innerHTML = totalCount;
+    drawBtn.addEventListener("click",function(){
+        starDraw.next();
+    },false)
+</script>
+</body>
+</html>

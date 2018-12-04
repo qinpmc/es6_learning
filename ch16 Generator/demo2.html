@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 模拟长轮询
+    function* ajax(){
+        yield new Promise(function(resolve,reject){
+            setTimeout(()=>{
+                resolve({code:0}); // 模拟服务器返回结果
+            },500)
+        })
+    }
+
+    let pull = function(){
+        let iterator = ajax();
+        let step = iterator.next();
+        step.value.then((code)=>{
+            if(code.code!=0){
+                setTimeout(() =>{
+                    console.log("wait");
+                    pull();
+                 },1000)
+            }else{
+                console.log("over",code);
+             }
+        })
+    }
+    pull();
+</script>
+</body>
+</html>
