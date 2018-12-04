@@ -13,6 +13,7 @@
 4. Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+
 ```
         function asyncFun(){
             return new Promise(function(resolve,reject){
@@ -24,7 +25,7 @@
         asyncFun().then(function(value){
             console.log(value);  //Async Hello
         }).catch(function (error){
-            console.log(error);
+            console.log(error); //该句未执行
         });
 
         asyncFun().then(function(value){
@@ -38,10 +39,19 @@
             console.log("出错了！");//出错了！
             console.log(e); //ReferenceError: err is not defined
         });
+        
+        /*
+        Async Hello
+        Async Hello
+        出错了！
+        ReferenceError: err is not defined
+            at promise1.html:24
+        */
 ```
 
 ### 1 Constructor
 new Promise构造器之后，会返回一个promise对象
+
 ```
 var promise = new Promise(function(resolve, reject) {
     // 异步处理
@@ -170,6 +180,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 
 1. 只有每个Promise 实例的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
 2. 只要Promise 实例之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+
 ```
     // `delay`毫秒后执行resolve
     function timerPromisefy(delay) {
@@ -209,6 +220,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 ##  Promise.race
 
 只要Promise 实例之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数
+
 ```
     function timerPromisefy(delay){
         return new Promise((resolve,reject) =>{
@@ -229,6 +241,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 
 ##  Promise注意点
 1.  __Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时__
+
 ```
     //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
     setTimeout(function () {
@@ -247,6 +260,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 ```
 
 2.  Promise状态传递
+
 ```
 const p1 = new Promise(function(resolve,reject){
     setTimeout(function(){
@@ -273,6 +287,7 @@ p2.then(result => console.log(result)).catch(error => console.log(error));
       OK*/
 
 ```
+
 4. Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应
 
 ```

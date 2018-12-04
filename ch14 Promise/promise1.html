@@ -23,7 +23,7 @@
             console.log(value); //Async Hello
             err.call(); //故意制造错误
         },function(err){
-            console.log(err);
+            console.log(err); //该句未执行
         }).then(function(value){
             console.log(value+" success end") ;//
         },function(e){
