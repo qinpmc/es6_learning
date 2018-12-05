@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/qinpmc/es6_learning#readme",
   "devDependencies": {
-    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-preset-es2015": "^6.24.1"
   }
 }
