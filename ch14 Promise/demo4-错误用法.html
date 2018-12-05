@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function badAsyncCall() {
+        var promise = Promise.resolve();
+        promise.then(function() {
+            // 任意处理
+
+            return 99;
+        });
+        return promise;
+    }
+    badAsyncCall()
+        .then(function(result){
+            console.log(result); //undefined
+        })
+
+/*    function badAsyncCall2() {
+        var promise = Promise.resolve();
+        promise.then(function () {
+            throw new Error("new error");
+        });
+        return promise;
+    }
+    badAsyncCall2().then(function (result) {
+        console.log(result); //undefined
+    }).catch(function (err) {
+        console.log(err); // 错误并未被捕获
+    })*/
+
+    function anAsyncCall() {
+        var promise = Promise.resolve();
+        return promise.then(function() {
+            // 任意处理
+            throw new Error("new error");
+            return newVar;
+        });
+    }
+    anAsyncCall().then(function(result){
+        console.log(result); //
+    }).catch(function(err){
+        console.log(err); //
+    })
+</script>
+</body>
+</html>

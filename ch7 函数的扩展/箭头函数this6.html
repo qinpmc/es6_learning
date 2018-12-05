@@ -7,9 +7,7 @@
 <body>
 <script type="text/javascript">
     var res1 = (function() {
-        return [
-            (() => console.log(this.x)).bind({ x: 'inner' })()  // outer
-        ]
+        return (() => console.log(this.x)).bind({ x: 'inner' })()  // outer
     }).call({ x: 'outer' });
 
 

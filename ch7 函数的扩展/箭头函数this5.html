@@ -39,7 +39,7 @@
         var b = ()=>console.log(this); //{a: ƒ, prop: "a"}---c
         var d = {};
         d.b = b;
-        d.b();  //{a: ƒ, prop: "a"}
+        d.b();  //{a: ƒ, prop: "a"}  --- 这里也是c
     }
     c.a(); // {a: ƒ, prop: "a"}---c
 

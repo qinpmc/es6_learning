@@ -157,6 +157,7 @@ console.log(tmpl(data));
 
 ```
 
+
 ### 标签模板
 函数的第一个参数是一个数组，该数组的成员是模板字符串中**那些没有变量替换的部分**，    
 也就是说，变量替换只发生在数组的第一个成员与第二个成员之间、第二个成员与第三个成员之间，以此类推
@@ -164,6 +165,7 @@ console.log(tmpl(data));
 ```
 let a = 5;
 let b = 10;
+
 
 function tag(s, v1, v2) {  //
   console.log(s[0]);
@@ -175,11 +177,11 @@ function tag(s, v1, v2) {  //
   return "OK";
 }
 
-tag`Hello ${ a + b } world ${ a * b}`; //第一个参数：['Hello ', ' world ', '']
-// "Hello "
-// " world "
-// ""
+tag`Hello ${ a + b } world ${ a * b}`; //第一个参数为数组，由模板字符串中的变量（此例中为 ${a+b}/${a*b}分割后的字符串数组
+//即为[ "Hello "," world ",""];
+//后续的参数为 模板字符串中的变量 ${a+b}、${a*b}
 // 15
 // 50
 // "OK"
 ```
+
