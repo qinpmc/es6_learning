@@ -1,0 +1,22 @@
+{
+  "name": "es6_learning",
+  "version": "1.0.0",
+  "description": "This repository includes es6 study notes and codes.\r The reference materials are mainly from http://es6.ruanyifeng.com/;",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qinpmc/es6_learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qinpmc/es6_learning/issues"
+  },
+  "homepage": "https://github.com/qinpmc/es6_learning#readme",
+  "devDependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+  }
+}
