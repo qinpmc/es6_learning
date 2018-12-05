@@ -25,11 +25,12 @@
     }
     // 运行示例
     var URL = "http://httpbin.org/get";
-    getURL(URL).then(function onFulfilled(value){
-        console.log(value); //{"args":{},"headers":{"Accept":"*/*","Accept-Encoding".....
-    }).catch(function onRejected(error){
-        console.error(error);
-    });
+    getURL(URL)
+        .then(function onFulfilled(value){
+            console.log(value); //{"args":{},"headers":{"Accept":"*/*","Accept-Encoding".....
+         }).catch(function onRejected(error){
+            console.error(error);
+        });
 </script>
 </body>
 </html>

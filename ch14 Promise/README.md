@@ -13,6 +13,7 @@
 4. Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+
 ```
         function asyncFun(){
             return new Promise(function(resolve,reject){
@@ -31,7 +32,7 @@
             console.log(value); //Async Hello
             err.call(); //故意制造错误
         },function(err){
-            console.log(err);
+            console.log(err);// 注意：此句也不执行
         }).then(function(value){
             console.log(value+" success end") ;//此句不执行
         },function(e){
@@ -42,6 +43,7 @@
 
 ### 1 Constructor
 new Promise构造器之后，会返回一个promise对象
+
 ```
 var promise = new Promise(function(resolve, reject) {
     // 异步处理
@@ -55,6 +57,26 @@ var promise = new Promise(function(resolve, reject) {
 其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
 2. then方法返回的是一个 __新的Promise实例（注意，不是原来那个Promise实例）__ 。
 因此可以采用链式写法，即then方法后面再调用另一个then方法。
+
+3.Promise 新建后就会立即执行
+
+```
+let promise = new Promise(function(resolve, reject) {
+  console.log('Promise');  // 第1个输出，Promise 新建后就会立即执行
+  resolve();
+});
+
+promise.then(function() {
+  console.log('resolved.'); //第3个输出
+});
+
+console.log('Hi!');  // 第2个输出，同步代码
+
+// Promise
+// Hi!
+// resolved
+
+```
 
 ### 3 catch
 1. .catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
