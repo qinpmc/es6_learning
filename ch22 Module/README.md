@@ -230,10 +230,22 @@ export {default} from "mymodule" ;   //注意这里 有花括号 { }
 export * from "mymodule" ;// export *，表示 再输出 mymodule模块 所有的 属性和方法
 export let newVar = "hhh";
 
+## ES6 模块加载
+- 浏览器加载 ES6 模块，也使用`<script>`标签，但是要加入type="module"属性
+- 浏览器对于带有type="module"的`<script>`，都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了`<script>`标签的defer属性。
 
+```
+<script type="module" src="./foo.js"></script>
+<!-- 等同于 -->
+<script type="module" src="./foo.js" defer></script>
+```
+1. 对于外部的模块脚本 有几点需要注意。
 
-
-
+- 代码是在模块作用域之中运行，而**不是在全局作用域**运行。模块内部的顶层变量，外部不可见。
+- 模块脚本**自动采用严格模式**，不管有没有声明use strict。
+- 模块之中，可以使用import命令加载其他模块（.js后缀不可省略，需要提供绝对 URL 或相对 URL），也可以使用export命令输出对外接口。
+- 模块之中，**顶层的this关键字返回undefined，而不是指向window**。也就是说，在模块顶层使用this关键字，是无意义的。
+- 同一个模块如果加载多次，将只执行一次。
 
 
 
