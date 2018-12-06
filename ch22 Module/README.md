@@ -105,11 +105,138 @@ import{lastName as surname} from "./profile.js"
    也就是说，不允许在加载模块的脚本里面，改写接口.
    (如果输入的是一个对象，改写对象的属性是允许的，__不推荐__。)
 
+```
+import {a} from './xxx.js'
+
+a = {}; // Syntax Error : 'a' is read-only;
+//上面代码中，脚本加载了变量a，对其重新赋值就会报错，因为a是一个只读的接口。
+
+// 但是，如果a是一个对象，改写a的属性是允许的。
+import {a} from './xxx.js'
+a.foo = 'hello'; // 合法操作
+```
+
+
 4. import命令具有提升效果，会提升到整个模块的头部，首先执行
 
 ```
 foo(); // 不会报错，import提升了变量
 import {foo} from "my module";
 ```
+
+5. import是静态执行，所以不能使用表达式和变量
+
+```
+// 报错
+import { 'f' + 'oo' } from 'my_module';  // 使用了表达式
+
+// 报错
+let module = 'my_module';
+import { foo } from module;   // 使用了变量
+
+// 报错
+if (x === 1) {
+  import { foo } from 'module1';    // import在if结构中
+} else {
+  import { foo } from 'module2';
+}
+```
+
+6. 多次重复执行同一句import语句，那么只会执行一次，而不会执行多次
+
+
+## 整体加载模块
+
+//逐一指定要加载的方法
+import { area, circumference } from './circle';
+
+// 整体加载
+import * as circle from './circle';
+
+
+注意，**模块整体加载所在的那个对象，应该是可以静态分析的，所以不允许运行时改变**。
+
+```
+
+// circle.js
+
+export function area(radius) {
+  return Math.PI * radius * radius;
+}
+
+export function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+
+-----------------
+import * as circle from './circle';
+
+// 下面两行都是不允许的
+circle.foo = 'hello';
+circle.area = function () {};
+```
+
+##  export default
+
+export default命令，为模块指定默认输出。
+
+```
+---profile4_exportDefault.js
+export default function (msg){
+    console.log(msg);
+}
+
+export function each(arr){
+    for(let i of arr){
+        console.log(i);
+    }
+}
+export {each as forEach};
+
+--------------main4.js
+import _,{ each,forEach} from "./profile4_exportDefault.js";
+
+_("this is default");
+
+each([3,4,5]);
+forEach([-9,-3,-4])
+
+
+```
+- 使用export default时，对应的**import语句不需要使用大括号**，因为只可能唯一对应export default命令。
+- 一个模块只能有一个默认输出，因此export default命令只能使用一次;
+- export default命令其实只是输出一个叫做default的变量，所以它后面**不能跟变量声明语句**;
+ 
+
+## export 与 import 的复合写法
+
+1. 仅仅转发
+export {foo,bar} from "module1"  相当于:
+import {foor,bar} from "module1";
+export {foo,bar}
+
+2.改名
+export {foo as myFoo} from "mymodule"; // 先导入 foo ，再以 myFoo输出
+
+3. 整体输出
+注意： export * 不带 { }
+export * from "mymodule" ; // export *，表示再输出mymodule模块  所有的  属性和方法
+
+4.默认输出
+注意这里 有花括号 { }
+export {default} from "mymodule" ;   //注意这里 有花括号 { }
+
+5. 继承
+export * from "mymodule" ;// export *，表示 再输出 mymodule模块 所有的 属性和方法
+export let newVar = "hhh";
+
+
+
+
+
+
+
+
+
 
 
