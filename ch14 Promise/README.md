@@ -121,9 +121,54 @@ getURL(URL).then(function onFulfilled(value){
 //传给reject 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。
 //这个参数的值可以被 then 方法的第二个参数或者 catch 方法中使用
 ```
+2. Promise 在resolve语句后面，再抛出错误，不会被捕获，等于没有抛出。
+因为 Promise 的状态一旦改变，就永久保持该状态，不会再变了
+
+```
+const promise = new Promise(function(resolve, reject) {
+  resolve('ok');
+  throw new Error('test');  // 此时 Promise 已经 resolved，此句抛出错误无效了
+});
+promise
+  .then(function(value) { console.log(value) })
+  .catch(function(error) { console.log(error) });
+// ok
+```
+
+3. Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。
+4. 建议总是使用catch方法，而**不使用then方法的第二个参数**。
+5. catch方法之中，还能再抛出错误。
+
+6. 跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。
+ 即“Promise 会吃掉错误”。
+
+```
+//传统的方式：出错后，后续代码不执行
+throw new Error("错了！！")
+setTimeout(()=>{console.log("timeout")},16); //该句不执行了。。。
+```
+
+```
+ const promise = new Promise(function (resolve, reject) {
+  resolve('ok');
+  setTimeout(function () { throw new Error('test') }, 0) ;
+  // Promise 指定在下一轮“事件循环”再抛出错误。
+  // 到了那个时候，Promise 的运行已经结束了，所以这个错误是在 Promise 函数体外抛出的，会冒泡到最外层，成了未捕获的错误
+ });
+ promise.then(function (value) { console.log(value) });
+ setTimeout(() => { console.log(123) }, 2000);
+
+/*
+ok
+ Uncaught Error: test at promise2-3catch.html:11
+ 123
+ */
+```
+
 
 ##  Promise.resolve
    静态方法Promise.resolve(value) 可以认为是 new Promise() 方法的快捷方式。
+
 ```
     //Promise.resolve
 
@@ -200,7 +245,7 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
 
 1. 只有每个Promise 实例的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
 2. 只要Promise 实例之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
-
+3. 如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法。
 ```
     // `delay`毫秒后执行resolve
     function timerPromisefy(delay) {

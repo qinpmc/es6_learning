@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let p1 = new Promise(function(resolve,reject){
+        resolve(42);
+    })
+    let p2 = new Promise(function(resolve,reject){
+        reject(43);
+    })
+    p1.then(function(value){
+        console.log(value); // 42
+        return p2;
+    }).then(function(value){
+        console.log("这里执行吗？");
+        console.log(value);
+
+    })
+
+/*    42
+    Uncaught (in promise) 43
+
+    */
+
+
+/*    p1.then(function(value){
+        console.log(value); // 42
+        return p2;
+    }).catch(function(value){
+        console.log("这里执行吗？");
+        console.log(value);
+    })*/
+</script>
+</body>
+</html>
