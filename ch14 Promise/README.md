@@ -168,6 +168,28 @@ ok
 
 ##  Promise.resolve
    静态方法Promise.resolve(value) 可以认为是 new Promise() 方法的快捷方式。
+1. 参数是一个 Promise 实例, Promise.resolve将不做任何修改、原封不动地返回这个实例
+2. 参数是一个 **thenable对象**, Promise.resolve方法会**将这个对象转为Promise 对象**，然后就**立即执行thenable对象的then方法**;
+3. 如果参数是一个原始值，或者是一个不具有then方法的对象，则Promise.resolve方法返回一个**新的 Promise 对象，状态为resolved**;
+4. 不带有任何参数, Promise.resolve方法允许调用时不带参数，**直接返回一个resolved状态的 Promise 对象**。
+5. 需要注意的是，立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时；
+
+```
+setTimeout(function () {
+  console.log('three');
+}, 0);
+
+Promise.resolve().then(function () {
+  console.log('two');
+});
+
+console.log('one');
+
+// one
+// two
+// three
+```
+
 
 ```
     //Promise.resolve
@@ -220,6 +242,10 @@ Promise.reject(mes).then(null,function(e){
     console.log(e===mes);//true
 })
 
+```
+1.Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。这一点与Promise.resolve方法不一致
+
+```
 //Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。
 // 这一点与Promise.resolve方法不一致
 const thenable = {
