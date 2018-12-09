@@ -62,4 +62,4 @@ var Person = (_class = function () {
 }(), (_applyDecoratedDescriptor(_class.prototype, "name", [readonly], Object.getOwnPropertyDescriptor(_class.prototype, "name"), _class.prototype)), _class);
 
 var p1 = new Person();
-p1.name = function () {};
+p1.name = function () {}; // Cannot assign to read only property 'name' of object '#<Person>'
