@@ -7,13 +7,14 @@
 <body>
     <script>
         function* fisrtGen(){
-            yield "hello";
+            console.log("beginning...");
+            yield  ;
             yield "world";
             return "ending";
         }
         let fg = fisrtGen();
 
-        console.log(fg.next()); //  { value: 'hello', done: false }
+        console.log(fg.next()); //  { value: undefined, done: false }
         console.log(fg.next()); // { value: 'world', done: false }
         console.log(fg.next());// { value: 'ending', done: true }
     </script>
