@@ -129,7 +129,18 @@ ary5[2](); //c
 		}*/
 ```
 
+```
+let obj = {
+  b:function(){
+	    console.log(a);
+    }
+  };
 
+let a = -9;
+ 
+obj.b() ;//-9
+
+```
 
 
 
