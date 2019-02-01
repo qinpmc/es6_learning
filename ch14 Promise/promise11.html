@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+ 
+<script type="text/javascript">
+
+	let promises = [];
+	let promise1 = new Promise(function(resolve, reject) {
+		console.log('promise1.');
+		resolve();
+	});
+	promises.push(promise1);
+
+	
+	let promise2 = new Promise(function(resolve, reject) {
+		console.log('promise2.');
+		resolve();
+	});
+
+
+	promises.push(promise2);
+	Promise.all(promises).then(function(){
+	    console.log("all done");
+		
+	});
+	
+	promise1.then(function() {
+	  console.log('resolved11111.');
+	  new Promise(function(resolve, reject) {
+		console.log('promise11.');
+		resolve();
+	}).then(function(){
+	    console.log('promise1 ----son son.');
+	});
+	  
+	});
+	promise2.then(function(resolve,reject) {
+	  console.log('resolved22222.');
+	  
+	});
+	
+
+
+	
+	
+</script>
+</body>
+</html>
