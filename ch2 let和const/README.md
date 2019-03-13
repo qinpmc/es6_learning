@@ -15,16 +15,9 @@
 	b // 1
 ```
 
-```
-var a = [];
-for (var i = 0; i < 10; i++) {
-  a[i] = function () {
-    console.log(i);
-  };
-}
-a[6](); // 10,全局只有一个变量i
-```
 
+let变量仅在块级作用域内有效
+ 
 ```
 var a = [];
 for (let i = 0; i < 10; i++) {
@@ -56,8 +49,10 @@ var tmp = 123;
 
 if (true) {
 // TDZ开始
-  tmp = 'abc'; // ReferenceError
+  // tmp = 'abc'; // ReferenceError
   let tmp; // TDZ结束
+  tmp = 123;
+  console.log(tmp); // 123
 }
 ``` 
 ```
@@ -83,6 +78,24 @@ function func() {
   let a = 1;
 }
 ```
+
+
+不能在函数内部重新声明参数。
+
+```
+function func(arg) {
+  let arg;
+}
+func() // 报错
+
+function func(arg) {
+  {
+    let arg;
+  }
+}
+func() // 不报错
+```
+
 
 ## 2 const 命令 
 
@@ -111,7 +124,7 @@ window.b // undefined
 ```
 
 let ary5 = [],
-        array5 = ["a","b","c"];
+array5 = ["a","b","c"];
 
 for(const key of array5){  //注意：这里使用const，在for-of中可行
     ary5.push(function(){
