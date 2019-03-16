@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function setCookie(name,value,{secure,path,domain,expires}){
+		    console.log(secure);
+            console.log(path);
+            console.log(domain);
+            console.log(expires);
+		}
+
+		// 这种情况下 ，解构的第三个擦拭必须传值，否则报错，因为相当于作 {} = undefined 解构
+		setCookie("type","js",{
+		    secure:true,
+            expires:60000
+		})
+
+
+		let defaultParams = {
+            secure:true,
+			path:"/",
+			domain:"example.com",
+			expires:6000
+		}
+
+
+        function setCookie2(name,value,{secure,path,domain,expires} = defaultParams){
+            console.log(secure);
+            console.log(path);
+            console.log(domain);
+            console.log(expires);
+        }
+
+        setCookie2("type","js")
+	</script>
+ 
+</body>
+</html>

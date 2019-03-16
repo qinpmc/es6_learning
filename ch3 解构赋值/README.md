@@ -68,6 +68,47 @@
 	let [x = 1, y = x] = [2];    // x=2; y=2
 	let [x = y, y = 1] = [];     // ReferenceError: y is not defined
 ```
+
+### 1.3 数组解构注意点
+
+如果等号的右边不是数组（或者严格地说，不是可遍历的结构），那么将会报错。
+
+``` 
+// 报错
+let [foo] = 1;
+let [foo] = false;
+let [foo] = NaN;
+let [foo] = undefined;
+let [foo] = null;
+let [foo] = {};
+
+```
+
+
+``` 
+
+// 对于 Set 结构，也可以使用数组的解构赋值。
+
+let [x, y, z] = new Set(['a', 'b', 'c']);
+
+x // "a"
+
+
+function* fibs() {
+  let a = 0;
+  let b = 1;
+  while (true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+let [first, second, third, fourth, fifth, sixth] = fibs(); // fibs()返回Iterator
+sixth // 5
+
+```
+
+
 ## 2 对象的解构赋值 
 ### 2.1  基本使用
 
@@ -231,5 +272,76 @@
  	move3({});//[30,30]
     move3();//报错 Cannot destructure property `x` of 'undefined' or 'null'.
 ```
+
+
+
+## 5 解构的小应用
+
+```
+	//解构赋值应用
+	// 交换变量
+	let x =1;
+	let y =2;
+	[x,y] = [y,x];
+
+
+	// 复制数组
+    // ES6 中复制数组
+	let [... clonedColors] = colors;
+	console.log(clonedColors); //["red","blue","green"]
+
+
+
+```
+
+## 6 函数参数解构
+
+详见 Destructuring10.html
+
+``` 
+
+function setCookie(name,value,{secure,path,domain,expires}){
+    console.log(secure);
+    console.log(path);
+    console.log(domain);
+    console.log(expires);
+}
+
+let defaultParams = {
+    secure:true,
+    path:"/",
+    domain:"example.com",
+    expires:6000
+}
+
+function setCookie2(name,value,{secure,path,domain,expires} = defaultParams){
+    console.log(secure);
+    console.log(path);
+    console.log(domain);
+    console.log(expires);
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

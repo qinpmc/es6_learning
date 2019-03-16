@@ -287,10 +287,33 @@ let getTempItem = id => ({ id: id, name: "Temp" });
 （5） arguments、super、new.target在箭头函数之中也是不存在的（它们是指向外层函数的对应变量）
 
 
+## 9 使用范例
+
+vuex中：
+
+```
+getters: {
+  // ...
+  getTodoById: (state) => (id) => {
+    return state.todos.find(todo => todo.id === id)
+  }
+}
+
+// 相当于
 
 
+getters: {
+   getTodoById: function getTodoById(state) {
+       return function (id) {
+         return state.todos.find(function (todo) {
+           return todo.id === id;
+         });
+       };
+    }
+}
 
 
+```
 
 
 

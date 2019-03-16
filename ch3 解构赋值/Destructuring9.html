@@ -11,7 +11,19 @@
 	let x =1;
 	let y =2;
 	[x,y] = [y,x];
- 	 
+
+
+	// 复制数组
+	// ES5 中复制数组
+	let colors = ["red","blue","green"]	;
+    var anotherColors = colors.concat();
+    console.log(anotherColors); //["red","blue","green"]
+
+    // ES6 中复制数组
+	let [... clonedColors] = colors;
+	console.log(clonedColors); //["red","blue","green"]
+
+
 
 	</script>
  
