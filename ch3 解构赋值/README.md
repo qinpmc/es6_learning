@@ -324,6 +324,16 @@ function setCookie2(name,value,{secure,path,domain,expires} = defaultParams){
 
 ```
 
+如 veux 中的：
+ 
+```
+actions: {
+  increment ({ commit }) {
+    commit('increment')
+  }
+}
+```
+
 
 
 
