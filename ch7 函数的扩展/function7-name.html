@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person = {
+        firstName: "qqq",
+        get firstNewName(){ // 写成 firstName 造成死循环
+            return this.firstName
+        },
+        set firstNewName(value){  // 写成 firstName 造成死循环
+            this.firstName = value;
+        },
+        sayName(){
+            console.log(this.firstName)
+        }
+    }
+
+    person.sayName();
+    person.firstNewName = "hello";
+    person.sayName();
+</script>
+</body>
+</html>

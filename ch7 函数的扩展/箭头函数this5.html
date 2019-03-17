@@ -17,7 +17,7 @@
                 console.log(this.prop);
         }
     };
-    obj.showName();// 'global'
+    obj.showName();// 'global'    // 这里定义箭头函数看似在 obj中，但记住 箭头函数总是 根据外层（函数或者全局）作用域来决定，此时外层无函数，则必是全局了
 
    var obj2 = {
            prop: 'obj2',
@@ -50,10 +50,11 @@
         id: 333,
         test: function(){
             (()=>{
-                console.log(this)
+                console.log(this) ;
             })()
         }
     };
+    obj3.test(); // obj3
 
     var obj4 = {
         id: 444,

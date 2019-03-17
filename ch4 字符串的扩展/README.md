@@ -101,7 +101,7 @@ ES6改进:只要将码点放入**大括号**，就能正确解读该字符。
 	'x'.padEnd(4, 'ab') // 'xaba'
 ```
 
-String.raw   
+#### 3.1 String.raw   
 往往用来充当模板字符串的处理函数,返回一个斜杠都被转义（即斜杠前面再加一个斜杠）的字符串,对应于替换变量后的模板字符串      
 String.raw方法也可以作为正常的函数使用。这时，它的第一个参数，应该是一个具有raw属性的对象，且raw属性的值应该是一个数组。   
 
@@ -117,9 +117,23 @@ Hi
 5!
 
 
-String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
+String.raw({ raw: 'test' }, 0, 1, 2);
 // 't0e1s2t'
 
+// 等同于
+String.raw({ raw: ['t','e','s','t'] }, 0, 1, 2);
+
+// raw 内部实现原理： 
+function raw(literals, ...substituions){
+        let result ="";
+        for(let i=0;i<substituions.length;i++){
+            result+=literals.raw[i];
+            result+=substituions[i];
+        }
+        let tmp =literals.raw[literals.length-1];
+        result = result+ tmp;
+        return result;
+    }
 
 ```
 
