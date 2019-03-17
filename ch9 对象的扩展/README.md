@@ -114,7 +114,7 @@ Object.is(NaN, NaN) // true
    1. 如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性;
    2. 如果只有一个参数，Object.assign会直接返回该参数。
    3. 首参数不是对象，则会先转成对象， 由于undefined和null无法转成对象，所以如果它们作为参数，就会报错。
-   4. 其他类型的值（即数值、字符串和布尔值）不在首参数，也不会报错。但是，除了字符串会以数组形式，拷贝入目标对象，其他值都不会产生效果。
+   4. 其他类型的值（即数值、字符串和布尔值）不在首参数，也不会报错。但是，除了字符串会以数组形式，拷贝入目标对象，**其他值都不会产生效果**。
    5. Object.assign拷贝的属性是有限制的，只拷贝源对象的自身属性
    （不拷贝继承属性 ），也不拷贝不可枚举的属性（enumerable: false）
    6. Object.assign方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用
@@ -125,6 +125,7 @@ const v1 = 'abc';
 const v2 = true;
 const v3 = 10;
 
+// 其他类型的值（即数值、字符串和布尔值）不在首参数，也不会报错。但是，除了字符串会以数组形式，拷贝入目标对象，其他值都不会产生效果。
 const obj = Object.assign({}, v1, v2, v3);
 console.log(obj); // { "0": "a", "1": "b", "2": "c" }
 ```
@@ -137,7 +138,8 @@ Object.assign(obj,Object.defineProperty({},"invisible",{
 console.log(obj);//  {invisible: "hello"}
 ```
 
-* Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制
+* Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制   
+assign方法不能将提供者source的访问器属性复制到接收者target上
 
 ```
 const source = {
@@ -147,9 +149,9 @@ const source = {
   }
 };
 const target = {};
-target.foo = 10; 
 
-Object.assign(target,source); //{foo: 1}  ,取值函数进行了求值，然后复制；set 函数没拷贝过来？
+
+Object.assign(target,source); //{foo: 1}  ,取值函数进行了求值，然后复制；set get函数没拷贝过来
  
 target.foo; //1 
 target.foo = 1000;//1000,并未输出 2222
@@ -196,7 +198,7 @@ Reflect.ownKeys返回一个数组，包含对象 **自身的所有键名** ，�
 
 ## super
 super，指向当前对象的原型对象
-注意： **只有对象方法的简写法可以让 JavaScript 引擎确认，定义的是对象的方法** 。
+注意： 只有对象方法的**简写法**可以让 JavaScript 引擎确认，定义的是对象的方法 。
 
 ```
     // 报错,super用在了属性中
@@ -216,6 +218,13 @@ super，指向当前对象的原型对象
         return super.foo
       }
     }
+    
+    const obj = {
+      x: 'world', 
+      foo() {  // 正确
+        super.foo();
+      }
+    }
 
 ```
 
@@ -232,7 +241,7 @@ z // { a: 3, b: 4 }
 ```
 
 
-- 解构赋值**必须是最后一个参数，否则会报错**。
+- 扩展运算符的解构赋值**必须是最后一个参数，否则会报错**。
 
 ```
 let { ...x, y, z } = obj; // 句法错误

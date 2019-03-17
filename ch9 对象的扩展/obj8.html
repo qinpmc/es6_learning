@@ -12,11 +12,13 @@
 
 			// 变量x是单纯的解构赋值，所以可以读取对象o继承的属性;扩展运算符的解构赋值，不能复制继承自原型对象的属性
 			let { x, ...newObj } = o;  //
+            newObj;//{z: 3}
+
 			let { y, z } = newObj;
 			x // 1
 			y // undefined
 			z // 3
-			newObj;//{z: 3}
+
 
 		</script>
 	</body>

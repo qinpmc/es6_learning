@@ -42,6 +42,19 @@
 * delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
 * has(value)：返回一个布尔值，表示该值是否为Set的成员。
 * clear()：清除所有成员，没有返回值
+* size : 长度
+* 遍历
+- keys()：返回键名的遍历器
+- values()：返回键值的遍历器
+- entries()：返回键值对的遍历器
+- forEach()：使用回调函数遍历每个成员
+
+keys方法和values方法的行为完全一致；       
+entries方法返回的遍历器，同时包括键名和键值，所以每次输出一个**数组**，它的**两个成员完全相等**   
+forEach方法的参数就是一个处理函数。该函数的参数与数组的forEach一致，依次为键值、键名、集合本身。      
+forEach方法还可以有第二个参数，表示绑定处理函数内部的this对象。      
+直接用for...of循环遍历 Set。        
+
 
 ### set 与数组 转换
 ```
@@ -70,7 +83,7 @@ console.log(set1); //Set(2) {2, 4}
 
 * 支持的方法： add(value)/delete(value)/has(value)
 * WeakSet没有size属性   
-* WeakSet 不能遍历，是因为成员都是弱引用，随时可能消失，遍历机制无法保证成员的存在
+* WeakSet 不能遍历，是因为成员都是弱引用，随时可能消失，遍历机制无法保证成员的存在, keys(),values(), entries(),forEach 均不支持
 * WeakSet 没有clear方法
 
 ```

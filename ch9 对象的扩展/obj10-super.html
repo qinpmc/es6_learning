@@ -6,6 +6,25 @@
 </head>
 <body>
 <script>
+    let person = {
+        greeting(){
+            return "Hello"
+        }
+    }
+
+    let friend = {
+        greeting(){
+            // return Object.getPrototypeOf(this).greeting.call(this) + " Hi";  // Uncaught RangeError: Maximum call stack size
+            return super.greeting() + " Hi"
+        }
+    }
+    Object.setPrototypeOf(friend,person); // friend 的原型设为 person
+
+    let relative = Object.create(friend);
+    relative.name = "relative";
+    console.log(relative.greeting());  //  Hello Hi
+
+
 
 
 </script>
