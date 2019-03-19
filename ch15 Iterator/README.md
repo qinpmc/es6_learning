@@ -35,6 +35,8 @@ Symbol.iterator属性本身是一个 __函数__ ，就是当前数据结构默�
 
 ## for of 循环
 
+
+
 ```
    // for of 遍历数组
     const arr = ["red","yellow","green"];
@@ -72,6 +74,17 @@ Symbol.iterator属性本身是一个 __函数__ ，就是当前数据结构默�
         console.log(s);// h e l l o
     }
 ```
+
+for in 与 for of 区别:  
+
+- for in 遍历数组，遍历的变量为key，且为遍历数组非数字索引的属性
+- for of 遍历数组，遍历的变量为value，不遍历数组非数字索引的属性
+
+- for in 遍历对象， 遍历的变量为key，且会遍历对象继承的属性
+- for of 不可遍历对象（默认情况）
+
+
+
 
 
 yield* 关键字的作用
