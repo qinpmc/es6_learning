@@ -1,0 +1,26 @@
+配置：
+
+File -- Preferences ---color theme           编辑器主题
+
+File -- Preferences ---File icon theme      文件图标主题
+
+File -- Preferences ---settings ( user settings ）可设置 自动保存 / 字体 /字号 / 自动换行/不包含的文件 等
+
+
+快捷键：
+
+ctrl+x  剪切  鼠标在某一行，可自动剪切整行
+ctrl+v  粘贴
+ctrl+s 保存
+ctrl+h 替换
+ctrl+f 查找
+ctrl+/ 行注释
+shift+alt+a 块注释
+ctrl+shift+enter:上方插入一行
+ctrl+enter: 下方插入一行
+ctrl+shift+f :文件夹查找
+
+alt+shift+f: 格式化代码
+
+
+按住ALt键，移动鼠标，可同时编辑多行
