@@ -1,26 +1,39 @@
-ÅäÖÃ£º
+é…ç½®ï¼š
 
-File -- Preferences ---color theme           ±à¼­Æ÷Ö÷Ìâ
+File -- Preferences ---color theme           ç¼–è¾‘å™¨ä¸»é¢˜
 
-File -- Preferences ---File icon theme      ÎÄ¼şÍ¼±êÖ÷Ìâ
+File -- Preferences ---File icon theme      æ–‡ä»¶å›¾æ ‡ä¸»é¢˜
 
-File -- Preferences ---settings ( user settings £©¿ÉÉèÖÃ ×Ô¶¯±£´æ / ×ÖÌå /×ÖºÅ / ×Ô¶¯»»ĞĞ/²»°üº¬µÄÎÄ¼ş µÈ
-
-
-¿ì½İ¼ü£º
-
-ctrl+x  ¼ôÇĞ  Êó±êÔÚÄ³Ò»ĞĞ£¬¿É×Ô¶¯¼ôÇĞÕûĞĞ
-ctrl+v  Õ³Ìù
-ctrl+s ±£´æ
-ctrl+h Ìæ»»
-ctrl+f ²éÕÒ
-ctrl+/ ĞĞ×¢ÊÍ
-shift+alt+a ¿é×¢ÊÍ
-ctrl+shift+enter:ÉÏ·½²åÈëÒ»ĞĞ
-ctrl+enter: ÏÂ·½²åÈëÒ»ĞĞ
-ctrl+shift+f :ÎÄ¼ş¼Ğ²éÕÒ
-
-alt+shift+f: ¸ñÊ½»¯´úÂë
+File -- Preferences ---settings ( user settings ï¼‰å¯è®¾ç½® è‡ªåŠ¨ä¿å­˜ / å­—ä½“ /å­—å· / è‡ªåŠ¨æ¢è¡Œ/ä¸åŒ…å«çš„æ–‡ä»¶ ç­‰
 
 
-°´×¡ALt¼ü£¬ÒÆ¶¯Êó±ê£¬¿ÉÍ¬Ê±±à¼­¶àĞĞ
+å¿«æ·é”®ï¼š
+
+ctrl+x  å‰ªåˆ‡  é¼ æ ‡åœ¨æŸä¸€è¡Œï¼Œå¯è‡ªåŠ¨å‰ªåˆ‡æ•´è¡Œ
+ctrl+v  ç²˜è´´
+ctrl+s ä¿å­˜
+ctrl+h æ›¿æ¢
+ctrl+f æŸ¥æ‰¾
+ctrl+/ è¡Œæ³¨é‡Š
+shift+alt+a å—æ³¨é‡Š
+ctrl+shift+enter:ä¸Šæ–¹æ’å…¥ä¸€è¡Œ
+ctrl+enter: ä¸‹æ–¹æ’å…¥ä¸€è¡Œ
+
+ctrl+shift+f :æ–‡ä»¶å¤¹æŸ¥æ‰¾
+
+alt+shift+f: æ ¼å¼åŒ–ä»£ç 
+
+
+æŒ‰ä½ALté”®ï¼Œç§»åŠ¨é¼ æ ‡ï¼Œå¯åŒæ—¶ç¼–è¾‘å¤šè¡Œ
+
+
+ä»£ç ç®¡ç†ï¼š
+
+å·¦ä¾§æ  source control
+
+
+
+
+
+
+
