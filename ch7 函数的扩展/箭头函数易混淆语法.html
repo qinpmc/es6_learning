@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+     const ary = (fn, n) => (...args) => fn(...args.slice(0, n));
+
+	let f1 = (a,b) =>  console.log(a,b) ;
+
+	let f2 = (a,b) =>{ return { a:"a",b:"b"}}; 
+	//let f21 = (a,b) => (return { a:"a",b:"b"}) ; 
+
+	let f3 = (a,b) => ({ a: "a",b: "b"}); 
+
+	//let f41 = (a,b) => { a: "a",b: "b"}; 
+
+	let f4 = () => { a: 1 };
+
+	let getTempItem = id => ({ id: id, name: "Temp" });
+	
+	/////////////////////////////////////es6转es5语法
+	
+	var ary = function ary(fn, n) {
+	  return function () {
+		for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+		  args[_key] = arguments[_key];
+		}
+
+		return fn.apply(void 0, _toConsumableArray(args.slice(0, n)));
+	  };
+	};
+
+	var f1 = function f1(a, b) {
+	  return console.log(a, b);
+	};
+
+	var f2 = function f2(a, b) {
+	  return {
+		a: "a",
+		b: "b"
+	  };
+	}; 
+	//let f21 = (a,b) => (return { a:"a",b:"b"}) ; 
+
+
+	var f3 = function f3(a, b) {
+	  return {
+		a: "a",
+		b: "b"
+	  };
+	}; 
+	//let f41 = (a,b) => { a: "a",b: "b"}; 
+
+
+	var f4 = function f4() {
+	  a: 1;
+	};
+
+	var getTempItem = function getTempItem(id) {
+	  return {
+		id: id,
+		name: "Temp"
+	  };
+	};
+	
+	
+	
+</script>
+</body>
+</html>
