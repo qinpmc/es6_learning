@@ -2,9 +2,9 @@
  
 ###  字符的 Unicode 表示法
 
-Unicode 的目标是为全世界每一个字符提供唯一的标识符，这个唯一的标识符称为 码位(code point).
+Unicode 的目标是为全世界每一个字符提供唯一的标识符，这个唯一的标识符称为 __码位(code point)__.
 
-表示字符的这些数值或码位，称之为 字符编码（character encode)，对于UTF-16，码位可以由多种编码单元表示。  
+表示字符的这些数值或码位，称之为 __字符编码（character encode)__，对于UTF-16，码位可以由多种编码单元表示。  
 
 在UTF-16中，前面 2^16个码位以16位的编码单元表示，这个范围成为 基本多文种平面（BMP）；超出这个范围的码位归属                 
 某个辅助平面（SP，supplementary plane),其中的码位使用16位无法表示，为此，UTF-16引入代理对（surrogate pair),    
@@ -112,9 +112,17 @@ String.raw`Hi\n${2+3}!`;
 
 //对比
 console.log(`Hi\n${2+3}!`)
-输出：
+/*输出：
 Hi
 5!
+*/
+
+console.log(String.raw`Hi\n${2+3}!`)
+/*
+输出:
+Hi\n5! 
+*/
+
 
 
 String.raw({ raw: 'test' }, 0, 1, 2);

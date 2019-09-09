@@ -239,6 +239,32 @@ sixth // 5
 
 ## 4 函数参数的解构赋值  
 
+ - 1 常见的函数参数解构赋值-例1
+```
+function sayName({ firstName, lastName }) {
+  console.log( firstName + ' ' + lastName );// 注意这里可以直接访问到两个解构赋值的变量
+}
+let person = {
+  firstName: 'Stephen',
+  lastName: 'Curry'
+}
+sayName(person); // Stephen Curry
+```
+ - 2 常见的函数参数解构赋值-例2
+
+```
+function add([x, y]){ // 注意函数参数的形式：[x, y]
+  return x + y;
+}
+
+add([1, 2]); // 3
+ 
+
+[[1, 2], [3, 4]].map(([a, b]) => a + b); // 注意map函数参数的形式：[a, b]
+```
+
+ - 3 函数参数的解构也可以使用默认值
+
 ```
 	function move({x=-1,y=-2} = {}){
  		return [x,y];
@@ -273,28 +299,6 @@ sixth // 5
     move3();//报错 Cannot destructure property `x` of 'undefined' or 'null'.
 ```
 
-
-
-## 5 解构的小应用
-
-```
-	//解构赋值应用
-	// 交换变量
-	let x =1;
-	let y =2;
-	[x,y] = [y,x];
-
-
-	// 复制数组
-    // ES6 中复制数组
-	let [... clonedColors] = colors;
-	console.log(clonedColors); //["red","blue","green"]
-
-
-
-```
-
-## 6 函数参数解构
 
 详见 Destructuring10.html
 
@@ -333,6 +337,28 @@ actions: {
   }
 }
 ```
+
+
+
+## 5 解构的小应用
+
+```
+	//解构赋值应用
+	// 交换变量
+	let x =1;
+	let y =2;
+	[x,y] = [y,x];
+
+
+	// 复制数组
+    // ES6 中复制数组
+	let [... clonedColors] = colors;
+	console.log(clonedColors); //["red","blue","green"]
+
+
+
+```
+ 
 
 
 
