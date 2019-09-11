@@ -289,29 +289,59 @@ foo.bind({}).name // "bound foo"
 
 ```
 var pp = {
-  get firstName(){
-  return "hh"
-}
+	get firstName(){
+		return "hh"
+	},
+	sayName: function() {
+        console.log(this.name);
+    }
 
 }
+
 
 pp.firstName.name;// undefined
+console.log(person.sayName.name);   // "sayName"
+
+var descriptor = Object.getOwnPropertyDescriptor(person, "firstName");
+console.log(descriptor.get.name); // "get firstName"
 
 
+var doSomething = function doSomethingElse() {
+    // ...
+};
+console.log(doSomething.name);      // "doSomethingElse"
 ```
  
  
 Default Parameter Values Affect the arguments Object
  
+  
+## 4 new.target 元属性
+
+JavaScript 中函数有2种内部方法：[[Call]] and [[Construct]]. 
+- 当没有使用new调用，[Call]] 方法被调用；
+- 当使用new 调用，[[Construct]] 方法被调用；
+ 
+
+```
+function Person(name) {
+    if (new.target === Person) {
+        this.name = name;   // using new
+    } else {
+        throw new Error("You must use new with Person.")
+    }
+}
+
+function AnotherPerson(name) {
+    Person.call(this, name); // 借用构造函数也不行
+}
+
+var person = new Person("Nicholas");
+var anotherPerson = new AnotherPerson("Nicholas");  // error!
+```
  
  
- 
- 
- 
- 
- 
- 
-## 4 箭头函数
+## 5 箭头函数
 
 * 箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分
 * 只有一个参数，可以省略（），如果只有一行return 语句，可以省略{}
@@ -344,7 +374,7 @@ let getTempItem = id => ({ id: id, name: "Temp" });
 ### 4.1 箭头函数有几个使用注意点
 （0） 没有 this/super/arguments/new.target,均由箭头函数外围最近一层非箭头函数决定
 （1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
-（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+（2）不可以当作构造函数，也就是说，**不可以使用new命令**，否则会抛出一个错误。
 （3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
 （4）不可以使用yield命令，因此箭头函数不能用作 Generator 函数。
 （5） arguments、super、new.target在箭头函数之中也是不存在的（它们是指向外层函数的对应变量）

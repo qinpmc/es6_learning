@@ -35,8 +35,8 @@
                 prop: "a"
             }
     function a(){
-        console.log(this, '是a的this');
-        var b = ()=>console.log(this); //{a: ƒ, prop: "a"}---c
+        console.log(this, '是a的this'); // {a: ƒ, prop: "a"} "是a的this"
+        var b = ()=>console.log(this);  
         var d = {};
         d.b = b;
         d.b();  //{a: ƒ, prop: "a"}  --- 这里也是c
