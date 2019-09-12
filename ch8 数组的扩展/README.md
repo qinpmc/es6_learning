@@ -181,19 +181,32 @@ console.log([3,5,2,NaN].includes(2)); //true
 console.log([3,5,2,NaN].includes(NaN)); //true,可以检测NaN的存在，indexOf不可以
 ```
 
+## 8 ArrayBuffer/TypedArray/DataView           
+
+- 参考：https://www.jianshu.com/p/5a841d6d7cc3      
+
+二进制数组（ArrayBuffer对象、TypedArray视图和DataView视图）是JavaScript操作二进制数据的一个接口。           
+
+这个接口的原始设计目的，与WebGL项目有关。所谓WebGL，就是指浏览器与显卡之间的通信接口，为了满足JavaScript与显卡之间大量的、实时的数据交换，              
+它们之间的数据通信必须是二进制的，而不能是传统的文本格式。文本格式传递一个32位整数，两端的JavaScript脚本与显卡都要进行格式转化，将非常耗时。       
+这时要是存在一种机制，可以像C语言那样，直接操作字节，将4个字节的32位整数，以二进制形式原封不动地送入显卡，脚本的性能就会大幅提升。     
+二进制数组就是在这种背景下诞生的。它很像C语言的数组，允许开发者以数组下标的形式，直接操作内存，大大增强了JavaScript处理二进制数据的能力，       
+使得开发者有可能通过JavaScript与操作系统的原生接口进行二进制通信。       
+
+二进制数组由三类对象组成：      
+
+- 1. ArrayBuffer对象：代表内存之中的一段二进制数据，可以通过”视图“进行操作。”视图“部署了数组接口，这意味着，可以用数组的方法操作内存。    
+
+- 2. TypedArray视图：共包括9种类型的视图，比如Uint8Array（无符号8位整数）数组视图, Int16Array（16位整数）数组视图, Float32Array（32位浮点数）数组视图等等。
+
+- 3. DataView视图：可以自定义复合格式的视图，比如第一个字节是Uint8（无符号8位整数）、第二、三个字节是Int16（16位整数）、第四个字节开始是Float32（32位浮点数）等等，      
+此外还可以自定义字节序。     
+简单说，ArrayBuffer对象代表原始的二进制数据，TypedArray视图用来读写简单类型的二进制数据，DataView视图用来读写复杂类型的二进制数据。  
 
 
 
 
-
-
-
-
-
-
-
-
-
+### 8.1  ArrayBuffer对象
 
 
 
