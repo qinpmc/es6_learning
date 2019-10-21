@@ -19,6 +19,9 @@
         let p1= new Point(2,3);
         console.log(p1.hasOwnProperty("x")); //true
         console.log(p1.hasOwnProperty("toString")); //false
+		for(var key in p1){
+			console.log(key); // x y ， 没有toString，es5中如果在原型上重写toString，则变为可遍历
+		}
     </script>
 </body>
 </html>

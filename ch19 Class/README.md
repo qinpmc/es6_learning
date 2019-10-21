@@ -1,7 +1,7 @@
 # Class
 
 ## 类的基本方法
-1. ES6 类的所有方法都定义在类的prototype属性上面
+1. ES6 类的所有方法都定义在类的prototype属性上面,且类的内部所有定义的方法，都是不可枚举的（non-enumerable）
 2. 类的方法之间不需要逗号分隔
 3. 类的内部所有定义的方法，都是 __不可枚举的（non-enumerable）__。
   ES5(MyClass.prototype.toString = function..)定义方法时可枚举的。
@@ -22,7 +22,9 @@ class Point{
 
 let p1= new Point(2,3);
 console.log(p1.hasOwnProperty("x")); //true
-console.log(p1.hasOwnProperty("toString")); //false
+console.log(p1.hasOwnProperty("toString")); //false，在原型上
+
+
 ```
 
 ## class 表达式
