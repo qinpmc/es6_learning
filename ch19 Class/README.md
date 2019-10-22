@@ -2,27 +2,57 @@
 
 ## 类的基本方法
 1. ES6 类的所有方法都定义在类的prototype属性上面,且类的内部所有定义的方法，都是不可枚举的（non-enumerable）
-2. 类的方法之间不需要逗号分隔
-3. 类的内部所有定义的方法，都是 __不可枚举的（non-enumerable）__。
+2. 类的内部所有定义的方法，都是 __不可枚举的（non-enumerable）__。
   ES5(MyClass.prototype.toString = function..)定义方法时可枚举的。
-4. 一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
-5. 类 __必须使用new调用__，否则会报错
-6. __不存在变量提升__.
+3. 一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
+4. 类 __必须使用new调用__，否则会报错
+5. __不存在变量提升__.
+6. 类声明中的代码自动运行在严格模式
+7. 类中的方法使用 new 调用 报错(该方法不含[[constructor]]), 类则必须使用new调用（构造方法中含有[[constructor]]）
+8. 在类中修改类名会报错，但在类声明结束后可以修改
+9. 类的方法之间不需要逗号分隔
 
 ```
-class Point{
-    constructor(x,y){
-        this.x = x;
-        this.y = y;
-    }
-    toString(){
-        console.log(this.x +" : "+this.y);
-    }
-}
+       class Point{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            toString(){
+                console.log(this.x +" : "+this.y);
+            }
+             say(){
+                 console.log("ha");
+                 return{
+                     name:"qq"
+                 }
+             }
+        }
 
-let p1= new Point(2,3);
-console.log(p1.hasOwnProperty("x")); //true
-console.log(p1.hasOwnProperty("toString")); //false，在原型上
+        let p1= new Point(2,3);
+        console.log(p1.hasOwnProperty("x")); //true
+        console.log(p1.hasOwnProperty("toString")); //false
+		for(var key in p1){
+			console.log(key); // x y ， 没有toString，es5中如果在原型上重写toString，则变为可遍历
+		}
+  
+        // 类中的方法使用 new 调用 报错
+        //var oo = new p1.say(); //  Uncaught TypeError: p1.say is not a constructor
+
+        function oldClass(x,y){
+            this.x = x;
+            this.y = y;
+             
+        }
+        oldClass.prototype.say = function(){
+            console.log("ha");
+                 return{
+                     name:"qq"
+                 }
+        }
+
+        var old = new oldClass(2,3);
+        var o2 = new old.say(); // name: "qq"
 
 
 ```
@@ -40,6 +70,17 @@ console.log(p1.hasOwnProperty("toString")); //false，在原型上
     let mc1 = new Myclass();
     console.log(mc1.getClassName()); //Me  
     console.log(Me); // Me is not defined  Me只在 Class 的内部代码可用
+
+
+    class Foo{
+        constructor(){
+            console.log("exected");
+            Foo = "bar" //在类中修改类名会报错， //Uncaught TypeError: Assignment to constant variable.
+        }
+    }
+  
+    //var f = new Foo();
+    Foo = "baz" // 在类声明结束后可以修改
 ```
 
 ##  Class 的取值函数（getter）和存值函数（setter）
@@ -176,11 +217,10 @@ class Point{
   （1.可以不显示的写构造，此时不用调super-----实际默认调用了super
     2.构造函数中返回对象
   ）.
-* 在子类的构造函数中，只有调用super
-之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例
-(ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。
-ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this)
-
+* 在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例    
+(ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。   
+ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this)  
+ 
 * 只可在派生类的构造函数中使用super()，在非派生类（不使用extends声明的类）或函数中使用会抛出错误；
 *  super虽然代表了父类A的构造函数，但是返回的是子类B的实例
 

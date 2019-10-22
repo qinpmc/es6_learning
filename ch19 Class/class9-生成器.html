@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+
+<body>
+    <script>
+            class Myclass{
+                constructor(){
+                    this.items = [];
+                }
+                *createIterator(){
+                    yield 1;
+                    yield 2;
+                    yield 3;
+                }
+                *[Symbol.iterator](){
+                    // yield 1;
+                    // yield 2;
+                    // yield 3;
+
+                    yield *this.items.values();
+
+                    
+                }
+            }
+
+            let ins1 = new Myclass();
+            let iterator1 =ins1.createIterator();
+            console.log(iterator1.next());
+            console.log(iterator1.next());
+            console.log(iterator1.next());
+            console.log(iterator1.next());
+
+            ins1.items.push(99);
+            ins1.items.push(98);
+
+            for(let key of ins1){
+                console.log(key)
+            }
+
+    </script>
+</body>
+
+</html>

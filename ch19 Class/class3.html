@@ -15,7 +15,21 @@
     }
     let mc1 = new Myclass();
     console.log(mc1.getClassName()); //Me  
-	console.log(Me); // Me is not defined  Me只在 Class 的内部代码可用
+
+
+
+	//console.log(Me); // Me is not defined  Me只在 Class 的内部代码可用
+
+
+    class Foo{
+        constructor(){
+            console.log("exected");
+            Foo = "bar" //在类中修改类名会报错， //Uncaught TypeError: Assignment to constant variable.
+        }
+    }
+  
+    //var f = new Foo();
+    Foo = "baz" // 在类声明结束后可以修改
   
 </script>
 </body>

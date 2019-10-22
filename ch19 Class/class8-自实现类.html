@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+
+<body>
+    <script>
+            let Person = (function(){
+                "use strict";
+                const Person = function(name){
+                    if(typeof new.target ==="undefined"){
+                        throw new Error("必须通过new创建");
+                    }
+                    this.name = name;
+                }
+
+                Object.defineProperty(Person.prototype,"say",{
+                    value:function(){
+                        //确保不使用new 创建
+                        if(typeof new.target !=="undefined"){
+                                throw new Error("不可使用new创建")
+                        }
+                        console.log(this.name)
+                    },
+                    enumerable:false, //不可遍历
+                    writable:true, //可修改
+                    configurable:true //可删除
+                })
+            })()
+
+    </script>
+</body>
+
+</html>

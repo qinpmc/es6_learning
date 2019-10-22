@@ -14,6 +14,12 @@
             toString(){
                 console.log(this.x +" : "+this.y);
             }
+             say(){
+                 console.log("ha");
+                 return{
+                     name:"qq"
+                 }
+             }
         }
 
         let p1= new Point(2,3);
@@ -22,6 +28,29 @@
 		for(var key in p1){
 			console.log(key); // x y ， 没有toString，es5中如果在原型上重写toString，则变为可遍历
 		}
+
+
+
+
+
+        // 类中的方法使用 new 调用 报错
+        //var oo = new p1.say(); //  Uncaught TypeError: p1.say is not a constructor
+
+        function oldClass(x,y){
+            this.x = x;
+            this.y = y;
+             
+        }
+        oldClass.prototype.say = function(){
+            console.log("ha");
+                 return{
+                     name:"qq"
+                 }
+        }
+
+        var old = new oldClass(2,3);
+        var o2 = new old.say(); // name: "qq"
+
     </script>
 </body>
 </html>
