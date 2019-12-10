@@ -16,6 +16,7 @@ let fg = fisrtGen();
 console.log(fg.next()); //  { value: 'hello', done: false }
 console.log(fg.next()); // { value: 'world', done: false }
 console.log(fg.next());// { value: 'ending', done: true }
+console.log(fg.next());//{value: undefined, done: true}
 ```
 
 ## yield 特点
@@ -54,8 +55,8 @@ console.log(fg.next());// { value: 'ending', done: true }
 
 /*        //yield表达式如果用在另一个表达式之中，必须放在圆括号里面。
         function* demo() {
-            console.log('Hello' + (yield)); // OK
-            console.log('Hello' + (yield 123)); // OK
+            console.log('Hello' + (yield)); //  
+            console.log('Hello' + (yield 123)); //  
         }
         let res1 = demo();
         console.log(res1.next()); //{value: undefined, done: false}
