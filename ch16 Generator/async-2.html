@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+
+    async function func() {
+      try {
+        const num1 = await 200;
+        console.log(`num1 is ${num1}`);
+        const num2 = await Promise.reject('num2 is wrong!'); //在 num2 处 await 得到了一个状态为 rejected 的Promise对象，该错误会被传递
+        //到 catch 语句中
+        console.log(`num2 is ${num2}`);
+        const num3 = await num2 + 100;
+        console.log(`num3 is ${num3}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    func();
+// num1 is 200
+// num2 is wrong!
+
+
+  </script>
+</body>
+
+</html>
