@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<script>
+ // Promise 的状态一旦改变，就永久保持该状态，不会再变了
+
+ test1();
+
+ function test1() {
+     const promise = new Promise(function(resolve, reject) {
+         resolve('ok');
+         throw new Error('test');  // 此时 Promise 已经 resolved，此句抛出错误无效了
+     });
+     promise
+         .then(function(value) { console.log(value) })
+         .catch(function(error) { console.log(error) });
+// ok
+ }
+
+
+</script>
+</body>
+</html>

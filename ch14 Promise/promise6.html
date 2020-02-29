@@ -6,46 +6,25 @@
 </head>
 <body>
 <script>
-
-    // Promise.all demo Promise.all demo  Promise.all demo
-    // `delay`毫秒后执行resolve
-    function timerPromisefy(delay) {
-        return new Promise(function (resolve) {
-            setTimeout(function () {
-                resolve(delay);
-            }, delay);
-        });
+    // Promise.race demo
+    function timerPromisefy(delay){
+        return new Promise((resolve,reject) =>{
+             setTimeout(() =>resolve(delay),delay);
+        })
     }
-
-    let rejPromise = new Promise(function (resolve,reject) {
-        setTimeout(function () {
-            reject(40);
-        }, 40);
+    let startTime = Date.now();
+    Promise.race([
+        timerPromisefy(24),
+        timerPromisefy(1000),
+        timerPromisefy(2000)]
+    ).then(
+            (value) =>{
+                console.log(Date.now() - startTime + 'ms');
+                console.log(value);
     });
-    var startDate = Date.now();
-    // 所有promise变为resolve后程序退出
-    Promise.all([
-        timerPromisefy(1),
-        timerPromisefy(32),
-        timerPromisefy(64),
-        timerPromisefy(128),
-        //rejPromise
-    ]).then(function (values) {
-        console.log(Date.now() - startDate + 'ms');
-        console.log(values);
-    }).catch(function (e) {
-        console.log(Date.now() - startDate + 'ms');
-        console.log(e);
-    });
-
-    /*   输出结果：
-    129ms
-    [1,32,64,128]*/
-
-
-
-
-
+/*    输出结果：
+    25ms
+      24*/
 
 </script>
 </body>

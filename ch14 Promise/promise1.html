@@ -5,33 +5,39 @@
     <title>Title</title>
 </head>
 <body>
-    <script>
-        function asyncFun(){
-            return new Promise(function(resolve,reject){
-                setTimeout(function(){
-                    resolve("Async Hello");
-                },1200)
-            })
-        }
-        asyncFun()
-         .then(function(value){
-            console.log(value);  //Async Hello
-        }).catch(function (error){
-            console.log(error);
+<script>
+    // promise 实际例子
+    function getURL(URL) {
+        return new Promise(function (resolve, reject) {
+            var req = new XMLHttpRequest();
+            req.open('GET', URL, true);
+            req.onload = function () {
+                if (req.status === 200) {
+                    resolve(req.responseText);
+                } else {
+                    reject(new Error(req.statusText));
+                }
+            };
+            req.onerror = function () {
+                reject(new Error(req.statusText));
+            };
+            req.send();
+        });
+    }
+    // 运行示例
+    var URL = "http://httpbin.org/get";
+    getURL(URL)
+        .then(function onFulfilled(value){
+            console.log(value); //{"args":{},"headers":{"Accept":"*/*","Accept-Encoding".....
+         }).catch(function onRejected(error){
+            console.error(error);
         });
 
-        /*
-        asyncFun().then(function(value){
-            console.log(value); //Async Hello
-            err.call(); //故意制造错误
-        },function(err){
-            console.log(err); //该句未执行
-        }).then(function(value){
-            console.log(value+" success end") ;//
-        },function(e){
-            console.log("出错了！");//出错了！
-            console.log(e); //ReferenceError: err is not defined
-        });*/
-    </script>
+    //resolve(value) 在response的内容中加入了参数。
+    //resolve方法的参数并没有特别的规则，基本上把要传给回调函数参数放进去就可以了,then 方法可以接收到这个参数值
+
+    //传给reject 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。
+    //这个参数的值可以被 then 方法的第二个参数或者 catch 方法中使用
+</script>
 </body>
 </html>

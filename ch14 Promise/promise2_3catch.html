@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // catch 示例
+        function asyncFun(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("Async Hello");
+                },1200)
+            })
+        }
+
+        asyncFun().then(function(value){
+            console.log(value); //Async Hello
+            err.call(); //故意制造错误
+        },function(err){
+            console.log(err); //注意：该句未执行，不会捕获到错误，它只能捕获 asyncFun执行的错误
+        }).then(function(value){
+            console.log(value+" success end") ;//
+        },function(e){
+            console.log("出错了！");//出错了！
+            console.log(e); //ReferenceError: err is not defined
+        });
+
+    </script>
+</body>
+</html>

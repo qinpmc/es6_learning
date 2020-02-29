@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Promise 新建后就会立即执行
+    let promise = new Promise(function(resolve, reject) {
+        console.log('Promise');  // 第1个输出，Promise 新建后就会 **立即执行**
+        resolve();
+    });
+
+    promise.then(function() {
+        console.log('resolved.'); //第3个输出
+    });
+
+    console.log('Hi!');  // 第2个输出，同步代码
+
+    // Promise
+    // Hi!
+    // resolved
+</script>
+</body>
+</html>

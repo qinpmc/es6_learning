@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    setTimeout(function () {
+        console.log("timeout");
+    },0)
+    let promises = [];
+    let promise1 = new Promise(function (resolve, reject) {
+        console.log('promise1.');
+        resolve();
+    });
+    promises.push(promise1);
+
+
+    let promise2 = new Promise(function (resolve, reject) {
+        console.log('promise2.');
+        resolve();
+    });
+
+    promises.push(promise2);
+
+    Promise.all(promises).then(function () {
+        console.log("all done");
+
+    });
+
+    promise1.then(function () {
+        console.log('resolved11111.');
+        new Promise(function (resolve, reject) {
+            console.log('promise11.');
+            resolve();
+        }).then(function () {
+            console.log('promise1 ----son son.');
+        }).then(function () {
+            console.log('promise1 ----son go on.');
+        });
+
+    }).then(function () {
+        console.log('resolved111222.');
+    }).then(function () {
+        console.log('resolved111222 go on.');
+    });
+
+
+    promise2.then(function (resolve, reject) {
+        console.log('resolved22222.');
+
+    });
+
+/*
+    promise1.
+    promise2.
+    resolved11111.
+    promise11.
+    resolved22222.
+    all done
+    promise1----son son.
+    resolved111222.
+    promise1 ----son go on.
+    resolved111222 go on.
+    timeout
+   */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<script>
+ // promise finally
+
+/*
+ // finally 原理
+ Promise.prototype.finally = function (callback) {
+     let P = this.constructor;
+     return this.then(
+         value  => P.resolve(callback()).then(() => value),
+         reason => P.resolve(callback()).then(() => { throw reason })
+     );
+ };*/
+
+
+ new Promise((resolve,reject) =>{
+     resolve("finally test");
+ }).finally2(() => console.log("finally2"));
+
+</script>
+</body>
+</html>

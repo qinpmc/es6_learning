@@ -6,18 +6,47 @@
 </head>
 <body>
 <script>
-    //finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
 
-    Promise.prototype.finally2 = function (callback) {
-        let P = this.constructor;
-        return this.then(
-               value  => P.resolve(callback()).then(() => value),
-               reason => P.resolve(callback()).then(() => { throw reason })
-        );
-    };
-    new Promise((resolve,reject) =>{
-        resolve("finally test");
-    }).finally2(() => console.log("finally2"));
+    // Promise.all demo Promise.all demo  Promise.all demo
+    // `delay`毫秒后执行resolve
+    function timerPromisefy(delay) {
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(delay);
+            }, delay);
+        });
+    }
+
+    let rejPromise = new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            reject(40);
+        }, 40);
+    });
+    var startDate = Date.now();
+    // 所有promise变为resolve后程序退出
+    Promise.all([
+        timerPromisefy(1),
+        timerPromisefy(32),
+        timerPromisefy(64),
+        timerPromisefy(128),
+        //rejPromise
+    ]).then(function (values) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(values);
+    }).catch(function (e) {
+        console.log(Date.now() - startDate + 'ms');
+        console.log(e);
+    });
+
+    /*   输出结果：
+    129ms
+    [1,32,64,128]*/
+
+
+
+
+
+
 </script>
 </body>
 </html>

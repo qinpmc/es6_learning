@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Promise.race demo + Promise.resolve
+
+    let p2 = new Promise(function (resolve, reject) {
+        resolve(43);
+    }) ;
+
+    let p1 = Promise.resolve(42);
+    let p11 = Promise.resolve(421);
+
+    let p3 = new Promise(function (resolve, reject) {
+        resolve(44);
+    });
+
+
+    function test1() {
+        // race 中p11 在 p1 之前，返回p11 的值
+        let p4 = Promise.race([p11,p1, p2, p3]);
+        p4.then(function (value) {
+            console.log(value);					//	421
+        });
+    }
+    test1();
+
+    test2();
+    function test2() {
+        // race 中p1 在 p11 之前，返回p1 的值
+        let p4 = Promise.race([p1,p11,p2, p3]);
+        p4.then(function (value) {
+            console.log(value);					//	42
+        });
+    }
+
+</script>
+</body>
+</html>

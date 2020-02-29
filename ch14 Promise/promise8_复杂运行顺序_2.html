@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // test2_1();
+
+    // test2_2();
+
+    function test2_1() {
+        new Promise(function(resolve, reject) {
+
+            setTimeout(() => resolve(1), 1000);
+
+        }).then(function(result) {
+
+            alert(result); // 1
+
+            return  result*2;
+
+        }).then(function(result) { // (**)
+            alert(result); // 2
+        })
+    }
+
+    function test2_2() {
+        new Promise(function(resolve, reject) {
+
+            setTimeout(() => resolve(1), 1000);
+
+        }).then(function(result) {
+
+            alert(result); // 1
+
+            return new Promise((resolve, reject) => { // (*)
+                setTimeout(() => resolve(result * 2), 1000);
+            });
+
+        }).then(function(result) { // (**)
+            alert(result); // 2 ----间隔 1秒后
+        })
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // badExample();
+
+    function badExample() {
+        function badAsyncCall() {
+            var promise = Promise.resolve();
+            promise.then(function() {
+                // 任意处理
+
+                return 99;
+            });
+            return promise; // 注意此 返回的promise 为Promise.resolve()，返回的值为undefined
+        }
+
+        badAsyncCall()
+            .then(function(result){
+                console.log(result); //undefined
+            })
+    }
+
+
+    // badExample2();
+
+    function badExample2() {
+        function badAsyncCall2() {
+            var promise = Promise.resolve();
+            promise.then(function () {
+                throw new Error("new error");
+            });
+            return promise;
+        }
+        badAsyncCall2().then(function (result) {
+            console.log(result); //undefined
+        }).catch(function (err) {
+            console.log(err); // 错误并未被捕获
+        })
+
+    }
+
+
+    test();
+
+    function test() {
+        function anAsyncCall() {
+            var promise = Promise.resolve();
+            return promise.then(function() {
+                // 任意处理
+                throw new Error("new error");
+                return "aa"; // 改代码不执行
+            });
+        }
+        anAsyncCall().then(function(result){
+            console.log(result); // 不执行
+        }).catch(function(err){
+            console.log(err); // Error: new error
+        })
+    }
+
+
+
+</script>
+</body>
+</html>

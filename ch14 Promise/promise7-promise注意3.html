@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// Promise状态传递,promise 中返回promise，
+
+    // test1();
+
+    function test1() {
+        let p1 = new Promise(function(resolve,reject){
+            resolve(42);
+        })
+        let p2 = new Promise(function(resolve,reject){
+            reject(43);
+        })
+        p1.then(function(value){
+            console.log(value); // 42
+            return p2; // 该promise的状态由p2决定了--应用catch处理
+        }).then(function(value){
+            console.log("这里执行吗？");
+            console.log(value);
+
+        })
+        /*    42
+            Uncaught (in promise) 43, 程序中断
+
+    */
+
+    }
+
+    test2();
+    function test2() {
+        let p1 = new Promise(function(resolve,reject){
+            resolve(42);
+        })
+        let p2 = new Promise(function(resolve,reject){
+            reject(43);
+        })
+
+
+        p1.then(function(value){
+            console.log(value); //
+            return p2;  // 该promise的状态由p2决定了--应用catch处理
+        }).catch(function(value){
+            console.log("这里执行吗？");
+            console.log(value);
+        })
+
+/*        42
+        这里执行吗？
+        43*/
+
+    }
+
+</script>
+</body>
+</html>

@@ -6,31 +6,33 @@
 </head>
 <body>
 <script>
-    function getURL(URL) {
-        return new Promise(function (resolve, reject) {
-            var req = new XMLHttpRequest();
-            req.open('GET', URL, true);
-            req.onload = function () {
-                if (req.status === 200) {
-                    resolve(req.responseText);
-                } else {
-                    reject(new Error(req.statusText));
-                }
-            };
-            req.onerror = function () {
-                reject(new Error(req.statusText));
-            };
-            req.send();
-        });
-    }
-    // 运行示例
-    var URL = "http://httpbin.org/get";
-    getURL(URL)
-        .then(function onFulfilled(value){
-            console.log(value); //{"args":{},"headers":{"Accept":"*/*","Accept-Encoding".....
-         }).catch(function onRejected(error){
-            console.error(error);
-        });
+    // promise 链式调用
+    new Promise(function(resolve, reject) {
+
+        setTimeout(() => resolve(1), 1000); // (*)
+
+    }).then(function(result) { // (**)
+
+        alert(result); // 1
+        return result * 2;
+
+    }).then(function(result) { // (***)
+
+        alert(result); // 2
+        return result * 2;
+
+    }).then(function(result) {
+
+        alert(result); // 4
+        return result * 2;
+
+    });
+
+    // 分别弹出 1 2 4
+
+
+
+
 </script>
 </body>
 </html>

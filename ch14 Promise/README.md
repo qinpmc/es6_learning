@@ -3,53 +3,57 @@
 ## Promise基本概念
 所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。
 从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
-1. Promise对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。
+1. Promise对象的**状态不受外界影响**。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。
 只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+
 2. Promise一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。
 只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。
 如果改变已经发生了，你再对Promise对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
+
 3. 有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
 
-4. Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
-其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
-第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+4. Promise也有一些缺点。
+- 首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。   
+- 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。   
+- 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。  
 
-```
-        function asyncFun(){
-            return new Promise(function(resolve,reject){
-                setTimeout(function(){
-                    resolve("Async Hello");
-                },1200)
-            })
-        }
-        asyncFun().then(function(value){
-            console.log(value);  //Async Hello
-        }).catch(function (error){
-            console.log(error); //该句未执行
+``` 
+    // promise 实际例子
+    function getURL(URL) {
+        return new Promise(function (resolve, reject) {
+            var req = new XMLHttpRequest();
+            req.open('GET', URL, true);
+            req.onload = function () {
+                if (req.status === 200) {
+                    resolve(req.responseText);
+                } else {
+                    reject(new Error(req.statusText));
+                }
+            };
+            req.onerror = function () {
+                reject(new Error(req.statusText));
+            };
+            req.send();
+        });
+    }
+    // 运行示例
+    var URL = "http://httpbin.org/get";
+    getURL(URL)
+        .then(function onFulfilled(value){
+            console.log(value); //{"args":{},"headers":{"Accept":"*/*","Accept-Encoding".....
+         }).catch(function onRejected(error){
+            console.error(error);
         });
 
-        asyncFun().then(function(value){
-            console.log(value); //Async Hello
-            err.call(); //故意制造错误
-        },function(err){
-            console.log(err);// 注意：此句也不执行
-        }).then(function(value){
-            console.log(value+" success end") ;//此句不执行
-        },function(e){
-            console.log("出错了！");//出错了！
-            console.log(e); //ReferenceError: err is not defined
-        });
-        
-        /*
-        Async Hello
-        Async Hello
-        出错了！
-        ReferenceError: err is not defined
-            at promise1.html:24
-        */
+    //resolve(value) 在response的内容中加入了参数。
+    //resolve方法的参数并没有特别的规则，基本上把要传给回调函数参数放进去就可以了,then 方法可以接收到这个参数值
+
+    //传给reject 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。
+    //这个参数的值可以被 then 方法的第二个参数或者 catch 方法中使用
+
 ```
 
-### 1 Constructor
+## Constructor
 new Promise构造器之后，会返回一个promise对象
 
 ```
@@ -59,68 +63,70 @@ var promise = new Promise(function(resolve, reject) {
 });
 ```
 
-### 2 then
+## then
 1. then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为resolved时调用，
 第二个回调函数是Promise对象的状态变为rejected时调用。
 其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
 2. then方法返回的是一个 __新的Promise实例（注意，不是原来那个Promise实例）__ 。
-因此可以采用链式写法，即then方法后面再调用另一个then方法。
+因此可以采用**链式**写法，即then方法后面再调用另一个then方法。
 
-3.Promise 新建后就会立即执行
-
-```
-let promise = new Promise(function(resolve, reject) {
-  console.log('Promise');  // 第1个输出，Promise 新建后就会立即执行
-  resolve();
-});
-
-promise.then(function() {
-  console.log('resolved.'); //第3个输出
-});
-
-console.log('Hi!');  // 第2个输出，同步代码
-
-// Promise
-// Hi!
-// resolved
 
 ```
+    // promise 链式调用
+    new Promise(function(resolve, reject) {
 
-### 3 catch
+        setTimeout(() => resolve(1), 1000); // (*)
+
+    }).then(function(result) { // (**)
+
+        alert(result); // 1
+        return result * 2;
+
+    }).then(function(result) { // (***)
+
+        alert(result); // 2
+        return result * 2;
+
+    }).then(function(result) {
+
+        alert(result); // 4
+        return result * 2;
+
+    });
+
+    // 分别弹出 1 2 4
+
+```
+
+
+
+
+## catch
 1. .catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
 
 ```
-function getURL(URL) {
-    return new Promise(function (resolve, reject) {
-        var req = new XMLHttpRequest();
-        req.open('GET', URL, true);
-        req.onload = function () {
-            if (req.status === 200) {
-                resolve(req.responseText);
-            } else {
-                reject(new Error(req.statusText));
-            }
-        };
-        req.onerror = function () {
-            reject(new Error(req.statusText));
-        };
-        req.send();
-    });
-}
-// 运行示例
-var URL = "http://httpbin.org/get";
-getURL(URL).then(function onFulfilled(value){
-    console.log(value);
-}).catch(function onRejected(error){
-    console.error(error);
-});
+        // catch 示例
+        function asyncFun(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    resolve("Async Hello");
+                },1200)
+            })
+        }
 
-//resolve(value) 在response的内容中加入了参数。
-//resolve方法的参数并没有特别的规则，基本上把要传给回调函数参数放进去就可以了,then 方法可以接收到这个参数值
-
-//传给reject 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。
-//这个参数的值可以被 then 方法的第二个参数或者 catch 方法中使用
+        asyncFun().then(function(value){
+            console.log(value); //Async Hello
+            err.call(); //故意制造错误
+        },function(err){
+            console.log(err); //注意：该句未执行，不会捕获到错误，它只能捕获 asyncFun执行的错误
+        }).then(function(value){
+            console.log(value+" success end") ;//
+        },function(e){
+            console.log("出错了！");//出错了！
+            console.log(e); //ReferenceError: err is not defined
+        });
 ```
+
 2. Promise 在resolve语句后面，再抛出错误，不会被捕获，等于没有抛出。
 因为 Promise 的状态一旦改变，就永久保持该状态，不会再变了
 
@@ -135,7 +141,7 @@ promise
 // ok
 ```
 
-3. Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。
+3. Promise 对象的错误具有**冒泡**性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个catch语句捕获。
 4. 建议总是使用catch方法，而**不使用then方法的第二个参数**。
 5. catch方法之中，还能再抛出错误。
 
@@ -164,6 +170,36 @@ ok
  123
  */
 ```
+
+``` 
+ // Promise 会吃掉错误
+ function test3() {
+     //  浏览器运行到 resolve(x + 2);，会打印出错误提示ReferenceError: x is not defined，但是不会退出进程、终止脚本执行
+//  2 秒之后还是会输出123。这就是说，Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法就是“Promise 会吃掉错误”。
+     /* const someAsyncThing = function() {
+       return new Promise(function(resolve, reject) {
+        // 下面一行会报错，因为x没有声明
+        resolve(x + 2);
+       });
+      };
+     
+      someAsyncThing().then(function() {
+       console.log('everything is great');
+      });
+     
+      setTimeout(() => { console.log(123) }, 2000);*/
+
+     /*
+     上面代码输出结果：
+     Uncaught (in promise) ReferenceError: x is not defined
+      123
+      */
+ }
+
+```
+ 
+##  Promise.prototype.finally()
+finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
 
 
 ##  Promise.resolve
@@ -260,9 +296,6 @@ Promise.reject(thenable)
 });
 ```
 
-## Promise.prototype.finally()
-finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作
-
 
 
 
@@ -319,7 +352,11 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
         })
     }
     let startTime = Date.now();
-    Promise.race([timerPromisefy(24),timerPromisefy(1000),timerPromisefy(2000)]).then(
+    Promise.race([
+         timerPromisefy(24),
+         timerPromisefy(1000),
+         timerPromisefy(2000)
+    ]).then(
             (value) =>{
                 console.log(Date.now() - startTime + 'ms');
                 console.log(value);
@@ -329,10 +366,66 @@ Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 
       24*/
 ```
 
+```
+    // Promise.race demo + Promise.resolve
+
+    let p2 = new Promise(function (resolve, reject) {
+        resolve(43);
+    }) ;
+
+    let p1 = Promise.resolve(42);
+    let p11 = Promise.resolve(421);
+
+    let p3 = new Promise(function (resolve, reject) {
+        resolve(44);
+    });
+
+
+    function test1() {
+        // race 中p11 在 p1 之前，返回p11 的值
+        let p4 = Promise.race([p11,p1, p2, p3]);
+        p4.then(function (value) {
+            console.log(value);					//	421
+        });
+    }
+    test1();
+
+    test2();
+    function test2() {
+        // race 中p1 在 p11 之前，返回p1 的值
+        let p4 = Promise.race([p1,p11,p2, p3]);
+        p4.then(function (value) {
+            console.log(value);					//	42
+        });
+    }
+```
+
+ 
 
 ##  Promise注意点
-1.  __Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时__
 
+3.Promise 新建后就会立即执行
+
+```
+let promise = new Promise(function(resolve, reject) {
+  console.log('Promise');  // 第1个输出，Promise 新建后就会 **立即执行**
+  resolve();
+});
+
+promise.then(function() {
+  console.log('resolved.'); //第3个输出
+});
+
+console.log('Hi!');  // 第2个输出，同步代码
+
+// Promise
+// Hi!
+// resolved
+
+```
+
+1.  __Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时__    
+   .then/catch 的处理器总是异步的
 ```
     //立即resolve的 Promise 对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
     setTimeout(function () {

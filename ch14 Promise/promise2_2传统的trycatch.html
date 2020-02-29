@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function test1() {
+        console.log("begin...");
+        throw new Error("错了！！"); //
+        setTimeout(() => {
+            console.log("timeout")
+        }, 16); //该句不执行了。。。
+    }
+
+    function test2() {
+        console.log("begin...");
+        try {
+            throw new Error("错了！！")
+        } catch (e) {
+            console.log(e)
+        }
+        setTimeout(() => {
+            console.log("timeout")  // 该句会执行 。。。
+        }, 16);
+    }
+
+    // test1();
+    test2();
+
+</script>
+</body>
+</html>
