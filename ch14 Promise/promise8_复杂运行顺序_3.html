@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // test1(); // 4 3 2 1
+
+    function test1() {
+        new Promise(resolve => {
+            resolve(1);
+            Promise.resolve().then(() => console.log(2)) ;
+            console.log(4)
+        }).then(t => console.log(t));
+        console.log(3);
+    }
+
+    test2(); // 4 3 2 1  2--go on     t--go on
+    function test2() {
+        new Promise(resolve => {
+            resolve(1);
+            Promise.resolve().then(() => console.log(2)).then(() => console.log("2--go on"));
+            console.log(4)
+        }).then(t => console.log(t)).then(() => console.log("t--go on"));
+        console.log(3);
+    }
+
+</script>
+</body>
+</html>
