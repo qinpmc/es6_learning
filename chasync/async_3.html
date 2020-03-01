@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // async 实例 2
+
+        function test1() {
+            function loadJson(url) {
+                return fetch(url)
+                    .then(response => response.json());
+            }
+
+            function loadGithubUser(name) {
+                return fetch(`https://api.github.com/users/${name}`)
+                    .then(response => response.json());
+            }
+
+            function showAvatar(githubUser) {
+                return new Promise(function(resolve, reject) {
+                    let img = document.createElement('img');
+                    // github返回的头像地址需修改；
+                    let newImgSrc = githubUser.avatar_url.replace("3","0");
+                    img.src = newImgSrc;
+                    document.body.append(img);
+
+                    setTimeout(() => {
+                        img.remove();
+                        resolve(githubUser);
+                    }, 3000);
+                });
+            }
+
+// 使用它们
+            loadJson('./user.json')
+                .then(user => loadGithubUser(user.name))
+                .then(showAvatar)
+                .then(githubUser => alert(`Finished showing ${githubUser.login}`));
+            // ..
+        }
+
+        test1();
+        
+        
+        
+        function test2() {
+            // 读取用户 json
+
+            async function showAvatar() {
+                let userResult = await fetch("./user.json");
+                let userObj = await userResult.json();
+
+                // 读取github 用户信息
+                let githubResponse = await fetch(`https://api.github.com/users/${userObj.name}`);
+                let githubUser = await githubResponse.json();
+
+                //显示头像
+                let img = document.createElement('img');
+                // github返回的头像地址需修改；
+                let newImgSrc = githubUser.avatar_url.replace("3","0");
+                img.src = newImgSrc;
+                document.body.append(img);
+
+                await new Promise((resolve, reject) => setTimeout(resolve, 3000))
+
+                img.remove();
+
+
+            }
+
+
+            
+        }
+
+
+
+
+    </script>
+</body>
+</html>

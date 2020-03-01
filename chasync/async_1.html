@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 「async/await」是一种以更舒适的方式使用 promises 的特殊语法
+
+    function test1() {
+        async function f() {
+            return Promise.resolve(1);
+        }
+
+        f().then(alert); // 1
+    }
+
+    // test1();
+
+    function test2() {
+        async function f() {
+            return 1; // 包装在一个已决议（resolved）的 promise 内
+        }
+
+        f().then(alert); // 1
+    }
+
+    test2();
+
+</script>
+</body>
+</html>

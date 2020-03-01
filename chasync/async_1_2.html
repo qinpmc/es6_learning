@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // await 函数在执行的时候，「暂停」在了 (*) await那一行，并且当 promise 完成后，拿到 result 作为结果继续往下执行。
+
+    async function f() {
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("done!"), 1000)
+        });
+
+        let result = await promise; // 等待直到 promise 决议 (*)
+
+        alert(result); // "done!"
+    }
+
+    f();
+
+    //
+
+</script>
+</body>
+</html>
