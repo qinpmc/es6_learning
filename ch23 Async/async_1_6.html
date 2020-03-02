@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //  async 微任务
+    async function f() {
+        alert("内部");
+        return 1;
+    }
+
+    (async () => {
+        setTimeout(() => alert('timeout'), 0);
+
+        await f();
+
+        alert('await');
+    })();
+/*
+    内部
+    await
+    timeout
+    */
+
+</script>
+</body>
+</html>

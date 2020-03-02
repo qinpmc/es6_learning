@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //  async 错误处理
+
+    async function f1() {
+        await Promise.reject(new Error("Whoops!"));
+    }
+
+    f1().catch(alert);
+
+//    f1().catch(function (e) {
+//        alert(e)
+//    });
+
+    // 等价 f1
+    async function f2() {
+        throw new Error("Whoops2!");
+    }
+
+    f2().catch(alert);
+
+
+</script>
+</body>
+</html>

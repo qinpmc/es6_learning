@@ -12,7 +12,7 @@
     async function f() {
 
         let promise = new Promise((resolve, reject) => {
-            setTimeout(() => resolve("done!"), 1000)
+            setTimeout(() => resolve("done!"), 3000);
         });
 
         let result = await promise; // 等待直到 promise 决议 (*)

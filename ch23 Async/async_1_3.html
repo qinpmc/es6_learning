@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //  await 可以接收 thenables
+
+    class Thenable {
+        constructor(num){
+            this.num = num;
+        }
+        then(resolve,reject){
+            console.log(resolve);
+            setTimeout(() =>{
+                  resolve(this.num*2)
+            },1000)
+        }
+    }
+
+    async function f() {
+        let result = await new Thenable(1);
+        console.log(result);
+    }
+    f();
+    //
+
+</script>
+</body>
+</html>

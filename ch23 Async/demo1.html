@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        function test1() {
+            function loadJson(url) {
+                return fetch(url)
+                    .then(response => {
+                        if (response.status == 200) {
+                            return response.json();
+                        } else {
+                            throw new Error(response.status);
+                        }
+                    })
+            }
+
+            loadJson('no-such-user.json') // (3)
+                .catch(alert); // Error: 404
+        }
+
+       // test1();
+
+        async function test2(url) {
+            let res = await fetch(url);
+
+            if(res.status == 200){
+                let resJson = await res.json();
+                return resJson;
+            }else{
+                 throw new Error(res.status);
+            }
+
+        }
+        test2('no-such-user.json').catch(alert);
+
+    </script>
+</body>
+</html>

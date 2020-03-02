@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //  async 的类方法，在方法前面添加 async
+    class Waiter {
+        async wait() {
+            return await Promise.resolve(1);
+        }
+    }
+
+    new Waiter()
+        .wait()
+        .then(alert); // 1
+
+</script>
+</body>
+</html>

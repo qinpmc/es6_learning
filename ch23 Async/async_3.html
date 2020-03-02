@@ -8,6 +8,7 @@
     <script>
         // async 实例 2
 
+        // promise 方案
         function test1() {
             function loadJson(url) {
                 return fetch(url)
@@ -24,6 +25,7 @@
                     let img = document.createElement('img');
                     // github返回的头像地址需修改；
                     let newImgSrc = githubUser.avatar_url.replace("3","0");
+                    newImgSrc = "https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png";
                     img.src = newImgSrc;
                     document.body.append(img);
 
@@ -42,10 +44,10 @@
             // ..
         }
 
-        test1();
-        
-        
-        
+        // test1();
+
+
+        // async 方案
         function test2() {
             // 读取用户 json
 
@@ -61,21 +63,24 @@
                 let img = document.createElement('img');
                 // github返回的头像地址需修改；
                 let newImgSrc = githubUser.avatar_url.replace("3","0");
+                newImgSrc = "https://github.githubassets.com/images/icons/emoji/unicode/1f3e0.png";
                 img.src = newImgSrc;
                 document.body.append(img);
 
-                await new Promise((resolve, reject) => setTimeout(resolve, 3000))
+                await new Promise((resolve, reject) => setTimeout(function () {
 
+                    alert(`Finished showing ${githubUser.login}`);
+                    resolve();
+                }, 3000))
                 img.remove();
 
 
             }
 
-
-            
+            showAvatar();
         }
 
-
+        test2();
 
 
     </script>
