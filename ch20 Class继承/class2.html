@@ -6,9 +6,11 @@
 </head>
 <body>
     <script>
+        // super作为函数调用时，代表父类的构造函数  
+        // super内部的this指的是子类的实例：super虽然代表了父类A的构造函数，但是返回的是子类B的实例 
         class A{
             constructor(){
-                console.log(new.target.name);
+                console.log(new.target.name); // new.target指向当前正在执行的函数。
             }
         }
         class B extends A{
@@ -17,8 +19,9 @@
                  
             }
         }
-        let a = new A(); //A
-        let b = new B(); ///B super指向的是子类 的构造函数
+        let a = new A(); // A
+        let b = new B(); //  B
+        //  new.target指向当前正在执行的函数。可以看到，在super()执行时，它指向的是子类B的构造函数，而不是父类A的构造函数。也就是说，super()内部的this指向的是B。
 
 
     </script>
