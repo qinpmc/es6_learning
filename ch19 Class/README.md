@@ -3,7 +3,7 @@
 ## 类的基本方法
 1. ES6 类的所有方法都定义在类的prototype属性上面,且类的内部所有定义的方法，都是不可枚举的（non-enumerable）
 2. 类的内部所有定义的方法，都是 __不可枚举的（non-enumerable）__。
-  ES5(MyClass.prototype.toString = function..)定义方法时可枚举的。
+  ES5(MyClass.prototype.toString = function..)定义方法是可枚举的。
 3. 一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
 4. 类 __必须使用new调用__，否则会报错
 5. __不存在变量提升__.
@@ -120,7 +120,7 @@ let des = Object.getOwnPropertyDescriptor(Myclass.prototype,"html");
 "get" in des; //true
 ```
 
-## 静态方式
+## 静态方法
 1. 类的方法前，加上static关键字，表示该方法不会被实例继承，而是直接通过类来调用(通过实例调用会报错)
 2.  **静态方法中的this指的是类**，而不是实例。
 3. 父类的静态方法，可以被子类继承（子类也通过类名调用）。
@@ -222,7 +222,7 @@ class Point{
 ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this)  
  
 * 只可在派生类的构造函数中使用super()，在非派生类（不使用extends声明的类）或函数中使用会抛出错误；
-*  super虽然代表了父类A的构造函数，但是返回的是子类B的实例
+*  super虽然代表了父类A的构造函数，但是返回的是子类B的实例（this指向子类实例）
 
 ```
     class MyClass{

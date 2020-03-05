@@ -23,7 +23,10 @@
         }
         let b = new B();
 
-
+        // 普通方法中：指向父类的原型对象（super作为对象时，在普通方法中，指向**父类的原型对象**；在静态方法中，指向**父类**。）
+        // 赋值： super.x赋值为3，这时等同于对this.x赋值为3。
+        // 读取：而当读取super.x的时候，读的是A.prototype.x，所以返回undefined。
+        // 赋值和读取时 super 指向分别为this 和 父类原型对象
     </script>
 </body>
 </html>

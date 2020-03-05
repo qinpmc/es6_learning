@@ -57,6 +57,11 @@ let sym = Symbol('My symbol');
 
 String(sym) // 'Symbol(My symbol)'
 sym.toString() // 'Symbol(My symbol)'
+
+if(sym){
+  console.log(true);// true
+}
+
 ```
 
 
@@ -85,7 +90,7 @@ a[mySymbol] // "Hello!"
 ```
 
 **注意，Symbol 值作为对象属性名时，不能用点运算符**。
-点运算符后面总是字符串，所以不会读取mySymbol作为标识名所指代的那个值，
+**点运算符后面总是字符串**，所以不会读取mySymbol作为标识名所指代的那个值，
 
 ```
 //注意，Symbol 值作为对象属性名时，不能用点运算符。
