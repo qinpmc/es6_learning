@@ -41,7 +41,7 @@
         d.b = b;
         d.b();  //{a: ƒ, prop: "a"}  --- 这里也是c
     }
-    c.a(); // {a: ƒ, prop: "a"}---c
+    c.a(); // {a: ƒ, prop: "a"}"是a的this"      {prop: "a", a: ƒ}
 
 
 
@@ -54,12 +54,15 @@
             })()
         }
     };
-    obj3.test(); // obj3
+    obj3.test(); // obj3 , obj3.test 中的箭头函数的this绑定到 test函数上，obj3.test()调用时test的this为 obj3，所以箭头函数this 为obj3
 
     var obj4 = {
         id: 444,
     };
-    obj3.test.apply(obj4); // obj4
+
+    obj3.test.apply(obj4); // obj4，
+    // obj3.test 中的箭头函数的this绑定到 test函数上，
+    // obj3.test.apply(obj4)调用时，test的this改为了 obj4，所以箭头函数this 为obj4
 
 </script>
 </body>

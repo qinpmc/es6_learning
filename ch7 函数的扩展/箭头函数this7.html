@@ -24,6 +24,9 @@
     }
     obj1.fn();
 
+///////////////////////////////////////////////////////////
+    // 使用new 调用函数，箭头函数this会指向 new创建的实例
+
     var a=11;
     function test1(){
         this.a=22;
@@ -37,7 +40,7 @@
     var a2=22;
     function test22(){
         this.a2=222;
-        let b=()=>{console.log(this.a2)}
+        let b=()=>{console.log(this.a2)}; //使用new 调用函数，箭头函数this会指向 new创建的实例
         b();
     }
     var x2=new test22();//输出222

@@ -6,6 +6,7 @@
 </head>
 <body>
 <script type="text/javascript">
+    // 箭头函数错误使用场景
 
     // 错误的用法
     var button = document.getElementById('press');
@@ -22,12 +23,13 @@
     }
     cat.jumps();//this指向全局对象
 
+    // 错误的用法
     var handler = {
         id: '123456',
 
         init: function() {
             document.addEventListener('click',
-                    event => this.doSomething(event.type), false); //this，总是指向handler对象
+                    event => this.doSomething(event.type), false); //this，总是指向handler对象，并非document
         },
 
         doSomething: function(type) {
