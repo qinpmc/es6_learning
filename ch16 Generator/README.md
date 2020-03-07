@@ -60,8 +60,8 @@ console.log(fg.next());//{value: undefined, done: true}
         }
         let res1 = demo();
         console.log(res1.next()); //{value: undefined, done: false}
-        console.log(res1.next()); //{value: 123, done: false}
-        console.log(res1.next()); //{value: undefined, done: true}*/
+        console.log(res1.next()); // Helloundefined   {value: 123, done: false}
+        console.log(res1.next()); // Helloundefined    {value: undefined, done: true}*/
 ```
 ## next 方法的参数
 1. next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值
@@ -91,8 +91,8 @@ function* foo(x) {
 }
 var b = foo(5);
 console.log(b.next(100)); // { value:6, done:false },此处传参100 被忽略
-console.log(b.next(12)); // { value:8, done:false }
-console.log(b.next(13)); // { value:42, done:true }
+console.log(b.next(12)); // { value:8, done:false }  var y = 2*12,  yield (y / 3)--- yield (2*12/ 3)
+console.log(b.next(13)); // { value:42, done:true }  x--5  y--24  z--13 
 
 ```
 ## Generator.prototype.throw
