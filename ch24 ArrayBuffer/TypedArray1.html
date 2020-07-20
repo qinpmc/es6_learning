@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const buffer = new ArrayBuffer(12);
+
+      const x1 = new Int32Array(buffer);
+      x1[0] = 1;
+      const x2 = new Uint8Array(buffer);
+      x2[0] = 2; // 两个视图对应的是同一段内存，一个视图修改底层内存，会影响到另一个视图
+
+      console.log(x1[0]); // 2
+    </script>
+  </body>
+</html>
