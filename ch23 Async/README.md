@@ -1,7 +1,7 @@
 # Async 
 
 ## async函数
-async函数返回一个 Promise 对象：
+async函数返回一个 **Promise 对象**：
 即使这个函数实际上会返回一个非 promise 的值，函数定义前加上了 async 关键字会指示 JavaScript 引擎自动将返回值包装在一个已决议（resolved）的 promise 内。
 
 ``` 
@@ -30,6 +30,19 @@ async函数返回一个 Promise 对象：
 
 ```
 ## await 
+ 
+正常情况下，await命令后面是一个 Promise 对象，返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。
+
+```
+async function f() {
+  // 等同于
+  // return 123;
+  return await 123;
+}
+
+f().then(v => console.log(v))
+// 123
+```
 
 - 1、await  只在 async 函数中有效,不能在普通函数中使用 await
 - 2、函数在执行的时候，「暂停」在了await那一行
