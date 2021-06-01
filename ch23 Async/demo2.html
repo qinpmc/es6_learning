@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+        // https://zhuanlan.zhihu.com/p/52000508
+      function test1() {
+        async function async1() {
+          console.log("async1 start");
+          var res = await async2();
+          console.log("async1 end");
+          console.log(res);
+        }
+        async function async2() {
+          console.log("async2");
+          return new Promise(function (resolve, reject) {
+            resolve(1111);
+          });
+        }
+        async1();
+        console.log("script start");
+
+        /* 
+            async1 start
+            async2
+            script start
+            async1 end
+            1111
+            undefined
+        */
+      }
+
+      //test1();
+
+      console.log("*************************");
+
+      function test2() {
+        async function async2() {
+          console.log("async2 start2");
+          await async22();
+          console.log("async2 end2");
+        }
+        async function async22() {
+          console.log("async22");
+        }
+        async2();
+        console.log("script start2");
+      }
+      test2();
+    </script>
+  </body>
+</html>
