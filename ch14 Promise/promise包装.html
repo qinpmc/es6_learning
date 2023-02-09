@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="loadData()">加载</button>
+      <button onclick="testQuery()">测试获取结果</button>
+    </div>
+    <script>
+      const defer = (function () {
+        const obj = {};
+        obj.promise = new Promise((resolve, reject) => {
+          obj.resolve = resolve;
+          obj.reject = reject;
+        });
+        return obj;
+      })();
+
+      console.log(defer);
+
+      let flag = false;
+
+      window.loadData = async function () {
+        const res = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const response = {
+              name: "qq1",
+              age: 21,
+            };
+            resolve(response);
+            defer.resolve(response);
+          }, 1000);
+        });
+
+        flag = true;
+
+        console.log(res, "加载完成");
+      };
+
+      window.testQuery = function () {
+        defer.promise.then((res) => {
+          console.log(res, "test-----------------------");
+        });
+      };
+
+      //
+    </script>
+  </body>
+</html>
